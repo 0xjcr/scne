@@ -18,10 +18,14 @@ router.get('/community',userController.getAllProfiles);
 // business routes
 router.post('/connect', businessController.createBusiness);
 router.put('/editinfo/:id', businessController.updateBusiness);
+//?? another put route to handle upvotes on the top page??
 router.delete('/editinfo/:id', businessController.deleteBusiness);
 router.get('/top', businessController.getAllBusinesses);
 router.get('/business/:id', businessController.getBusiness);
 
+// review routes
+router.post('/business/:id/review', reviewsController.createReview);
+router.get('/business/:id/review', reviewsController.getAllReviews)
 
 
 module.exports = router;

@@ -15,11 +15,11 @@ exports.createBusiness = async (req, res) => {
 // modify a business profile
 exports.updateBusiness = async (req, res) => {
     const { id } = req.params;
-    const { name, city, postcode, address, phone, scene_id, ig, email, password } = req.body;
+    const { name, city, postcode, address, phone, scene_id, ig, email, password, upvotes, reviewCount } = req.body;
   
     try {
       const business = await Businesses.findByPk(id);
-      await business.update({ name, city, postcode, address, phone, scene_id, ig, email, password });
+      await business.update({ name, city, postcode, address, phone, scene_id, ig, email, password, upvotes, reviewCount }); 
       res.status(200).json(business);
     } catch (err) {
       res.status(400).json({ message: err.message });
