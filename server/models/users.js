@@ -37,6 +37,9 @@ const Users = sequelize.define('Users', {
     password: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    bio: {
+        type: DataTypes.STRING,
     }
 
 });
