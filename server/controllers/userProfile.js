@@ -14,6 +14,7 @@ exports.createProfile = async (req,res) => {
 
 // edit a user profile
 exports.updateProfile = async (req, res) => {
+    const { id } = req.params;
     const { firstName, lastName, city, ig, email, password, bio } = req.body;
   
     try {
