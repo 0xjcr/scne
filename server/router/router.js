@@ -27,5 +27,13 @@ router.get('/business/:id', businessController.getBusiness);
 router.post('/business/:id/review', reviewsController.createReview);
 router.get('/business/:id/review', reviewsController.getAllReviews)
 
+// scene routes
+// or scenes to be created by admin
+
+// session routes
+router.post('/login', authMiddleware, userController.login);
+router.get('/me', authMiddleware, userController.profile);
+router.get('/logout', authMiddleware, userController.logout);
+
 
 module.exports = router;
