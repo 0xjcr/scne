@@ -1,14 +1,24 @@
 import { Link } from "react-router-dom"
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import PeopleIcon from '@mui/icons-material/People';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ExploreIcon from '@mui/icons-material/Explore';
 
 const Navbar = () => {
   return (
     <>
-    <div>
-        <div>
-            <Link to="/list">List</Link>
-            <Link to="/community">Community</Link>
-            <Link to="/Profile">Profile</Link>
-            <Link to="/Find">Find</Link>
+    <div className="navbarContainer">
+        <div className="navbar">
+            <div>
+            <Link to="/list"><FormatListNumberedIcon/></Link>
+            </div>
+            <div>
+            <Link to="/community"><PeopleIcon/></Link>
+            </div>
+            <Link to="/find"><ExploreIcon/></Link>
+            <div>
+            <Link to="/profile"><AccountCircleIcon/></Link>
+            </div>
             {/* <Link to="/Media">Media</Link> */}
             {/* <Link to="/Map">Map</Link> */}
         </div>

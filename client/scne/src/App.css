@@ -1,0 +1,20 @@
+.navbarContainer {
+    position: fixed;
+    bottom: 3vh;
+    left: 0;
+    right: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  
+  
+  
+
+.editProfilePage {
+    margin: 0; height: 100%; overflow: hidden
+}

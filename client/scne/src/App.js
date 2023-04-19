@@ -1,7 +1,9 @@
 import './App.css';
-import Navbar from './components/Navbar';
+
 import { BrowserRouter as Router, Routes, Route}
 from 'react-router-dom';
+import {Cloudinary} from "@cloudinary/url-gen";
+
 
 
 // Pages
@@ -12,11 +14,23 @@ import List from './pages/List';
 import Profile from './pages/Profile';
 import SignUp from './pages/SignUp';
 import SignUpBusiness from './pages/SignUpBusiness';
+import EditUserProfile from './pages/EditUserProfile';
+
 
 
 
 
 function App() {
+
+  // const cld = new Cloudinary({
+  //   cloud: {
+  //     cloudName: 'dqfsyl5rv'
+  //   }
+  // });
+
+
+
+
   return (
     <>
     
@@ -29,8 +43,9 @@ function App() {
      <Route path='/profile' element={<Profile />}/>
      <Route path='/find' element={<Find />}/>
      <Route path='/community' element={<Community />}/>
+     <Route path='/editprofile' element={<EditUserProfile />}/>
     </Routes>
-    <Navbar/>
+    
     </Router>
     
     </>
