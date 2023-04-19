@@ -3,11 +3,18 @@ const sequelize = require('./models/index');
 const cors = require("cors");
 const app = express();
 const router = require('./router/router');
+const session = require('express-session');
+
 
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
+app.use(session({
+  secret: '123',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } 
+}));
 app.use('/', router);
-
 // Sync models with database and connect to server
 (async () => {
     try {
