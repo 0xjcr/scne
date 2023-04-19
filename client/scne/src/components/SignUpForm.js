@@ -6,6 +6,8 @@ import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import { createProfile } from '../api-service';
+import { useNavigate } from 'react-router-dom';
+import { FormControl } from '@mui/material';
 
 const SignUpForm = ({ setUserState }) => {
   const [inputs, setInputs] = useState({ firstName: '', lastName: '', email: '', password: '', city: '' });
@@ -22,6 +24,14 @@ const SignUpForm = ({ setUserState }) => {
 
     setInputs({ firstName: '', lastName: '', email: '', password: '', city: '' });
   };
+
+  const navigate = useNavigate();
+  const handleBusinessClick = () => {
+    navigate('/joinbus');
+  };
+  
+  
+  
 
   return (
     <>
@@ -68,6 +78,7 @@ const SignUpForm = ({ setUserState }) => {
             value={inputs.password}
             onChange={handleChange}
           />
+          <FormControl fullWidth>
           <InputLabel id="simple-select-label">CITY</InputLabel>
           <Select
             labelId="city-id"
@@ -79,14 +90,17 @@ const SignUpForm = ({ setUserState }) => {
           >
             <MenuItem value={'Barcelona'}>Barcelona</MenuItem>
           </Select>
+          </FormControl>
+            
           <Button type="submit" variant="outlined">
             CREATE
           </Button>
         </Box>
-        <Button variant="text">FOR BUSINESS</Button>
+        <Button onClick={handleBusinessClick} variant="text">FOR BUSINESS</Button>
       </div>
     </>
   );
 };
+
 
 export default SignUpForm;

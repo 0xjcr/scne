@@ -5,7 +5,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 import { createBusiness } from '../api-service';
+
 
 const SignUpBiz = ({setBusinessState}) => {
     const [inputs, setInputs] = useState({ name: '', city: '', address: '', phone:'', email: '', password: '' });
@@ -43,6 +45,7 @@ const SignUpBiz = ({setBusinessState}) => {
             value={inputs.name}
             onChange={handleChange}
           />
+          <FormControl fullWidth>
           <InputLabel id="simple-select-label">CITY</InputLabel>
           <Select
             labelId="city-id"
@@ -54,6 +57,7 @@ const SignUpBiz = ({setBusinessState}) => {
           >
             <MenuItem value={'Barcelona'}>Barcelona</MenuItem>
           </Select>
+          </FormControl>
 
           <TextField
             id="outlined-basic-address"
