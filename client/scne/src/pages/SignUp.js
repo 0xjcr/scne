@@ -1,8 +1,15 @@
+import SignUpForm from "../components/SignUpForm"
 
 
 const SignUp = () => {
   return (
-    <div>SignUp</div>
+    <>
+    <h1>SCNE</h1>
+    <h2>CREATE A PROFILE</h2>
+    <div>
+    <SignUpForm></SignUpForm>
+    </div>
+    </>
   )
 }
 

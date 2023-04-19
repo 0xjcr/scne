@@ -1,19 +1,18 @@
-import { Nav, NavLink, NavMenu } 
-    from "./NavbarElements";
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
     <>
-    <Nav>
-        <NavMenu>
-            <NavLink to="/List">List</NavLink>
-            <NavLink to="/Community">Community</NavLink>
-            <NavLink to="/Map">Map</NavLink>
-            <NavLink to="/Profile">Profile</NavLink>
-            <NavLink to="/Media">Media</NavLink>
-            <NavLink to="/Find">Find</NavLink>
-        </NavMenu>
-    </Nav>
+    <div>
+        <div>
+            <Link to="/list">List</Link>
+            <Link to="/community">Community</Link>
+            <Link to="/Profile">Profile</Link>
+            <Link to="/Find">Find</Link>
+            {/* <Link to="/Media">Media</Link> */}
+            {/* <Link to="/Map">Map</Link> */}
+        </div>
+    </div>
     </>
   );
 };
