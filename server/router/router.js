@@ -2,10 +2,9 @@ const router = require('express').Router();
 
 const userController = require('../controllers/userProfile');
 const businessController = require('../controllers/businessProfile');
-// const communityController = require('../controllers/community');
-// const listController = require('../controllers/list');
+const scenesController = require('../controllers/scene');
 const reviewsController = require('../controllers/reviews');
-const sessionsController = require('../controllers/sessions');
+
 
 
 // user routes
@@ -27,15 +26,12 @@ router.get('/business/:id', businessController.getBusiness);
 
 // review routes
 router.post('/business/:id/review', reviewsController.createReview);
-router.get('/business/:id/review', reviewsController.getAllReviews)
+router.get('/business/:id/review', reviewsController.getAllReviews);
 
 // scene routes
-// or scenes to be created by admin
+router.post('/adminScene', scenesController.createScene); 
+// missing get
 
-// session routes
-// router.post('/login', authMiddleware, userController.login);
-// router.get('/me', authMiddleware, userController.profile);
-// router.get('/logout', authMiddleware, userController.logout);
 
 
 module.exports = router;
