@@ -1,11 +1,18 @@
 const sequelize = require('../models/businesses');
 const Businesses = sequelize.models.Businesses;
+const bcrypt = require('bcrypt');
+const session = require('express-session');
 
 // create a business profile
 exports.createBusiness = async (req, res) => {
     const { name, city, postcode, address, phone, scene_id, ig, email, password } = req.body;
+    
+    // Hash the password
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+    
     try {
-        const business = await Businesses.create({ name, city, postcode, address, phone, scene_id, ig, email, password });
+        const business = await Businesses.create({ name, city, postcode, address, phone, scene_id, ig, email, password: hashedPassword });
         res.status(201).json(business);
     } catch (err) {
         res.status(400).json({message: err.message});

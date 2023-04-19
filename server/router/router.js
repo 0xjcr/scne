@@ -17,7 +17,7 @@ router.get('/user/:id', userController.getProfile);
 router.get('/community',userController.getAllProfiles);
 
 // business routes
-router.post('/connect', businessController.createBusiness);
+router.post('/joinbus', businessController.createBusiness);
 router.put('/editinfo/:id', businessController.updateBusiness);
 //?? another put route to handle upvotes on the top page??
 router.delete('/editinfo/:id', businessController.deleteBusiness);

@@ -77,7 +77,7 @@ const SignUpForm = ({ setUserState }) => {
             name="city"
             onChange={handleChange}
           >
-            <MenuItem value={'barcelona'}>Barcelona</MenuItem>
+            <MenuItem value={'Barcelona'}>Barcelona</MenuItem>
           </Select>
           <Button type="submit" variant="outlined">
             CREATE
