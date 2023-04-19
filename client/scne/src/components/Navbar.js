@@ -8,6 +8,7 @@ const Navbar = () => {
   return (
     <>
     <div className="navbarContainer">
+        <div className="navbarShell">
         <div className="navbar">
             <div>
             <Link to="/list"><FormatListNumberedIcon/></Link>
@@ -21,6 +22,7 @@ const Navbar = () => {
             </div>
             {/* <Link to="/Media">Media</Link> */}
             {/* <Link to="/Map">Map</Link> */}
+            </div>
         </div>
     </div>
     </>

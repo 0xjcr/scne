@@ -1,39 +1,45 @@
 import Navbar from "../components/Navbar";
 import { useNavigate } from 'react-router-dom';
 import TileBusiness from '../components/TileBusiness';
+import { useState, useEffect } from 'react';
+import { getAllBusinesses } from "../api-service";
 
-const List = ({businesses}) => {
+const List = ({biz}) => {
   const navigate = useNavigate();
 
-  const handleBusinessClick = (businessId) => {
-    navigate(`/business/${businessId}`);
+  const [bizState, setBizState] = useState([]);
+
+  useEffect(() => {
+    getAllBusinesses().then(res => setBizState(res))
+  }, [])
+
+  const handleBusinessClick = (bizId) => {
+    navigate(`/business/${bizId}`);
   };
 
-  const handleUpvote = (businessId) => {
+  const handleUpvote = (bizId) => {
     
   };
 
-  // Sort businesses by upvotes in descending order
-  const sortedBusinesses = [...businesses].sort((a, b) => b.upvotes - a.upvotes);
+  // Sort businesses by upvotes 
+  const sortedBiz = [...bizState].sort((a, b) => b.upvotes - a.upvotes);
 
   return (
     <div>
-      {sortedBusinesses.map((business) => (
-        <div key={business.id} onClick={() => handleBusinessClick(business.id)}>
+      {sortedBiz.map((biz, index) => (
+        <div key={biz.id} onClick={() => handleBusinessClick(biz.id)}>
           <TileBusiness
-            id={business.id}
-            name={business.name}
-            upvotes={business.upvotes}
+            id={biz.id}
+            name={biz.name}
+            upvotes={biz.upvotes}
             handleUpvote={handleUpvote}
+            ranking={index + 1} // Add the ranking prop here
           />
-            <Navbar></Navbar>
+          <Navbar></Navbar>
         </div>
-      
       ))}
     </div>
   );
 };
 
-
-
-export default List
+export default List;

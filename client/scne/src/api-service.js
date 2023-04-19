@@ -55,7 +55,7 @@ exports.updateProfile = async (id, body) => {
 // create business profile
 exports.createBusiness = async (body) => {
     
-    const response = await fetch('http://localhost:3333/joinbus', {
+    const response = await fetch('http://localhost:3333/joinbiz', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -65,7 +65,15 @@ exports.createBusiness = async (body) => {
     });
     return await response.json();
     
-    
-    
-    
 }    
+
+// get all businesses
+exports.getAllBusinesses = async () => {
+    const response = await fetch('http://localhost:3333/list', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return await response.json();
+  };

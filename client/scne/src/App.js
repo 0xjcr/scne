@@ -38,7 +38,7 @@ function App() {
     <Routes>
      
      <Route path='/join' element={<SignUp />}/>
-     <Route path='/joinbus' element={<SignUpBusiness />}/>
+     <Route path='/joinbiz' element={<SignUpBusiness />}/>
      <Route path='/list' element={<List />}/>
      <Route path='/profile' element={<Profile />}/>
      <Route path='/find' element={<Find />}/>

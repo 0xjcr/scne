@@ -21,7 +21,7 @@ router.post('/joinbiz', businessController.createBusiness);
 router.put('/editinfo/:id', businessController.updateBusiness);
 //?? another put route to handle upvotes on the top page??
 router.delete('/editinfo/:id', businessController.deleteBusiness);
-router.get('/top', businessController.getAllBusinesses);
+router.get('/list', businessController.getAllBusinesses);
 router.get('/biz/:id', businessController.getBusiness);
 
 // review routes
