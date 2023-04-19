@@ -30,8 +30,8 @@ router.get('/business/:id/review', reviewsController.getAllReviews);
 
 // scene routes
 router.post('/adminScene', scenesController.createScene); 
-// missing get
-
+router.get('/', scenesController.getAllScenes);
+router.delete('/adminScene/:id', scenesController.deleteScene);
 
 
 module.exports = router;
