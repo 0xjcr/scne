@@ -27,7 +27,7 @@ exports.createScene = async (req, res) => {
   };
 
 
-// get all reviews
+// get all scenes
 exports.getAllScenes = async (req, res) => {
     try {
       const scenes = await Scenes.findAll();
