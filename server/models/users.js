@@ -40,8 +40,12 @@ const Users = sequelize.define('Users', {
     },
     bio: {
         type: DataTypes.STRING,
-    }
-
+    },
+    photo: {
+        type: DataTypes.STRING,
+    },
+    
+       
 });
 
 module.exports = sequelize.models.Users;

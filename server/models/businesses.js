@@ -38,6 +38,12 @@ const Businesses = sequelize.define('Businesses', {
     },
     scene_id: {
         type: DataTypes.STRING,
+    },
+    bio: {
+        type: DataTypes.STRING,
+    },
+    photo: {
+        type: DataTypes.STRING,
     }
 
 });
