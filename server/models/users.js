@@ -44,7 +44,6 @@ const Users = sequelize.define('Users', {
     photo: {
         type: DataTypes.STRING,
     },
-    
        
 });
 

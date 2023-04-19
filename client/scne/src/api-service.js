@@ -12,6 +12,20 @@ exports.createProfile =  async (body) => {
     return await response.json();
 }
 
+// Get a single user profile by ID
+exports.getProfile = async (id) => {
+    const response = await fetch(`http://localhost:3333/user/${id}`);
+    return await response.json();
+  };
+  
+  // Get all user profiles
+  exports.getAllProfiles = async () => {
+    const response = await fetch(`http://localhost:3333/community`);
+    return await response.json();
+  };
+
+
+
 // edit a user profile
 exports.updateProfile = async (id, body) => {
     const response = await fetch(`http://localhost:3333/profile/${id}`, {
