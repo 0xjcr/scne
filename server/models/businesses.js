@@ -1,7 +1,7 @@
 const {DataTypes } = require('sequelize');
 const sequelize = require('./index');
 
-const Businesses = sequelize.define('Businesses', {
+const Biz = sequelize.define('Biz', {
     
     name: {
         type: DataTypes.STRING,
@@ -48,5 +48,5 @@ const Businesses = sequelize.define('Businesses', {
 
 });
 
-module.exports = sequelize.models.Businesses;
+module.exports = sequelize.models.Biz;
 module.exports = sequelize;
