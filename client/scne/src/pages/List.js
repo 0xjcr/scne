@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import { useNavigate } from 'react-router-dom';
 import TileBusiness from '../components/TileBusiness';
+import Topbar from "../components/Topbar";
 import { useState, useEffect } from 'react';
 import { getAllBusinesses } from "../api-service";
 
@@ -26,6 +27,8 @@ const List = ({biz}) => {
 
   return (
     <div>
+      <Topbar></Topbar>
+      <div className="list">
       {sortedBiz.map((biz, index) => (
         <div key={biz.id} onClick={() => handleBusinessClick(biz.id)}>
           <TileBusiness
@@ -35,9 +38,11 @@ const List = ({biz}) => {
             handleUpvote={handleUpvote}
             ranking={index + 1} // Add the ranking prop here
           />
-          <Navbar></Navbar>
+          
         </div>
       ))}
+      </div>
+      <Navbar></Navbar>
     </div>
   );
 };

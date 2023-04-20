@@ -1,5 +1,7 @@
 import IconButton from '@mui/material/Button';
 import StraightIcon from '@mui/icons-material/Straight';
+
+
 const TileBusiness = ({id, name, upvotes, handleUpvote, ranking }) => {
   return (
     <div>

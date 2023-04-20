@@ -1,12 +1,38 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
+import Topbar from "../components/Topbar";
+import CircleUser from "../components/CircleUser";
+import { useState, useEffect } from 'react';
+import { getAllProfiles } from "../api-service";
 
 const Community = () => {
+  const [userProfiles, setUserProfiles] = useState([]);
+
+  useEffect(() => {
+    getAllProfiles().then((profiles) => setUserProfiles(profiles));
+  }, []);
+
+  // Sort user profiles by reviewCount
+  const sortedProfiles = [...userProfiles].sort(
+    (a, b) => b.reviewCount - a.reviewCount
+  );
+
   return (
     <>
-    <div>Community</div>
-    <Navbar></Navbar>
+      <Topbar></Topbar>
+      <div className="community">
+        {sortedProfiles.map((user) => (
+          <CircleUser
+            key={user.id}
+            id={user.id}
+            name={user.firstName}
+            reviewCount={user.reviewCount}
+            photo={user.photo}
+          />
+        ))}
+      </div>
+      <Navbar></Navbar>
     </>
-  )
-}
+  );
+};
 
-export default Community
+export default Community;

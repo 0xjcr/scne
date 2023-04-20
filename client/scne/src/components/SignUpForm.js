@@ -27,7 +27,7 @@ const SignUpForm = ({ setUserState }) => {
 
   const navigate = useNavigate();
   const handleBusinessClick = () => {
-    navigate('/joinbus');
+    navigate('/joinbiz');
   };
   
   

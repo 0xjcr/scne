@@ -11,14 +11,14 @@ const Navbar = () => {
         <div className="navbarShell">
         <div className="navbar">
             <div>
-            <Link to="/list"><FormatListNumberedIcon/></Link>
+            <Link to="/list"><FormatListNumberedIcon className="navicons"/></Link>
             </div>
             <div>
-            <Link to="/community"><PeopleIcon/></Link>
+            <Link to="/community"><PeopleIcon className="navicons"/></Link>
             </div>
-            <Link to="/find"><ExploreIcon/></Link>
+            <Link to="/find"><ExploreIcon className="navicons"/></Link>
             <div>
-            <Link to="/profile"><AccountCircleIcon/></Link>
+            <Link to="/profile"><AccountCircleIcon className="navicons"/></Link>
             </div>
             {/* <Link to="/Media">Media</Link> */}
             {/* <Link to="/Map">Map</Link> */}
