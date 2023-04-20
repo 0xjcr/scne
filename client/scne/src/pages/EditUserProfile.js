@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import EditUser from '../components/EditUser';
 const EditUserProfile = () => { 
     
-  return (
-    <div> 
-    <EditUser></EditUser>
-</div>
-    
-  );
-};
+    return (
+        <>
+        <EditUser></EditUser>
+    <Navbar/>
+        
+        </>
+      )
+    }
 
 
 export default EditUserProfile;

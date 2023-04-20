@@ -23,6 +23,7 @@ body {
     padding-top: 5%;
     padding-bottom: 5%;
     height: 5vh;
+    z-index: 1000;
   }
   
   .navbar {
@@ -61,7 +62,14 @@ body {
   }
   
 .editProfilePage {
-    margin: 0; height: 100%; overflow: hidden
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50px; 
+    overflow: auto; 
+    padding-bottom: 20px;
+    z-index: -10;
 }
 
 .tile {

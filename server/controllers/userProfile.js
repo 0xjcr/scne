@@ -66,11 +66,11 @@ exports.logout = (req, res) => {
 // edit a user profile
 exports.updateProfile = async (req, res) => {
     const { id } = req.params;
-    const { firstName, lastName, city, ig, email, password, bio } = req.body;
+    const { photo, bio, ig } = req.body;
   
     try {
       const profile = await Users.findByPk(id);
-      await profile.update({ firstName, lastName, city, ig, email, password, bio });
+      await profile.update({ photo, bio, ig });
       res.status(200).json(profile);
     } catch (err) {
       res.status(400).json({ message: err.message });

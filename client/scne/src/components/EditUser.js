@@ -1,48 +1,36 @@
-import UploadWidget from '../components/UploadWidget';
-import Navbar from '../components/Navbar';
 import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Select from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
-import { updateProfile } from '../api-service';
-import { useNavigate } from 'react-router-dom';
-import { FormControl } from '@mui/material';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
+import { updateProfile } from '../api-service';
+import UploadWidget from '../components/UploadWidget';
 
-const EditUser = ({ setUserState }) => { 
-    const [inputs, setInputs] = useState({ bio: '', photo: '' });
+const EditUser = () => {
+  const [inputs, setInputs] = useState({ bio: '', photo: '', ig:'' });
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-    const handleChange = (event) => {
-      setInputs({ ...inputs, [event.target.name]: event.target.value });
-    };
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      updateProfile(inputs).then((newUser) => {
-        setUserState((existingUsers) => [...existingUsers, newUser]);
-      });
-  
-      setInputs({ bio: '', photo: ''});
-    };
-  
-    // const navigate = useNavigate();
-    // const handleBusinessClick = () => {
-    //   navigate('/joinbus');
-    // };
+  const handleChange = (event) => {
+    setInputs({ ...inputs, [event.target.name]: event.target.value });
+  };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateProfile(id, inputs).then((newUser) => {
+      navigate(`/user/${id}`); // Navigate to the updated user profile
+    });
 
-
-
+    setInputs({ bio: '', photo: '', ig:'' });
+  };
 
   return (
     <div className="editProfilePage">
-    <h1>EDIT PROFILE</h1>
-    <div>
-    <Box
+      <h1>EDIT PROFILE</h1>
+      <div>
+        <Box
           component="form"
           sx={{
             '& > :not(style)': { m: 2, width: '25ch' },
@@ -50,37 +38,43 @@ const EditUser = ({ setUserState }) => {
           noValidate
           autoComplete="off"
           onSubmit={handleSubmit}
-        >
-<UploadWidget></UploadWidget>
-<TextField
-          id="outlined-multiline-static"
-          label="EDIT BIO"
-          name="bio"
-          value={inputs.bio} 
-          multiline
-          rows={4}
-          onChange={handleChange}
-        />
-        <h2>SCENES NEAR YOU</h2>
-        <Fab variant="extended">COFFEE
-        <AddIcon sx={{ mr: 1 }} />
-      </Fab>
-      <Fab variant="extended">WELLNESS
-        <AddIcon sx={{ mr: 1 }} />
-      </Fab>
-      <Fab variant="extended">MIXOLOGY
-        <AddIcon sx={{ mr: 1 }} />
-      </Fab>
-      <Button variant="outlined">CONNECT TO YOUR TEAM</Button>
+        ><Button type="submit" variant="contained">DONE</Button>
+          <UploadWidget></UploadWidget>
+          <TextField
+            id="outlined-multiline-static"
+            label="EDIT BIO"
+            name="bio"
+            value={inputs.bio}
+            multiline
+            rows={4}
+            onChange={handleChange}
+          />
+          <TextField id="outlined-basic" label="instagram" 
+          name="ig"
+          variant="outlined"
+          value={inputs.ig}
+          onChange={handleChange} />
+          <Button variant="outlined">CONNECT TO YOUR TEAM</Button>
+          <h2>SCENES NEAR YOU</h2>
+          <Fab variant="extended">COFFEE
+            <AddIcon sx={{ mr: 1 }} />
+          </Fab>
+          <Fab variant="extended">WELLNESS
+            <AddIcon sx={{ mr: 1 }} />
+          </Fab>
+          <Fab variant="extended">MIXOLOGY
+            <AddIcon sx={{ mr: 1 }} />
+          </Fab>
+          
+          
         </Box>
+      </div>
+      <div>
+        
+      </div>
+      
     </div>
-    <div>
-<Navbar/>
-</div>
-</div>
-    
   );
 };
-
 
 export default EditUser;

@@ -44,6 +44,7 @@ function App() {
      <Route path='/find' element={<Find />}/>
      <Route path='/community' element={<Community />}/>
      <Route path='/editprofile' element={<EditUserProfile />}/>
+     <Route path="/profile/:id" element={<EditUserProfile />} />
     </Routes>
     
     </Router>
