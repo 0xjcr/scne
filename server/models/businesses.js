@@ -36,7 +36,7 @@ const Biz = sequelize.define('Biz', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    scene_id: {
+    scene: {
         type: DataTypes.STRING,
     },
     bio: {

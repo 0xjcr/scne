@@ -46,12 +46,6 @@ exports.updateProfile = async (id, body) => {
 
 
 
-
-
-
-
-
-
 // create business profile
 exports.createBusiness = async (body) => {
     
@@ -66,6 +60,37 @@ exports.createBusiness = async (body) => {
     return await response.json();
     
 }    
+
+// modift business profile
+
+exports.updateBusiness = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:3333/editinfo/${id}`, {
+        method: "PUT",
+      });
+      const data = await response.json();
+      return data;
+      
+    } catch (error) {
+      console.error('error', error);
+    }
+  };
+
+  exports.updateUpvote = async (id, upvotes) => {
+    try {
+      const response = await fetch(`http://localhost:3333/list/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ upvotes }),
+      });
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("error", error);
+    }
+  };
 
 // get all businesses
 exports.getAllBusinesses = async () => {

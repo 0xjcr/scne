@@ -9,12 +9,22 @@ import { updateProfile } from '../api-service';
 import UploadWidget from '../components/UploadWidget';
 
 const EditUser = () => {
-  const [inputs, setInputs] = useState({ bio: '', photo: '', ig:'' });
+  const [inputs, setInputs] = useState({ bio: '', photo: '', ig: '', member: '', scene0: '', scene1: '', scene2: '' });
   const { id } = useParams();
   const navigate = useNavigate();
 
   const handleChange = (event) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
+  };
+
+  const handleButtonClick = (sceneValue) => {
+    for (let i = 0; i < 3; i++) {
+      const sceneKey = `scene${i}`;
+      if (!inputs[sceneKey]) {
+        setInputs({ ...inputs, [sceneKey]: sceneValue });
+        break;
+      }
+    }
   };
 
   const filterEmptyFields = (data) => {
@@ -33,10 +43,10 @@ const EditUser = () => {
     const filteredInputs = filterEmptyFields(inputs);
 
     updateProfile(id, filteredInputs).then((newUser) => {
-    navigate(`/profile`); // Navigate to the updated user profile
+      navigate(`/profile`); // Navigate to the updated user profile
     });
 
-    setInputs({ bio: '', photo: '', ig:'' });
+    setInputs({ bio: '', photo: '', ig: '', member: '', scene0: '', scene1: '', scene2: '' });
   };
 
   return (
@@ -51,7 +61,8 @@ const EditUser = () => {
           noValidate
           autoComplete="off"
           onSubmit={handleSubmit}
-        ><Button type="submit" variant="contained">DONE</Button>
+        >
+          <Button type="submit" variant="contained">DONE</Button>
           <UploadWidget></UploadWidget>
           <TextField
             id="outlined-multiline-static"
@@ -62,32 +73,38 @@ const EditUser = () => {
             rows={4}
             onChange={handleChange}
           />
-          <TextField id="outlined-basic" label="instagram" 
+          <TextField id="outlined-basic" label="INSTAGRAM" 
           name="ig"
           variant="outlined"
           value={inputs.ig}
           onChange={handleChange} />
-          <Button variant="outlined">CONNECT TO YOUR TEAM</Button>
+
+          <TextField id="outlined-basic" label="JOIN YOUR TEAM" 
+          name="member"
+          variant="outlined"
+          value={inputs.member}
+          onChange={handleChange} />
+
           <h4>SCENES NEAR YOU</h4>
-          <Fab variant="extended">COFFEE
+          <Fab variant="extended" onClick={() => handleButtonClick('coffee')}>
+            COFFEE
             <AddIcon sx={{ mr: 1 }} />
           </Fab>
-          <Fab variant="extended">WELLNESS
+          <Fab variant="extended" onClick={() => handleButtonClick('wellness')}>
+            WELLNESS
             <AddIcon sx={{ mr: 1 }} />
           </Fab>
-          <Fab variant="extended">MIXOLOGY
+          <Fab variant="extended" onClick={() => handleButtonClick('mixology')}>
+            MIXOLOGY
             <AddIcon sx={{ mr: 1 }} />
           </Fab>
-          
-          
         </Box>
       </div>
-      <div>
-        
-      </div>
-      
     </div>
   );
 };
+
+
+
 
 export default EditUser;

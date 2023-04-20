@@ -16,7 +16,7 @@ const Users = sequelize.define('Users', {
         allowNull: false,
     },
     member: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
     },
     endorsed: {
         type: DataTypes.INTEGER,
@@ -42,6 +42,15 @@ const Users = sequelize.define('Users', {
         type: DataTypes.STRING,
     },
     photo: {
+        type: DataTypes.STRING,
+    },
+    scene0: {
+        type: DataTypes.STRING,
+    },
+    scene1: {
+        type: DataTypes.STRING,
+    },
+    scene2: {
         type: DataTypes.STRING,
     },
        

@@ -33,6 +33,19 @@ exports.updateBusiness = async (req, res) => {
     }
   };
 
+  // modify upvotes
+  exports.updateUpvote = async (req, res) => {
+    const { id } = req.params;
+    const { upvotes } = req.body;
+  
+    try {
+      const business = await Biz.findByPk(id);
+      await business.update({ upvotes });
+      res.status(200).json(business);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  };
 // get all businesses
 exports.getAllBusinesses = async (req, res) => {
     try {

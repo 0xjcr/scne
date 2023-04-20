@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 
 // Setup database connection first
 // Initialize Sequelize with connection details
-const sequelize = new Sequelize("scneTest3", "jordan", "", {
+const sequelize = new Sequelize("scneTest4", "jordan", "", {
     host: "localhost",
     dialect: "postgres",
     port: 5433,
