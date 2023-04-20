@@ -77,3 +77,9 @@ exports.getAllBusinesses = async () => {
     });
     return await response.json();
   };
+
+  // get a business by id
+  exports.getBusiness = async (id) => {
+    const response = await fetch(`http://localhost:3333/biz/${id}`);
+    return await response.json();
+  };

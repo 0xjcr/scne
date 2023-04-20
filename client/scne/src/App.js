@@ -16,6 +16,7 @@ import SignUp from './pages/SignUp';
 import SignUpBusiness from './pages/SignUpBusiness';
 import EditUserProfile from './pages/EditUserProfile';
 import YourProfile from './pages/YourProfile';
+import ProfileBusiness from './pages/ProfileBusiness';
 
 
 
@@ -46,6 +47,7 @@ function App() {
      <Route path='/editprofile' element={<EditUserProfile />}/>
      <Route path="/profile/" element={<YourProfile />} />
      <Route path="/profile/:id" element={<Profile />} />
+     <Route path="/biz/:id" element={<ProfileBusiness />} />
     </Routes>
     
     </Router>
