@@ -11,7 +11,7 @@ const reviewsController = require('../controllers/reviews');
 router.post('/join', userController.createProfile);
 router.post('/welcome', userController.login);
 router.post('/logout', userController.logout);
-router.put('/profile/:id', userController.updateProfile);
+router.put('/editprofile/:id', userController.updateProfile);
 router.delete('/editprofile/:id', userController.deleteProfile);
 router.get('/profile/:id', userController.getProfile);
 router.get('/community',userController.getAllProfiles);

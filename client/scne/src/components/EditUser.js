@@ -41,7 +41,7 @@ const EditUser = () => {
 
   return (
     <div className="editProfilePage">
-      <h1>EDIT PROFILE</h1>
+      <h2>EDIT PROFILE</h2>
       <div>
         <Box
           component="form"
@@ -68,7 +68,7 @@ const EditUser = () => {
           value={inputs.ig}
           onChange={handleChange} />
           <Button variant="outlined">CONNECT TO YOUR TEAM</Button>
-          <h2>SCENES NEAR YOU</h2>
+          <h4>SCENES NEAR YOU</h4>
           <Fab variant="extended">COFFEE
             <AddIcon sx={{ mr: 1 }} />
           </Fab>

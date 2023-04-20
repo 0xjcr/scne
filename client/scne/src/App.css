@@ -3,7 +3,7 @@
 
 body {
     background-color: lightslategray;
-    background-image: url('../public/backgroundimage1.png')
+    
     
 } 
 
@@ -52,11 +52,17 @@ body {
     padding-top: 5%;
     padding-bottom: 5%;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    
+    
+
   }
 
   .topbarCity {
+    display: flex;
     margin-top: 0px;
-    margin-left: 5%;
+    margin-left: 10%;
     font-size: 3rem;
 
   }
@@ -117,6 +123,8 @@ padding: 2%;
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
+    z-index: 100;
+    font-size: 8px;
 
 }
 
@@ -152,5 +160,22 @@ padding: 2%;
   }
 
   .businessProfileContent {
+    margin: 5%;
+  }
+
+  .userProfileContainer {
+    margin-top: 20%;
+    margin-left: 10%;
+    height: 75vh;
+    width: 80%;
+    background: rgba( 5, 0, 142, 0.2 );
+    box-shadow: 0px 8px 8px  rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 15.5px );
+    -webkit-backdrop-filter: blur( 15.5px );
+    border-radius: 20px 20px 20px 20px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+
+  .userProfileContent {
     margin: 5%;
   }

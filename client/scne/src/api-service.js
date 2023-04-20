@@ -28,7 +28,7 @@ exports.getProfile = async (id) => {
 
 // edit a user profile
 exports.updateProfile = async (id, body) => {
-    const response = await fetch(`http://localhost:3333/profile/${id}`, {
+    const response = await fetch(`http://localhost:3333/editprofile/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

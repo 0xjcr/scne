@@ -44,7 +44,7 @@ function App() {
      <Route path='/list' element={<List />}/>
      <Route path='/find' element={<Find />}/>
      <Route path='/community' element={<Community />}/>
-     <Route path='/editprofile' element={<EditUserProfile />}/>
+     <Route path='/editprofile/:id' element={<EditUserProfile />}/>
      <Route path="/profile/" element={<YourProfile />} />
      <Route path="/profile/:id" element={<Profile />} />
      <Route path="/biz/:id" element={<ProfileBusiness />} />

@@ -7,10 +7,7 @@ const ProfileUser = () => {
     const { id } = useParams();
     const [user, setUser] = useState(null);
 
-    const navigate = useNavigate();
-    const goBack = () => {
-        navigate(-1);
-    };
+    
 
     useEffect(() => {
       getProfile(id).then((data) => setUser(data));
@@ -24,8 +21,9 @@ const ProfileUser = () => {
   
     return (
       <>
-        <div>
-          <button onClick={goBack}> ⬅️ BACK</button>
+        <div className="userProfileContainer">
+        <div className='userProfileContent'>
+          
           <div>{user.firstName}</div>
           <div>{user.lastName}</div>
           <img src={user.photo} alt={''} />
@@ -37,6 +35,7 @@ const ProfileUser = () => {
           {/* <div>{user.endorsements.map((endorsement) => (
             <div key={endorsement.id}>{endorsement.name}</div>
           ))}</div> */}
+          </div>
         </div>
       </>
     );
