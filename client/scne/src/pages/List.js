@@ -1,11 +1,10 @@
 import Navbar from "../components/Navbar";
 import { useNavigate } from 'react-router-dom';
 import TileBusiness from '../components/TileBusiness';
-import Topbar from "../components/Topbar";
 import { useState, useEffect } from 'react';
 import { getAllBusinesses } from "../api-service";
 
-const List = ({biz}) => {
+const List = ({ scene }) => {
   const navigate = useNavigate();
 
   const [bizState, setBizState] = useState([]);
@@ -22,14 +21,16 @@ const List = ({biz}) => {
     
   };
 
-  // Sort businesses by upvotes 
-  const sortedBiz = [...bizState].sort((a, b) => b.upvotes - a.upvotes);
+  // Filter businesses by scene and sort them by upvotes
+  const filteredAndSortedBiz = [...bizState]
+    .filter((biz) => biz.scene === scene)
+    .sort((a, b) => b.upvotes - a.upvotes);
 
   return (
     <div>
-      <Topbar></Topbar>
+      
       <div className="list">
-      {sortedBiz.map((biz, index) => (
+      {filteredAndSortedBiz.map((biz, index) => (
         <div key={biz.id} onClick={() => handleBusinessClick(biz.id)}>
           <TileBusiness
             id={biz.id}

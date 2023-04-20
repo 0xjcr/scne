@@ -7,9 +7,9 @@ import {Cloudinary} from "@cloudinary/url-gen";
 
 
 // Pages
-import Community from './pages/Community';
+import SceneCommunity from './pages/SceneCommunity';
 import Find from './pages/Find';
-import List from './pages/List';
+import SceneList from './pages/SceneList';
 // import Map from './pages/Map';
 import Profile from './pages/Profile';
 import SignUp from './pages/SignUp';
@@ -41,9 +41,9 @@ function App() {
      
      <Route path='/join' element={<SignUp />}/>
      <Route path='/joinbiz' element={<SignUpBusiness />}/>
-     <Route path='/list' element={<List />}/>
+     <Route path='/list' element={<SceneList />}/>
      <Route path='/find' element={<Find />}/>
-     <Route path='/community' element={<Community />}/>
+     <Route path='/community' element={<SceneCommunity />}/>
      <Route path='/editprofile/:id' element={<EditUserProfile />}/>
      <Route path="/profile/" element={<YourProfile />} />
      <Route path="/profile/:id" element={<Profile />} />

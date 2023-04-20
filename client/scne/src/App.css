@@ -2,7 +2,8 @@
 
 
 body {
-    background-color: lightslategray;
+    background-color: whitesmoke;
+    color: darkslateblue
     
     
 } 
@@ -17,7 +18,8 @@ body {
     backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
     border-radius: 20px 20px 0px 0px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px  solid rgba( 255, 255, 255, 0.18 );
+    border-bottom-style: none;
     margin-left: 2%;
     margin-right: 2%;
     padding-top: 5%;
@@ -47,6 +49,7 @@ body {
     -webkit-backdrop-filter: blur( 15.5px );
     border-radius: 0px 0px 20px 20px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border-top-style: none;
     margin-left: 2%;
     margin-right: 2%;
     padding-top: 5%;
