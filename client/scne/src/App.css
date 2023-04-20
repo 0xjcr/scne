@@ -1,11 +1,11 @@
-/* * {
-    color: lightgrey;
-}
+
 
 
 body {
-    background-color: rgb(58, 58, 58);
-} */
+    background-color: lightslategray;
+    background-image: url('../public/backgroundimage1.png')
+    
+} 
 
 .navbarContainer {
     position: fixed;
@@ -135,4 +135,22 @@ padding: 2%;
     object-fit: cover;
     opacity: 0.4;
     z-index: -1;
+  }
+
+  .businessProfileContainer {
+    margin-top: 20%;
+    margin-left: 10%;
+    height: 75vh;
+    width: 80%;
+    background: rgba( 5, 0, 142, 0.2 );
+    box-shadow: 0px 8px 8px  rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 15.5px );
+    -webkit-backdrop-filter: blur( 15.5px );
+    border-radius: 20px 20px 20px 20px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+  }
+
+  .businessProfileContent {
+    margin: 5%;
   }
