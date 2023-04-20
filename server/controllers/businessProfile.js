@@ -5,14 +5,14 @@ const session = require('express-session');
 
 // create a business profile
 exports.createBusiness = async (req, res) => {
-    const { name, city, postcode, address, phone, scene_id, ig, email, password } = req.body;
+    const { name, city, postcode, address, phone, scene, ig, email, password } = req.body;
     
     // Hash the password
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
     
     try {
-        const business = await Biz.create({ name, city, postcode, address, phone, scene_id, ig, email, password: hashedPassword });
+        const business = await Biz.create({ name, city, postcode, address, phone, scene, ig, email, password: hashedPassword });
         res.status(201).json(business);
     } catch (err) {
         res.status(400).json({message: err.message});
@@ -22,11 +22,11 @@ exports.createBusiness = async (req, res) => {
 // modify a business profile
 exports.updateBusiness = async (req, res) => {
     const { id } = req.params;
-    const { name, city, postcode, address, phone, scene_id, ig, email, password, upvotes, reviewCount } = req.body;
+    const { name, city, postcode, address, phone, scene, ig, email, password, upvotes, reviewCount } = req.body;
   
     try {
       const business = await Biz.findByPk(id);
-      await business.update({ name, city, postcode, address, phone, scene_id, ig, email, password, upvotes, reviewCount }); 
+      await business.update({ name, city, postcode, address, phone, scene, ig, email, password, upvotes, reviewCount }); 
       res.status(200).json(business);
     } catch (err) {
       res.status(400).json({ message: err.message });

@@ -9,8 +9,9 @@ import FormControl from '@mui/material/FormControl';
 import { createBusiness } from '../api-service';
 
 
+
 const SignUpBiz = ({setBusinessState}) => {
-    const [inputs, setInputs] = useState({ name: '', city: '', address: '', phone:'', email: '', password: '' });
+    const [inputs, setInputs] = useState({ name: '', city: '', address: '', phone:'', email: '', password: '', scene:'' });
 
     const handleChange = (event) => {
         setInputs({ ...inputs, [event.target.name]: event.target.value });
@@ -22,7 +23,7 @@ const SignUpBiz = ({setBusinessState}) => {
           setBusinessState((existingBusinesses) => [...existingBusinesses, newBusiness]);
         });  
 
-        setInputs({ name: '', city: '', address: '', phone:'', email: '', password: '' });
+        setInputs({ name: '', city: '', address: '', phone:'', email: '', password: '', scene: 'coffee' });
     };
 
   return (
@@ -59,6 +60,22 @@ const SignUpBiz = ({setBusinessState}) => {
           </Select>
           </FormControl>
 
+          <FormControl fullWidth>
+          <InputLabel id="simple-select-label">SCENE</InputLabel>
+          <Select
+            labelId="scene-id"
+            id="simple-select"
+            value={inputs.scene}
+            label="SCENE"
+            name="scene"
+            onChange={handleChange}
+          >
+            <MenuItem value={'coffee'}>COFFEE</MenuItem>
+            <MenuItem value={'wellness'}>WELLNESS</MenuItem>
+            <MenuItem value={'mixology'}>MIXOLOGY</MenuItem>
+            
+          </Select>
+          </FormControl>
           <TextField
             id="outlined-basic-address"
             label="ADDRESS"
@@ -92,6 +109,7 @@ const SignUpBiz = ({setBusinessState}) => {
             value={inputs.password}
             onChange={handleChange}
           />
+          
           
           <Button type="submit" variant="outlined">
             CREATE
