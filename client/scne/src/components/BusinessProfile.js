@@ -4,15 +4,15 @@ import CircleUser from './CircleUser';
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
 
-
 const BusinessProfile = ({ name, bio, city, address, phone, reviewCount, ig, photo }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     getAllProfiles().then((fetchedUsers) => {
-      setUsers(fetchedUsers.slice(0, 4)); // For now, set to get first 5 users, but will need to filter to return only users on the team.
+      const matchingUsers = fetchedUsers.filter((user) => user.member === name);
+      setUsers(matchingUsers.slice(0, 4)); // Get only the first 4 users
     });
-  }, []);
+  }, [name]);
 
   return (
     <>
@@ -31,8 +31,8 @@ const BusinessProfile = ({ name, bio, city, address, phone, reviewCount, ig, pho
           </div>
           <div>{reviewCount}</div>
           <Divider>
-    <Chip label="TEAM" />
-  </Divider>
+            <Chip label="TEAM" />
+          </Divider>
           <div className="circleUserList" style={{ display: 'flex', flexDirection: 'row' }}>
             {users.map((user) => (
               <CircleUser
@@ -52,3 +52,4 @@ const BusinessProfile = ({ name, bio, city, address, phone, reviewCount, ig, pho
 };
 
 export default BusinessProfile;
+

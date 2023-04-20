@@ -10,9 +10,10 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
 
   useEffect(() => {
     getAllProfiles().then((fetchedUsers) => {
-      setUsers(fetchedUsers.slice(0, 5)); // Get only the first 5 users
+      const matchingUsers = fetchedUsers.filter((user) => user.member === name);
+      setUsers(matchingUsers.slice(0, 5)); // Get only the first 5 users
     });
-  }, []);
+  }, [name]);
 
   const handleUpvote = async (id) => {
     const newUpvotes = upvotes + 1;
@@ -20,16 +21,15 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
     setUpvotes(newUpvotes);
   };
 
-
   return (
     <div>
       <div className="tile" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
           <div>{ranking}</div>
-          <h2 style={{ textAlign: 'center', flexGrow: 1, }}>{name}</h2>
+          <h2 style={{ textAlign: 'center', flexGrow: 1 }}>{name}</h2>
         </div>
         <div className="circleUserList" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginRight: '8px' }}>
-          <div className="upvoteButtonOuter" style={{ marginRight: '8px',marginLeft: '8px', marginBottom: '20px' }}>
+          <div className="upvoteButtonOuter" style={{ marginRight: '8px', marginLeft: '8px', marginBottom: '20px' }}>
             <ButtonGroup
               orientation="vertical"
               variant="outlined"
@@ -55,6 +55,6 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
       </div>
     </div>
   );
-          };
+};
 
 export default TileBusiness;

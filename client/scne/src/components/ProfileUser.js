@@ -28,6 +28,7 @@ const ProfileUser = () => {
           <div>{user.lastName}</div>
           <img src={user.photo} alt={''} />
           <div>{user.bio}</div>
+          <div>{user.member}</div>
           <div>{user.email}</div>
           <div>{user.reviewCount}</div>
           <button>+</button>
