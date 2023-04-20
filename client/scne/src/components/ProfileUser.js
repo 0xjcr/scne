@@ -11,7 +11,7 @@ const ProfileUser = () => {
     const goBack = () => {
         navigate(-1);
     };
-    
+
     useEffect(() => {
       getProfile(id).then((data) => setUser(data));
     }, [id]);
@@ -28,7 +28,7 @@ const ProfileUser = () => {
           <button onClick={goBack}> ⬅️ BACK</button>
           <div>{user.firstName}</div>
           <div>{user.lastName}</div>
-          <div>{user.photo}</div>
+          <img src={user.photo} alt={''} />
           <div>{user.bio}</div>
           <div>{user.email}</div>
           <div>{user.reviewCount}</div>

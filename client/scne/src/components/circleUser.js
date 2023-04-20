@@ -1,10 +1,6 @@
 // Import the Cloudinary classes. 
 // import {fill} from "@cloudinary/url-gen/actions/resize";
 // import {CloudinaryImage} from '@cloudinary/url-gen';
-
-
-
-
 import { useNavigate } from 'react-router-dom';
 
 const CircleUser = ({ id, name, reviewCount, photo }) => {
@@ -16,8 +12,8 @@ const CircleUser = ({ id, name, reviewCount, photo }) => {
 
   return (
     <div className="circleuser" onClick={handleUserClick}>
-      <h1>{name}</h1>
-      <div>🔵</div>
+      <h3>{name}</h3>
+      <img src={photo} alt={''} className="circleuser-image" />
     </div>
   );
 };
