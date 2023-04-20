@@ -13,7 +13,7 @@ router.post('/welcome', userController.login);
 router.post('/logout', userController.logout);
 router.put('/profile/:id', userController.updateProfile);
 router.delete('/editprofile/:id', userController.deleteProfile);
-router.get('/user/:id', userController.getProfile);
+router.get('/profile/:id', userController.getProfile);
 router.get('/community',userController.getAllProfiles);
 
 // business routes

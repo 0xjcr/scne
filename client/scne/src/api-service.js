@@ -14,7 +14,7 @@ exports.createProfile =  async (body) => {
 
 // Get a single user profile by ID
 exports.getProfile = async (id) => {
-    const response = await fetch(`http://localhost:3333/user/${id}`);
+    const response = await fetch(`http://localhost:3333/profile/${id}`);
     return await response.json();
   };
   

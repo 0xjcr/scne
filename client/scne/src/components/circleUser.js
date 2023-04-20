@@ -11,7 +11,7 @@ const CircleUser = ({ id, name, reviewCount, photo }) => {
   const navigate = useNavigate();
 
   const handleUserClick = () => {
-    navigate(`/user/${id}`);
+    navigate(`/profile/${id}`);
   };
 
   return (

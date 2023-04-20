@@ -15,6 +15,7 @@ import Profile from './pages/Profile';
 import SignUp from './pages/SignUp';
 import SignUpBusiness from './pages/SignUpBusiness';
 import EditUserProfile from './pages/EditUserProfile';
+import YourProfile from './pages/YourProfile';
 
 
 
@@ -40,11 +41,11 @@ function App() {
      <Route path='/join' element={<SignUp />}/>
      <Route path='/joinbiz' element={<SignUpBusiness />}/>
      <Route path='/list' element={<List />}/>
-     <Route path='/profile' element={<Profile />}/>
      <Route path='/find' element={<Find />}/>
      <Route path='/community' element={<Community />}/>
      <Route path='/editprofile' element={<EditUserProfile />}/>
-     <Route path="/profile/:id" element={<EditUserProfile />} />
+     <Route path="/profile/" element={<YourProfile />} />
+     <Route path="/profile/:id" element={<Profile />} />
     </Routes>
     
     </Router>

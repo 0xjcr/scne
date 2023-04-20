@@ -15,7 +15,7 @@ const List = ({biz}) => {
   }, [])
 
   const handleBusinessClick = (bizId) => {
-    navigate(`/business/${bizId}`);
+    navigate(`/biz/${bizId}`);
   };
 
   const handleUpvote = (bizId) => {

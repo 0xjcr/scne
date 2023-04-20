@@ -17,10 +17,23 @@ const EditUser = () => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
 
+  const filterEmptyFields = (data) => {
+    let filteredData = {};
+    for (const key in data) {
+      if (data[key]) {
+        filteredData[key] = data[key];
+      }
+    }
+    return filteredData;
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateProfile(id, inputs).then((newUser) => {
-      navigate(`/user/${id}`); // Navigate to the updated user profile
+
+    const filteredInputs = filterEmptyFields(inputs);
+
+    updateProfile(id, filteredInputs).then((newUser) => {
+    navigate(`/profile`); // Navigate to the updated user profile
     });
 
     setInputs({ bio: '', photo: '', ig:'' });
