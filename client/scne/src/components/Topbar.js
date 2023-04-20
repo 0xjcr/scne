@@ -15,8 +15,9 @@ const Topbar = ({ scene, onSceneChange }) => {
       <div className="topbar">
         <div className="topbarCity">BCN</div>
         <Box sx={{ minWidth: 120, marginLeft: '1rem', marginTop: 5 }}>
+          <div className='topbarSelect'>
           <FormControl fullWidth>
-            <InputLabel id="scene-label">Scene</InputLabel>
+            
             <Select
               inputProps={{
                 sx: {
@@ -30,11 +31,13 @@ const Topbar = ({ scene, onSceneChange }) => {
                   },
                 },
               }}
+              
               id="simple-select"
               value={scene}
               labelId="scene-label"
               variant="standard"
               disableUnderline="true"
+              defaultValue="coffee"
               onChange={handleChange}
             >
               <MenuItem value="coffee">COFFEE</MenuItem>
@@ -42,6 +45,7 @@ const Topbar = ({ scene, onSceneChange }) => {
               <MenuItem value="mixology">MIXOLOGY</MenuItem>
             </Select>
           </FormControl>
+          </div>
         </Box>
       </div>
     </>

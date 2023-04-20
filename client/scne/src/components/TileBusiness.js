@@ -36,7 +36,7 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
               variant="outlined"
               size="small"
               color="inherit"
-              style={{ width: '60px', height: '30px', transform: 'scale(0.85)' }}
+              style={{ width: '60px', height: '30px', transform: 'scale(0.85)' , marginLeft: 0 }}
             >
               <Button>{upvotes || 0}</Button>
               <Button onClick={() => handleUpvote(id)}><KeyboardArrowUpIcon></KeyboardArrowUpIcon></Button>
