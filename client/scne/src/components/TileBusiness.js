@@ -16,7 +16,10 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
     });
   }, [name]);
 
-  const handleUpvote = async (id) => {
+  const handleUpvote = async (event, id) => {
+    // stopPropogation prevents propogating to the parent element when clicking to upvote
+    event.stopPropagation();
+    event.preventDefault();
     const newUpvotes = upvotes + 1;
     await updateUpvote(id, newUpvotes);
     setUpvotes(newUpvotes);
@@ -39,7 +42,9 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
               style={{ width: '60px', height: '30px', transform: 'scale(0.85)' , marginLeft: 0 }}
             >
               <Button>{upvotes || 0}</Button>
-              <Button onClick={() => handleUpvote(id)}><KeyboardArrowUpIcon></KeyboardArrowUpIcon></Button>
+              <Button onClick={(event) => handleUpvote(event, id)}>
+  <KeyboardArrowUpIcon />
+</Button>
             </ButtonGroup>
           </div>
           {users.slice(0, 4).map((user) => (

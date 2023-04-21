@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { updateProfile } from '../api-service';
-import UploadWidget from '../components/UploadWidget';
+import CloudinaryImageUpload from './CloudinaryImageUpload';
 
 const EditUser = () => {
   const [inputs, setInputs] = useState({ bio: '', photo: '', ig: '', member: '', scene0: '', scene1: '', scene2: '' });
@@ -62,8 +62,8 @@ const EditUser = () => {
           autoComplete="off"
           onSubmit={handleSubmit}
         >
-          <Button type="submit" variant="contained">DONE</Button>
-          <UploadWidget></UploadWidget>
+          
+          <CloudinaryImageUpload></CloudinaryImageUpload>
           <TextField
             id="outlined-multiline-static"
             label="EDIT BIO"
@@ -85,7 +85,7 @@ const EditUser = () => {
           value={inputs.member}
           onChange={handleChange} />
 
-          <h4>SCENES NEAR YOU</h4>
+          <h4>JOIN SCENES NEAR YOU</h4>
           <Fab variant="extended" onClick={() => handleButtonClick('coffee')}>
             COFFEE
             <AddIcon sx={{ mr: 1 }} />
@@ -98,6 +98,7 @@ const EditUser = () => {
             MIXOLOGY
             <AddIcon sx={{ mr: 1 }} />
           </Fab>
+          <Button type="submit" variant="contained">DONE</Button>
         </Box>
       </div>
     </div>
