@@ -1,7 +1,7 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, useHistory }
+import { BrowserRouter as Router, Routes, Route }
 from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 // Pages
@@ -19,38 +19,43 @@ import Login from './pages/Login';
 
 
 function App() {
-  const history = useHistory();
-  
-  useEffect(() => {
-    const userId = sessionStorage.getItem('userId');
-    if (!userId) {
-      history.push('/login');
-    }
-  }, [history]);
+  const [user, setUser] = useState(null);
 
-  
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('user');
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+  }, []);
+
+
   return (
     <>
-    
-    <Router>
-    <Routes>
-     
-     <Route path='/join' element={<SignUp />}/>
-     <Route path='/joinbiz' element={<SignUpBusiness />}/>
-     <Route path='/list' element={<SceneList />}/>
-     <Route path='/find' element={<Find />}/>
-     <Route path='/community' element={<SceneCommunity />}/>
-     <Route path='/editprofile/:id' element={<EditUserProfile />}/>
-     <Route path="/profile/" element={<YourProfile />} />
-     <Route path="/profile/:id" element={<Profile />} />
-     <Route path="/biz/:id" element={<ProfileBusiness />} />
-     <Route path="/" element={<Login />} />
-    </Routes>
-    
-    </Router>
-    
+      <Router>
+        <Routes>
+           <Route path="/" element={<Login />} />
+          
+            <>
+              <Route path="/list" element={<SceneList />} />
+              <Route path="/find" element={<Find />} />
+              <Route path="/community" element={<SceneCommunity />} />
+              <Route path="/editprofile/:id" element={<EditUserProfile />} />
+              <Route path="/profile" element={<YourProfile />} />
+              <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/biz/:id" element={<ProfileBusiness />} />
+            </>
+         
+            <>
+              <Route path="/join" element={<SignUp />} />
+              <Route path="/joinbiz" element={<SignUpBusiness />} />
+             
+            </>
+         
+        </Routes>
+      </Router>
     </>
   );
-}
+};
 
 export default App;

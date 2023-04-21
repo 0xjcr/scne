@@ -9,11 +9,17 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
+
+
+
+
   const handleLogin = async () => {
     try {
       const { id } = await login(email, password);
       if (id) {
         sessionStorage.setItem('userId', id); // set user ID in session storage
+        localStorage.setItem('userId', id); // set user ID in local storage
         navigate(`/profile/${id}`);
       } else {
         alert('😤');
