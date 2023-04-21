@@ -2,6 +2,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getProfile } from '../api-service';
 import { Divider, Chip } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const ProfileUser = () => {
   const { id } = useParams();
@@ -20,7 +21,11 @@ const loggedInUserId = localStorage.getItem('userId')
     // }
   }, [id]);
 
-    
+  const navigate = useNavigate();
+
+  const handleEdit = () => {
+    navigate(`/editprofile/${id}`);
+  };
 
   if (!user) {
     return <div>Uh. oh... We've encountered an error finding this user</div>;
@@ -30,7 +35,7 @@ const loggedInUserId = localStorage.getItem('userId')
     <>
     
       <div className="userProfileContainer">
-        {loggedInUserId === id && (<div><button>edit</button><button>logout</button></div>)}
+        {loggedInUserId === id && (<div className="editAndLogout"><Button sx={{ width: '25%' }}onClick={handleEdit} variant="outlined" size="small" >edit</Button><Button sx={{ width: '25%' }} variant="outlined" size="small" >logout</Button></div>)}
         <div className="userProfileContent">
           <div>{user.firstName}</div>
           <div>{user.lastName}</div>
