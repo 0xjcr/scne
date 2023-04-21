@@ -1,8 +1,7 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route}
+import { BrowserRouter as Router, Routes, Route, useHistory }
 from 'react-router-dom';
-import {Cloudinary} from "@cloudinary/url-gen";
-
+import { useEffect } from 'react';
 
 
 // Pages
@@ -19,10 +18,15 @@ import ProfileBusiness from './pages/ProfileBusiness';
 import Login from './pages/Login';
 
 
-
-
-
 function App() {
+  const history = useHistory();
+  
+  useEffect(() => {
+    const userId = sessionStorage.getItem('userId');
+    if (!userId) {
+      history.push('/login');
+    }
+  }, [history]);
 
   
   return (

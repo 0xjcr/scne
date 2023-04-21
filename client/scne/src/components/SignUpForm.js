@@ -16,19 +16,26 @@ const SignUpForm = ({ setUserState }) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
 
+
+const navigate = useNavigate();
+  const handleBusinessClick = () => {
+    navigate('/joinbiz');
+  };
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     createProfile(inputs).then((newUser) => {
       setUserState((existingUsers) => [...existingUsers, newUser]);
-    });
+    }).then(navigate('/profile'));
 
     setInputs({ firstName: '', lastName: '', email: '', password: '', city: '' });
   };
 
-  const navigate = useNavigate();
-  const handleBusinessClick = () => {
-    navigate('/joinbiz');
-  };
+  
+    
+      
+ 
   
   
   

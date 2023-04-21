@@ -9,7 +9,7 @@ const reviewsController = require('../controllers/reviews');
 
 // user routes
 router.post('/join', userController.createProfile);
-router.post('/welcome', userController.login);
+router.post('/', userController.login);
 router.post('/logout', userController.logout);
 router.put('/editprofile/:id', userController.updateProfile);
 router.delete('/editprofile/:id', userController.deleteProfile);

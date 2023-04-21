@@ -40,9 +40,22 @@ exports.updateProfile = async (id, body) => {
   
 
 
-
-
-
+  exports.login = async (email, password) => {
+    try {
+      const response = await fetch('http://localhost:3333/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const { user } = await response.json();
+      return user;
+    } catch (error) {
+      console.error(error);
+      return { error: 'Something went wrong' };
+    }
+  };
 
 
 
