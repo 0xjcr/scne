@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getBusiness } from "../api-service";
 import BusinessProfile from "../components/BusinessProfile";
+import Navbar from "../components/Navbar";
 
 const ProfileBusiness = () => {
   const { id } = useParams();
@@ -33,6 +34,7 @@ const ProfileBusiness = () => {
       ) : (
         <div>Loading...</div>
       )}
+      <Navbar></Navbar>
     </>
   );
 };

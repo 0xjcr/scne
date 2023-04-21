@@ -10,7 +10,7 @@ const BusinessProfile = ({ name, bio, city, address, phone, reviewCount, ig, pho
   useEffect(() => {
     getAllProfiles().then((fetchedUsers) => {
       const matchingUsers = fetchedUsers.filter((user) => user.member === name);
-      setUsers(matchingUsers.slice(0, 4)); // Get only the first 4 users
+      setUsers(matchingUsers); 
     });
   }, [name]);
 

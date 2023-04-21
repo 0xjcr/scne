@@ -29,7 +29,7 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
           <div>{ranking}</div>
           <h2 style={{ textAlign: 'center', flexGrow: 1 }}>{name}</h2>
         </div>
-        <div className="circleUserList" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginRight: '8px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginRight: '8px' }}>
           <div className="upvoteButtonOuter" style={{ marginRight: '8px', marginLeft: '8px', marginBottom: '20px' }}>
             <ButtonGroup
               orientation="vertical"
