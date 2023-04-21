@@ -15,7 +15,7 @@ const CircleUser = ({ id, firstName, reviewCount, photo, clickable = true }) => 
 
   return (
     <div className="circleuser" onClick={handleUserClick}>
-      <img className="circlePhoto" src={photo} alt={firstName} />
+      <img className="circleuser-image" src={photo} alt={firstName} />
     </div>
   );
 };

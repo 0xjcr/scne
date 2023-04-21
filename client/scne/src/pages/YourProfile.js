@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import { useNavigate, useLocation } from "react-router-dom";
+import ProfileUser from "../components/ProfileUser";
 
 const YourProfile = () => {
 
@@ -8,13 +9,20 @@ const YourProfile = () => {
    
 
     const handleClick = () => {
-      navigate("/editprofile");
+        //need to account for correct id for logged in user
+      navigate("/editprofile/{id}");
     };
   return (
     <>
-    <h2>YourProfile</h2>
-    <button onClick={handleClick}>EDIT YOUR PROFILE</button>
+    
+    
+    <button className="editProfile" onClick={handleClick}>EDIT YOUR PROFILE</button>
+    <div className="yourProfile">
+    <ProfileUser></ProfileUser>
+    </div>
+
     <Navbar></Navbar>
+    
     </>
   )
 }

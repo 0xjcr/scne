@@ -29,7 +29,7 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
     <div>
       <div className="tile" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-          <div>{ranking}</div>
+          <div id="twelve-point-star" className="ranking">{ranking}</div>
           <h2 style={{ textAlign: 'center', flexGrow: 1 }}>{name}</h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginRight: '8px' }}>

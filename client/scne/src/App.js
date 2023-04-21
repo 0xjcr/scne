@@ -16,6 +16,7 @@ import SignUpBusiness from './pages/SignUpBusiness';
 import EditUserProfile from './pages/EditUserProfile';
 import YourProfile from './pages/YourProfile';
 import ProfileBusiness from './pages/ProfileBusiness';
+import Login from './pages/Login';
 
 
 
@@ -23,15 +24,7 @@ import ProfileBusiness from './pages/ProfileBusiness';
 
 function App() {
 
-  // const cld = new Cloudinary({
-  //   cloud: {
-  //     cloudName: 'dqfsyl5rv'
-  //   }
-  // });
-
-
-
-
+  
   return (
     <>
     
@@ -47,6 +40,7 @@ function App() {
      <Route path="/profile/" element={<YourProfile />} />
      <Route path="/profile/:id" element={<Profile />} />
      <Route path="/biz/:id" element={<ProfileBusiness />} />
+     <Route path="/" element={<Login />} />
     </Routes>
     
     </Router>

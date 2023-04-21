@@ -24,7 +24,9 @@ const ProfileUser = () => {
         <div className="userProfileContent">
           <div>{user.firstName}</div>
           <div>{user.lastName}</div>
-          <img src={user.photo} alt={''} />
+          <div className="userProfilePicCircle">
+          <img className="userProfilePic" src={user.photo} alt={''} />
+          </div>
           <div>{user.bio}</div>
           {user.member ? (
             <Divider>
