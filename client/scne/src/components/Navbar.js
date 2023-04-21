@@ -5,6 +5,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExploreIcon from '@mui/icons-material/Explore';
 
 const Navbar = () => {
+    const id = localStorage.getItem('userId');
+
   return (
     <>
     <div className="navbarContainer">
@@ -18,7 +20,7 @@ const Navbar = () => {
             </div>
             <Link to="/find"><ExploreIcon className="navicons"/></Link>
             <div>
-            <Link to="/profile"><AccountCircleIcon className="navicons"/></Link>
+            <Link to={`/profile/${id}`}><AccountCircleIcon className="navicons"/></Link>
             </div>
             {/* <Link to="/Media">Media</Link> */}
             {/* <Link to="/Map">Map</Link> */}

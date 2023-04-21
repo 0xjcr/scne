@@ -215,13 +215,22 @@ padding: 2%;
   }
 
   .yourProfile {
-    margin-top: -20px;
+    margin-top: -60px;
   }
 
   .editProfile {
     height: 5vh;
-    width: 80%;
-    margin-left: 10%;
+    width: 30%;
+    margin: 10%;
+    border-radius: 10px;
+    margin-top: 20px;
+    z-index: 200;
+  }
+
+  .editProfileLogout {
+    height: 5vh;
+    width: 30%;
+    margin: 10%;
     border-radius: 10px;
     margin-top: 20px;
     z-index: 200;

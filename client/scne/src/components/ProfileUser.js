@@ -7,11 +7,11 @@ const ProfileUser = () => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
 
-  const {newUser} = useLocation();
-  console.log(newUser)
+//   const {newUser} = useLocation();
+//   console.log(newUser)
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem('user');
+    const loggedInUser = localStorage.getItem('userId');
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
       getProfile(foundUser.id).then((data) => setUser(data));
