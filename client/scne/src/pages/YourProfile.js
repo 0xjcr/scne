@@ -1,9 +1,11 @@
 import Navbar from "../components/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const YourProfile = () => {
 
     const navigate = useNavigate();
+
+   
 
     const handleClick = () => {
       navigate("/editprofile");

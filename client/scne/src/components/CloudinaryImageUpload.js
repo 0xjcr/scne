@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import { updateProfile } from '../api-service';
 
-const CloudinaryImageUpload = () => {
+const CloudinaryImageUpload = ({ userId }) => {
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -16,13 +17,20 @@ const CloudinaryImageUpload = () => {
       `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_NAME}/image/upload`,
       data
     );
-    setImage(res.data.secure_url);
     setLoading(false);
+
+    const updatedUser = {
+      photo: res.data.url
+    };
+
+    updateProfile(userId, updatedUser);
+    
+    setImage(res.data.url);
   };
 
   return (
     <div>
-      <div><AddAPhotoIcon></AddAPhotoIcon></div>
+      <div><AddAPhotoIcon /></div>
       <input
         type="file"
         name="file"

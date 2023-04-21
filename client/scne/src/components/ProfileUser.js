@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getProfile } from '../api-service';
 import { Divider, Chip } from '@mui/material';
@@ -6,6 +6,9 @@ import { Divider, Chip } from '@mui/material';
 const ProfileUser = () => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
+
+  const {newUser} = useLocation();
+  console.log(newUser)
 
   useEffect(() => {
     getProfile(id).then((data) => setUser(data));

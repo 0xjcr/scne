@@ -10,11 +10,16 @@ import CloudinaryImageUpload from './CloudinaryImageUpload';
 
 const EditUser = () => {
   const [inputs, setInputs] = useState({ bio: '', photo: '', ig: '', member: '', scene0: '', scene1: '', scene2: '' });
+  
   const { id } = useParams();
   const navigate = useNavigate();
 
   const handleChange = (event) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
+  };
+
+  const handleImageUpload = (imageUrl) => {
+    setInputs({ ...inputs, photo: imageUrl });
   };
 
   const handleButtonClick = (sceneValue) => {
@@ -43,12 +48,12 @@ const EditUser = () => {
     const filteredInputs = filterEmptyFields(inputs);
 
     updateProfile(id, filteredInputs).then((newUser) => {
+        //update logged in user in the context
       navigate(`/profile`); // Navigate to the updated user profile
     });
 
     setInputs({ bio: '', photo: '', ig: '', member: '', scene0: '', scene1: '', scene2: '' });
   };
-
   return (
     <div className="editProfilePage">
       <h2>EDIT PROFILE</h2>
@@ -63,7 +68,7 @@ const EditUser = () => {
           onSubmit={handleSubmit}
         >
           
-          <CloudinaryImageUpload></CloudinaryImageUpload>
+          <CloudinaryImageUpload userId={id} onUpload={handleImageUpload} ></CloudinaryImageUpload>
           <TextField
             id="outlined-multiline-static"
             label="EDIT BIO"
