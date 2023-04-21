@@ -30,25 +30,34 @@ exports.createProfile = async (req, res) => {
 
 // login 
 exports.login = async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const user = await Users.findOne({ where: { email } });
-    if (!user) {
-      res.status(400).json({ message: 'Email not found' });
-    } else {
-      // Check if the passwords match
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (isMatch) {
-        req.session.user = user;
-        res.status(200).json({ message: 'Logged in successfully', user });
-      } else {
-        res.status(400).json({ message: 'Invalid password' });
-      }
-    }
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
+const { email, password } = req.body;
+try {
+const user = await Users.findOne({ where: { email } });
+const biz = await Biz.findOne({ where: { email } });
+if (!user && !biz) {
+res.status(400).json({ message: 'Email not found' });
+} else if (user) {
+// Check if the passwords match
+const isMatch = await bcrypt.compare(password, user.password);
+if (isMatch) {
+req.session.user = user;
+res.status(200).json({ message: 'Logged in successfully', user });
+} else {
+res.status(400).json({ message: 'Invalid password' });
+}
+} else if (biz) {
+// Check if the passwords match
+const isMatch = await bcrypt.compare(password, biz.password);
+if (isMatch) {
+req.session.biz = biz;
+res.status(200).json({ message: 'Logged in successfully', biz });
+} else {
+res.status(400).json({ message: 'Invalid password' });
+}
+}
+} catch (err) {
+res.status(400).json({ message: err.message });
+}
 };
 
 //logout
@@ -66,11 +75,11 @@ exports.logout = (req, res) => {
 // edit a user profile
 exports.updateProfile = async (req, res) => {
     const { id } = req.params;
-    const { photo, bio, ig, member, scene0, scene1, scene2 } = req.body;
+    const { photo, bio, ig, member, scene0, scene1, scene2, endorsed } = req.body;
   
     try {
       const profile = await Users.findByPk(id);
-      await profile.update({ photo, bio, ig, member, scene0, scene1, scene2 });
+      await profile.update({ photo, bio, ig, member, scene0, scene1, scene2, endorsed });
       res.status(200).json(profile);
     } catch (err) {
       res.status(400).json({ message: err.message });

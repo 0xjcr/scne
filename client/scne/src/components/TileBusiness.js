@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import CircleUser from './CircleUser';
 import { getAllProfiles, updateUpvote } from '../api-service';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
   const [users, setUsers] = useState([]);
@@ -43,7 +43,7 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
             >
               <Button>{upvotes || 0}</Button>
               <Button onClick={(event) => handleUpvote(event, id)}>
-  <KeyboardArrowUpIcon />
+  <AutoAwesomeIcon sx={{ color: "#70FF00" }} />
 </Button>
             </ButtonGroup>
           </div>

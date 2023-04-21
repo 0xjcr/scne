@@ -11,10 +11,10 @@ const Community = ({ scene }) => {
     getAllProfiles().then((profiles) => setUserProfiles(profiles));
   }, []);
 
-  // Filter user profiles by scene and sort them by reviewCount
+  // Filter user profiles by scene and sort them by endorsed
   const filteredAndSortedProfiles = [...userProfiles]
     .filter((profile) => [profile.scene0, profile.scene1, profile.scene2].includes(scene))
-    .sort((a, b) => b.reviewCount - a.reviewCount);
+    .sort((a, b) => b.endorsed - a.endorsed);
 
   return (
     <>
@@ -25,7 +25,7 @@ const Community = ({ scene }) => {
             key={user.id}
             id={user.id}
             firstName={user.firstName} // Change this line
-            reviewCount={user.reviewCount}
+            endorsed={user.endorsed}
             photo={user.photo}
           />
         ))}

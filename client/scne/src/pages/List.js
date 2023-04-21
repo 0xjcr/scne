@@ -27,7 +27,7 @@ const List = ({ scene }) => {
     .sort((a, b) => b.upvotes - a.upvotes);
 
   return (
-    <div>
+    <div className="listContainer">
       
       <div className="list">
       {filteredAndSortedBiz.map((biz, index) => (

@@ -37,6 +37,18 @@ exports.updateProfile = async (id, body) => {
     });
     return await response.json();
   };
+
+// edit a user profile using '/profile/:id' route
+exports.updateProfileAlt = async (id, body) => {
+  const response = await fetch(`http://localhost:3333/profile/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  return await response.json();
+};
   
 
 

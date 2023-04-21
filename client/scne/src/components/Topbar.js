@@ -13,15 +13,17 @@ const Topbar = ({ scene, onSceneChange }) => {
   return (
     <>
       <div className="topbar">
+        
+        <img src="logo2.png" style={{ width: 100, height: 100 }} alt="" ></img>
         <div className="topbarCity">BCN</div>
-        <Box sx={{ minWidth: 120, marginLeft: '1rem', marginTop: 5 }}>
+        <Box sx={{ minWidth: 80, marginLeft: '1rem', marginTop: 5 }}>
           <div className='topbarSelect'>
           <FormControl fullWidth>
             
             <Select
               inputProps={{
                 sx: {
-                  fontSize: '32px',
+                  fontSize: '22px',
                 },
                 MenuProps: {
                   MenuListProps: {

@@ -2,7 +2,7 @@
 
 
 body {
-    background-color: rgba(0, 0, 0, 0.265) ;
+    background-image: url('../public/backgroundimage1.png') ;
     color: #6e06de
     
     
@@ -10,22 +10,22 @@ body {
 
 .navbarContainer {
     position: fixed;
-    bottom: 0;
+    bottom: 15px;
     left: 0;
     right: 0;
-    background: rgba(3, 2, 37, 0.2);
-    box-shadow: 0 8px 0 0 rgba( 31, 38, 135, 0.37 );
+    background: rgba(233, 232, 255, 0.2);
+    /* box-shadow: 0 8px 0 0 rgba( 31, 38, 135, 0.37 ); */
     backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 5px 5px 50px 50px;
     border: 1px  solid rgba(0, 0, 0, 0.18);
     border-bottom-style: none;
     margin-left: 2%;
     margin-right: 2%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    height: 5vh;
+    padding: 6%;
+    height: 2vh;
     z-index: 1000;
+    
   }
   
   .navbar {
@@ -39,15 +39,15 @@ body {
   
   .topbar {
     position: fixed;
-    top: 0;
+    top: 15px;
     left: 0;
     right: 0;
     height: 5vh;
-    background: rgba(3, 2, 37, 0.2);
-    box-shadow: 0px 0px 0px 0px rgba( 31, 38, 135, 0.37 );
+    background: rgba(233, 232, 255, 0.2);
+    /* box-shadow: 0 8px 0 0 rgba( 31, 38, 135, 0.37 ); */
     backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 50px 50px 5px 5px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     border-top-style: none;
     margin-left: 2%;
@@ -63,8 +63,8 @@ body {
   .topbarCity {
     display: flex;
     margin-top: 0px;
-    margin-left: 10%;
-    font-size: 3rem;
+
+    font-size: 2rem;
 
   }
   
@@ -95,10 +95,22 @@ padding: 2%;
     transform: scale(1.5);
 }
 
+.listContainer {
+
+  margin-top: 80px;
+  margin-bottom: 80px;
+  overflow: hidden;
+
+  }
+
 .list {
-    padding-top: 18%;
-    margin-bottom: 25%;
-}
+
+  margin-top: 0;
+  margin-bottom: 30;
+  overflow-y: auto;
+  height: calc(100vh - 130px);
+  }
+
 
 .community {
     padding-top: 25%;

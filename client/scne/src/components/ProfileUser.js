@@ -1,6 +1,6 @@
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getProfile } from '../api-service';
+import { getProfile, updateProfileAlt } from '../api-service';
 import { Divider, Chip } from '@mui/material';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -10,8 +10,18 @@ const ProfileUser = () => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
 const loggedInUserId = localStorage.getItem('userId')
+
+const handleEndorse = async () => {
+  const updatedUser = { ...user, endorsed: user.endorsed + 1 };
+  const response = await updateProfileAlt(id, updatedUser);
+  if (response.success) {
+    setUser(updatedUser);
+  }
+};
 //   const {newUser} = useLocation();
 //   console.log(newUser)
+
+
 
   useEffect(() => {
     // const loggedInUser = localStorage.getItem('userId');
@@ -57,9 +67,8 @@ const loggedInUserId = localStorage.getItem('userId')
           <div>{user.email}</div>
           <Divider />
           <div>{user.reviewCount}</div>
-          <IconButton aria-label="review" sx={{ transform: 'scale(1.8)', position: 'absolute', bottom: '50px', right: '40px' }}  >
-  <AutoAwesomeIcon /></IconButton>
-          <div>{user.endorsed}</div>
+          <IconButton aria-label="review" sx={{ transform: 'scale(2)', position: 'absolute', bottom: '50px', right: '40px' }} onClick={handleEndorse} >
+  <AutoAwesomeIcon sx={{ color: "#70FF00" }}/></IconButton>
           {/* <div>{user.endorsements.map((endorsement) => (
             <div key={endorsement.id}>{endorsement.name}</div>
           ))}</div> */}
