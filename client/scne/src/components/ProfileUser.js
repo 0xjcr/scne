@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { getProfile } from '../api-service';
 import { Divider, Chip } from '@mui/material';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 const ProfileUser = () => {
   const { id } = useParams();
@@ -37,8 +39,9 @@ const loggedInUserId = localStorage.getItem('userId')
       <div className="userProfileContainer">
         {loggedInUserId === id && (<div className="editAndLogout"><Button sx={{ width: '25%' }}onClick={handleEdit} variant="outlined" size="small" >edit</Button><Button sx={{ width: '25%' }} variant="outlined" size="small" >logout</Button></div>)}
         <div className="userProfileContent">
-          <div>{user.firstName}</div>
-          <div>{user.lastName}</div>
+          <div style={{ display: 'flex', alignItems: 'center' }}><h3>{user.firstName}</h3> <span>&nbsp;</span>
+          <h3>{user.lastName}</h3><h4 style={{ marginLeft: '20%' }}>{user.ig}</h4></div>
+          <Divider />
           <div className="userProfilePicCircle">
           <img className="userProfilePic" src={user.photo} alt={''} />
           </div>
@@ -50,10 +53,12 @@ const loggedInUserId = localStorage.getItem('userId')
           ) : (
             <Divider />
           )}
-          <div>{user.member}</div>
+          <h3>{user.member}</h3>
           <div>{user.email}</div>
+          <Divider />
           <div>{user.reviewCount}</div>
-          <button>+</button>
+          <IconButton aria-label="review" sx={{ transform: 'scale(1.8)', position: 'absolute', bottom: '50px', right: '40px' }}  >
+  <AutoAwesomeIcon /></IconButton>
           <div>{user.endorsed}</div>
           {/* <div>{user.endorsements.map((endorsement) => (
             <div key={endorsement.id}>{endorsement.name}</div>

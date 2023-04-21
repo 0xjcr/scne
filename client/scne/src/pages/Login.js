@@ -26,11 +26,12 @@ const Login = () => {
   return (
     <div className="login">
       <h1>SCNE</h1>
-      <h2>LOGO HERE</h2>
+      <img src="logo2.png" style={{ width: 250, height: 250 }} alt="" ></img>
       <Button variant="contained" onClick={() => navigate('/join')}>
         GET STARTED
       </Button>
-
+    
+   
       <TextField
         id="outlined-basic"
         label="EMAIL"

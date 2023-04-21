@@ -22,7 +22,7 @@ const BusinessProfile = ({ name, bio, city, address, phone, reviewCount, ig, pho
             <h2>{name}</h2>
             <div>{ig}</div>
           </div>
-          <img src={photo} alt={`${name}'s photo`} />
+          <img src={photo} alt={''} />
           <div>{bio}</div>
           <div>
             <div>{city}</div>

@@ -2,8 +2,8 @@
 
 
 body {
-    background-color: whitesmoke ;
-    color: rgb(110, 6, 222)
+    background-color: rgba(0, 0, 0, 0.265) ;
+    color: #6e06de
     
     
 } 
@@ -80,12 +80,13 @@ body {
 
 .tile {
 background: rgba( 5, 0, 142, 0.2 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+box-shadow: rgba(110, 6, 222, 0.4) 0px 5px, rgba(110, 6, 222, 0.3) 0px 10px, rgba(110, 6, 222, 0.2) 0px 15px, rgba(110, 6, 222, 0.1) 0px 20px, rgba(110, 6, 222, 0.05) 0px 25px;
 backdrop-filter: blur( 15.5px );
 -webkit-backdrop-filter: blur( 15.5px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 margin: 5%;
+margin-bottom: 7%;
 padding: 2%;
 }
 
@@ -160,7 +161,7 @@ padding: 2%;
     height: 75vh;
     width: 80%;
     background: rgba( 5, 0, 142, 0.2 );
-    box-shadow: 0px 8px 8px  rgba( 31, 38, 135, 0.37 );
+    box-shadow: rgba(110, 6, 222, 0.4) -5px 5px, rgba(110, 6, 222, 0.3) -10px 10px, rgba(110, 6, 222, 0.2) -15px 15px, rgba(110, 6, 222, 0.1) -20px 20px, rgba(110, 6, 222, 0.05) -25px 25px;
     backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
     border-radius: 20px 20px 20px 20px;
@@ -178,11 +179,12 @@ padding: 2%;
     height: 75vh;
     width: 80%;
     background: rgba( 5, 0, 142, 0.2 );
-    box-shadow: 0px 8px 8px  rgba( 31, 38, 135, 0.37 );
+    box-shadow: rgba(110, 6, 222, 0.4) -5px 5px, rgba(110, 6, 222, 0.3) -10px 10px, rgba(110, 6, 222, 0.2) -15px 15px, rgba(110, 6, 222, 0.1) -20px 20px, rgba(110, 6, 222, 0.05) -25px 25px;
     backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
     border-radius: 20px 20px 20px 20px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    
   }
 
   .userProfileContent {
@@ -190,10 +192,14 @@ padding: 2%;
   }
 
   .userProfilePicCircle {
-    width: 100px;
-   height: 100px;
+   margin-top: 20px;
+   margin-bottom: 30px;
+   margin-left: 10px;
+   width: 120px;
+   height: 120px;
    border-radius: 50%;
    overflow: hidden;
+   box-shadow: rgba(110, 6, 222, 0.4) -5px 5px, rgba(110, 6, 222, 0.3) -10px 10px, rgba(110, 6, 222, 0.2) -15px 15px, rgba(110, 6, 222, 0.1) -20px 20px, rgba(110, 6, 222, 0.05) -25px 25px;
   }
 
 
