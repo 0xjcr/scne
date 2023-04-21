@@ -19,14 +19,14 @@ import Login from './pages/Login';
 
 
 function App() {
-  const history = useHistory();
+  // const history = useHistory();
   
-  useEffect(() => {
-    const userId = sessionStorage.getItem('userId');
-    if (!userId) {
-      history.push('/login');
-    }
-  }, [history]);
+  // useEffect(() => {
+  //   const userId = sessionStorage.getItem('userId');
+  //   if (!userId) {
+  //     history.push('/login');
+  //   }
+  // }, [history]);
 
   
   return (
