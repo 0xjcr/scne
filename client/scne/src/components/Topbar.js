@@ -63,37 +63,59 @@ const Topbar = ({ scene, onSceneChange }) => {
           
         >
           <SpeedDialAction
-            icon={'coffee'}
-            tooltipTitle="coffee"
+            icon={'mixology'}
+            tooltipTitle="mixology"
             sx={{
               borderRadius: '4px',
-              width: '85px',
-              height: '40px',
-              minWidth: '85px',
+              width: '80px',
+              height: '30px',
+              minWidth: '80px',
+              bgcolor: 'rgba(233, 232, 255, 0.2)',
+              '&:hover': {
+                bgcolor: 'rgba(112, 255, 0, 0.5)',
+              },
+              '&.Mui-selected': {
+                bgcolor: 'rgba(112, 255, 0, 0.5)',
+              },
             }}
-            onClick={() => handleChange('coffee')}
+            onClick={() => handleChange('mixology')}
           />
           <SpeedDialAction
             icon={'wellness'}
             tooltipTitle="wellness"
             sx={{
               borderRadius: '4px',
-              width: '85px',
-              height: '40px',
-              minWidth: '85px',
+              width: '80px',
+              height: '30px',
+              minWidth: '80px',
+              bgcolor: 'rgba(233, 232, 255, 0.2)',
+              '&:hover': {
+                bgcolor: 'rgba(112, 255, 0, 0.5)',
+              },
+              '&.Mui-selected': {
+                bgcolor: 'rgba(112, 255, 0, 0.5)',
+              },
             }}
             onClick={() => handleChange('wellness')}
           />
           <SpeedDialAction
-            icon={'mixology'}
-            tooltipTitle="mixology"
+            icon={'coffee'}
+            tooltipTitle="coffee"
             sx={{
               borderRadius: '4px',
-              width: '85px',
-              height: '40px',
-              minWidth: '85px',
+              width: '80px',
+              height: '30px',
+              minWidth: '80px',
+              bgcolor: 'rgba(233, 232, 255, 0.2)',
+              '&:hover': {
+                bgcolor: 'rgba(112, 255, 0, 0.5)',
+              },
+              '&.Mui-selected': {
+                bgcolor: 'rgba(112, 255, 0, 0.5)',
+              },
             }}
-            onClick={() => handleChange('mixology')}
+            onClick={() => handleChange('coffee')}
+            selected={scene === 'coffee'}
           />
         </StyledSpeedDial>
       </div>

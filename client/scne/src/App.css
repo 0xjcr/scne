@@ -10,16 +10,16 @@ body {
 
 .navbarContainer {
     position: fixed;
-    bottom: 15px;
+    bottom: 20px;
     left: 0;
     right: 0;
-    background: rgba(233, 232, 255, 0.2);
+    /* background: rgba(233, 232, 255, 0.2); */
     /* box-shadow: 0 8px 0 0 rgba( 31, 38, 135, 0.37 ); */
-    backdrop-filter: blur( 15.5px );
+    /* backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
     border-radius: 5px 5px 50px 50px;
     border: 1px  solid rgba(0, 0, 0, 0.18);
-    border-bottom-style: none;
+    border-bottom-style: none; */
     margin-left: 2%;
     margin-right: 2%;
     padding: 6%;
@@ -33,6 +33,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    margin-bottom: 5px;
     
   }
   
@@ -92,7 +93,7 @@ padding: 2%;
 
 
 .navicons {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 .listContainer {
@@ -106,9 +107,8 @@ padding: 2%;
 .list {
 
   margin-top: 0;
-  margin-bottom: 30;
   overflow-y: auto;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 150px);
   }
 
 
