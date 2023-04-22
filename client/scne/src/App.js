@@ -13,7 +13,6 @@ import Profile from './pages/Profile';
 import SignUp from './pages/SignUp';
 import SignUpBusiness from './pages/SignUpBusiness';
 import EditUserProfile from './pages/EditUserProfile';
-import YourProfile from './pages/YourProfile';
 import ProfileBusiness from './pages/ProfileBusiness';
 import Login from './pages/Login';
 
@@ -34,7 +33,6 @@ function App() {
      <Route path='/find' element={<Find />}/>
      <Route path='/community' element={<SceneCommunity />}/>
      <Route path='/editprofile/:id' element={<EditUserProfile />}/>
-     <Route path="/profile/" element={<YourProfile />} />
      <Route path="/profile/:id" element={<Profile />} />
      <Route path="/biz/:id" element={<ProfileBusiness />} />
      <Route path="/" element={<Login />} />

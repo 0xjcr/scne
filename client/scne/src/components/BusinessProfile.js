@@ -22,12 +22,15 @@ const BusinessProfile = ({ name, bio, city, address, phone, reviewCount, ig, pho
             <h2>{name}</h2>
             <div>{ig}</div>
           </div>
-          <img src={photo} alt={''} />
-          <div>{bio}</div>
+          <div className="busProfilePicCircle">
+          <img className="busProfilePic" src={photo} alt={''} />
+          </div>
+          <div style={{ marginBottom: '20px' }}>{bio}</div>
           <div>
             <div>{city}</div>
             <div>{address}</div>
-            <div>{phone}</div>
+            <div style={{ marginBottom: '20px' }}>{phone}</div>
+            
           </div>
           <div>{reviewCount}</div>
           <Divider>

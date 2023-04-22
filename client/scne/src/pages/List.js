@@ -45,7 +45,9 @@ const List = ({ scene }) => {
               name={biz.name}
               upvotes={biz.upvotes}
               handleUpvote={() => handleUpvote(biz.id)}
-              ranking={index + 1} // Add the ranking prop here
+              ranking={index + 1} 
+              photo={biz.photo}
+              // Add the ranking prop here
             />
           </div>
         ))}

@@ -18,7 +18,10 @@ const YourProfile = () => {
     
     <button className="editProfile" onClick={handleClick}>EDIT YOUR PROFILE</button>
     <div className="yourProfile">
-    <ProfileUser></ProfileUser>
+    <ProfileUser>
+
+      
+    </ProfileUser>
     </div>
 
     <Navbar></Navbar>

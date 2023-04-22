@@ -55,7 +55,9 @@ const handleEndorse = async () => {
           <div className="userProfilePicCircle">
           <img className="userProfilePic" src={user.photo} alt={''} />
           </div>
-          <div>{user.bio}</div>
+          <div style={{margin:'10px'}}>{user.bio}</div>
+
+
           {user.member ? (
             <Divider>
               <Chip label="TEAM" />

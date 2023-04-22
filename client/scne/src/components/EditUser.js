@@ -49,7 +49,7 @@ const EditUser = () => {
 
     updateProfile(id, filteredInputs).then((newUser) => {
         //update logged in user in the context
-      navigate(`/profile`); // Navigate to the updated user profile
+      navigate(`/profile/${id}`); // Navigate to the updated user profile
     });
 
     setInputs({ bio: '', photo: '', ig: '', member: '', scene0: '', scene1: '', scene2: '' });

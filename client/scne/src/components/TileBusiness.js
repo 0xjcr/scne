@@ -27,43 +27,44 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => 
 
   return (
     <div>
-      <div className="tile" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-          <div id="twelve-point-star" className="ranking">{ranking}</div>
-          <h2 style={{ textAlign: 'center', flexGrow: 1 }}>{name}</h2>
-        </div>
-
-        {/* <div>{photo}</div> */}
-
-
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginRight: '8px' }}>
-          <div className="upvoteButtonOuter" style={{ marginRight: '8px', marginLeft: '8px', marginBottom: '20px' }}>
-            <ButtonGroup
-              orientation="vertical"
-              variant="outlined"
-              size="small"
-              color="inherit"
-              style={{ width: '60px', height: '30px', transform: 'scale(0.85)' , marginLeft: 0 }}
-            >
-              <Button>{upvotes || 0}</Button>
-              <Button onClick={(event) => handleUpvote(event, id)}>
-  <AutoAwesomeIcon sx={{ color: "#70FF00" }} />
-</Button>
-            </ButtonGroup>
-          </div>
-          {users.slice(0, 4).map((user) => (
-            <CircleUser
-              key={user.id}
-              id={user.id}
-              firstName={user.firstName}
-              reviewCount={user.reviewCount}
-              photo={user.photo}
-              clickable={false}
-            />
-          ))}
+    <div className="tile">
+      <div className="top-row">
+        <div id="twelve-point-star" className="ranking">{ranking}</div>
+        <h2>{name}</h2>
+      </div>
+      <div className="middle-row">
+        <div className="busTileCircle">
+          <img className="busTilePic" src={photo} alt={'hello'} />
         </div>
       </div>
+      <div className="bottom-row">
+        <div className="upvoteButtonOuter">
+          <ButtonGroup
+            orientation="vertical"
+            variant="outlined"
+            size="small"
+            color="inherit"
+            style={{ width: '60px', height: '30px', transform: 'scale(0.85)' , marginLeft: 0 }}
+          >
+            <Button>{upvotes || 0}</Button>
+            <Button onClick={(event) => handleUpvote(event, id)}>
+              <AutoAwesomeIcon sx={{ color: "#70FF00" }} />
+            </Button>
+          </ButtonGroup>
+        </div>
+        {users.slice(0, 4).map((user) => (
+          <CircleUser
+            key={user.id}
+            id={user.id}
+            firstName={user.firstName}
+            reviewCount={user.reviewCount}
+            photo={user.photo}
+            clickable={false}
+          />
+        ))}
+      </div>
     </div>
+  </div>
   );
 };
 
