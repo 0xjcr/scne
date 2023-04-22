@@ -81,7 +81,7 @@ body {
 
 .tile {
 display: grid;
-grid-template-rows: 10% 60% 30%;
+grid-template-rows: 5vh 12vh 10vh;
 align-items: center;
 background: rgba( 5, 0, 142, 0.2 );
 box-shadow: rgba(110, 6, 222, 0.4) 0px 5px, rgba(110, 6, 222, 0.3) 0px 10px, rgba(110, 6, 222, 0.2) 0px 15px, rgba(110, 6, 222, 0.1) 0px 20px, rgba(110, 6, 222, 0.05) 0px 25px;
@@ -90,7 +90,7 @@ backdrop-filter: blur( 15.5px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 margin: 2%;
-margin-bottom: 7%;
+margin-bottom: 6%;
 padding: 2%;
 }
 
@@ -105,14 +105,16 @@ padding: 2%;
 .middle-row {
   display: flex;
   justify-content: center;
+  margin-bottom: 7vh;
   
 }
 
 .bottom-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   margin-right: 8px;
+  
 }
 
 .upvoteButtonOuter {
@@ -142,7 +144,7 @@ padding: 2%;
 
 
 .community {
-    padding-top: 25%;
+    padding-top: 20%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -238,8 +240,8 @@ padding: 2%;
 
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     overflow: hidden;
     /* box-shadow: rgba(110, 6, 222, 0.4) -5px 5px, rgba(110, 6, 222, 0.3) -10px 10px, rgba(110, 6, 222, 0.2) -15px 15px, rgba(110, 6, 222, 0.1) -20px 20px, rgba(110, 6, 222, 0.05) -25px 25px; */
