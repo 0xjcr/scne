@@ -25,13 +25,12 @@ const ProfileUser = () => {
   // console.log(newUser);
 
   useEffect(() => {
-    if (loggedInUserId) {
+    if (loggedInUserId && id === loggedInUserId) {
       getProfile(loggedInUserId).then((data) => setUser(data));
     } else {
       getProfile(id).then((data) => setUser(data));
     }
   }, [id, loggedInUserId]);
-
   const navigate = useNavigate();
 
   const handleEdit = () => {
