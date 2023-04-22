@@ -29,7 +29,7 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => 
     <div>
     <div className="tile">
       <div className="top-row">
-        <div id="twelve-point-star" className="ranking">{ranking}</div>
+        <div id="twelve-point-star" className="ranking">{ranking < 11 ? ranking : ''}</div>
         <h2>{name}</h2>
       </div>
       <div className="middle-row">
