@@ -71,6 +71,22 @@ exports.logout = (req, res) => {
   });
 };
 
+// edit a user profile
+exports.updateProfileAlt = async (req, res) => {
+  const { id } = req.params;
+  const { photo, bio, ig, member, scene0, scene1, scene2, endorsed } = req.body;
+
+  try {
+    const profile = await Users.findByPk(id);
+    await profile.update({ photo, bio, ig, member, scene0, scene1, scene2, endorsed });
+    res.status(200).json(profile);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
+
+
 
 // edit a user profile
 exports.updateProfile = async (req, res) => {

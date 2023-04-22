@@ -43,12 +43,12 @@ body {
     left: 0;
     right: 0;
     height: 5vh;
-    background: rgba(233, 232, 255, 0.2);
+    /* background: rgba(233, 232, 255, 0.2); */
     /* box-shadow: 0 8px 0 0 rgba( 31, 38, 135, 0.37 ); */
-    backdrop-filter: blur( 15.5px );
+    /* backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
     border-radius: 50px 50px 5px 5px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 ); */
     border-top-style: none;
     margin-left: 2%;
     margin-right: 2%;
@@ -98,7 +98,7 @@ padding: 2%;
 .listContainer {
 
   margin-top: 80px;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
   overflow: hidden;
 
   }
