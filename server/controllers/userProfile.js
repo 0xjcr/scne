@@ -33,7 +33,7 @@ exports.login = async (req, res) => {
 const { email, password } = req.body;
 try {
 const user = await Users.findOne({ where: { email } });
-const biz = await Biz.findOne({ where: { email } });
+// const biz = await Biz.findOne({ where: { email } });
 if (!user && !biz) {
 res.status(400).json({ message: 'Email not found' });
 } else if (user) {
@@ -59,6 +59,8 @@ res.status(400).json({ message: 'Invalid password' });
 res.status(400).json({ message: err.message });
 }
 };
+
+
 
 //logout
 exports.logout = (req, res) => {

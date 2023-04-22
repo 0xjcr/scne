@@ -70,6 +70,24 @@ exports.updateProfileAlt = async (id, body) => {
   };
 
 
+  exports.logout = async () => {
+    try {
+      const response = await fetch('http://localhost:3333/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const { message } = await response.json();
+      return message;
+    } catch (error) {
+      console.error(error);
+      return { error: 'Something went wrong' };
+    }
+  };
+
+
+
 
 // create business profile
 exports.createBusiness = async (body) => {

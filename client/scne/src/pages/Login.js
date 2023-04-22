@@ -13,7 +13,7 @@ const Login = () => {
     try {
       const { id } = await login(email, password);
       if (id) {
-        sessionStorage.setItem('userId', id); // set user ID in session storage
+        localStorage.setItem('userId', id); // set user ID in session storage
         navigate(`/profile/${id}`);
       } else {
         alert('😤');
