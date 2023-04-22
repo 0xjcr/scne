@@ -5,7 +5,7 @@ import CircleUser from './CircleUser';
 import { getAllProfiles, updateUpvote } from '../api-service';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
-const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
+const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => {
   const [users, setUsers] = useState([]);
   const [upvotes, setUpvotes] = useState(initialUpvotes);
 
@@ -32,6 +32,10 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking }) => {
           <div id="twelve-point-star" className="ranking">{ranking}</div>
           <h2 style={{ textAlign: 'center', flexGrow: 1 }}>{name}</h2>
         </div>
+
+        {/* <div>{photo}</div> */}
+
+
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginRight: '8px' }}>
           <div className="upvoteButtonOuter" style={{ marginRight: '8px', marginLeft: '8px', marginBottom: '20px' }}>
             <ButtonGroup

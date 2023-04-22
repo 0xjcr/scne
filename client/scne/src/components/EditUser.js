@@ -68,7 +68,7 @@ const EditUser = () => {
           onSubmit={handleSubmit}
         >
           
-          <CloudinaryImageUpload userId={id} onUpload={handleImageUpload} ></CloudinaryImageUpload>
+          <CloudinaryImageUpload userId={id} onUpload={handleImageUpload} isBusiness={false}></CloudinaryImageUpload>
           <TextField
             id="outlined-multiline-static"
             label="EDIT BIO"

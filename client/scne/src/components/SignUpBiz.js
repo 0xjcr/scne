@@ -7,11 +7,11 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { createBusiness } from '../api-service';
-
+import CloudinaryImageUpload from './CloudinaryImageUpload';
 
 
 const SignUpBiz = ({setBusinessState}) => {
-    const [inputs, setInputs] = useState({ name: '', city: '', address: '', phone:'', email: '', password: '', scene:'' });
+    const [inputs, setInputs] = useState({ name: '', city: '', address: '', phone:'', email: '', password: '', scene:'', photo:'', bio:'' });
 
     const handleChange = (event) => {
         setInputs({ ...inputs, [event.target.name]: event.target.value });
@@ -23,7 +23,11 @@ const SignUpBiz = ({setBusinessState}) => {
           setBusinessState((existingBusinesses) => [...existingBusinesses, newBusiness]);
         });  
 
-        setInputs({ name: '', city: '', address: '', phone:'', email: '', password: '', scene: 'coffee' });
+        setInputs({ name: '', city: '', address: '', phone:'', email: '', password: '', scene: 'coffee', photo:'', bio:'' });
+    };
+
+    const handleImageUpload = (imageUrl) => {
+      setInputs({ ...inputs, photo: imageUrl });
     };
 
   return (
@@ -46,6 +50,7 @@ const SignUpBiz = ({setBusinessState}) => {
             value={inputs.name}
             onChange={handleChange}
           />
+          
           <FormControl fullWidth>
           <InputLabel id="simple-select-label">CITY</InputLabel>
           <Select
@@ -110,7 +115,15 @@ const SignUpBiz = ({setBusinessState}) => {
             onChange={handleChange}
           />
           
-          
+          <CloudinaryImageUpload  onUpload={handleImageUpload} isBusiness={true}></CloudinaryImageUpload>
+          <TextField
+            id="outlined-basic-name"
+            label="BIO"
+            variant="outlined"
+            name="bio"
+            value={inputs.bio}
+            onChange={handleChange}
+          />
           <Button type="submit" variant="outlined">
             CREATE
           </Button>

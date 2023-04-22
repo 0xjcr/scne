@@ -5,14 +5,14 @@ const session = require('express-session');
 
 // create a business profile
 exports.createBusiness = async (req, res) => {
-    const { name, city, postcode, address, phone, scene, ig, email, password } = req.body;
+    const { name, city, postcode, address, phone, scene, ig, email, password, photo, bio } = req.body;
     
     // Hash the password
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
     
     try {
-        const business = await Biz.create({ name, city, postcode, address, phone, scene, ig, email, password: hashedPassword });
+        const business = await Biz.create({ name, city, postcode, address, phone, scene, ig, email, photo, bio ,password: hashedPassword });
         res.status(201).json(business);
     } catch (err) {
         res.status(400).json({message: err.message});

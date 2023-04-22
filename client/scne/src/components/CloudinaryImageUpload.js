@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
-import { updateProfile } from '../api-service';
+import { updateProfile, createBusiness } from '../api-service';
 
-const CloudinaryImageUpload = ({ userId }) => {
+const CloudinaryImageUpload = ({ userId, isBusiness, onUpload }) => {
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -23,8 +23,12 @@ const CloudinaryImageUpload = ({ userId }) => {
       photo: res.data.url
     };
 
-    updateProfile(userId, updatedUser);
     
+    
+     updateProfile(userId, updatedUser)
+    
+    
+ onUpload(res.data.url)
     setImage(res.data.url);
   };
 
