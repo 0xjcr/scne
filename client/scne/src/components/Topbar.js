@@ -17,11 +17,11 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
     left: theme.spacing(2),
   },
   '& .MuiSpeedDial-fab': {
-    backgroundColor: 'transparent',
-    borderRadius: '50%',
+    backgroundColor: 'rgba(5, 0, 142, 0.1)',
+    borderRadius: '10%',
     boxShadow: 'none',
     '&:hover': {
-      backgroundColor: 'transparent',
+      backgroundColor: 'rgba(5, 0, 142, 0.1)',
       boxShadow: 'none',
     },
     '&:active': {
@@ -52,7 +52,7 @@ const Topbar = ({ scene, onSceneChange }) => {
         <StyledSpeedDial
           ariaLabel="SpeedDial"
           icon={
-            <Box sx={{ bgcolor: 'transparent', p: 1 }}>
+            <Box sx={{ bgcolor: 'transparent', p: 1, paddingBottom: '5px' }}>
 
               <UfoLogo width="80px" height="80px" />
             </Box>

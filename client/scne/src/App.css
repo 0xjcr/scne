@@ -136,8 +136,6 @@ padding: 2%;
   }
 
 .list {
-
-  margin-top: 0;
   overflow-y: auto;
   height: calc(100vh - 150px);
   }

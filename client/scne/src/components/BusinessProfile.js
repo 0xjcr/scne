@@ -3,6 +3,9 @@ import { getAllProfiles } from '../api-service';
 import CircleUser from './CircleUser';
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
+import IconButton from '@mui/material/IconButton';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+
 
 const BusinessProfile = ({ name, bio, city, address, phone, reviewCount, ig, photo }) => {
   const [users, setUsers] = useState([]);
@@ -48,6 +51,15 @@ const BusinessProfile = ({ name, bio, city, address, phone, reviewCount, ig, pho
               />
             ))}
           </div>
+          <IconButton aria-label="review" sx={{ transform: 'scale(2)', position: 'absolute', bottom: '50px', right: 
+          '40px' }} 
+          
+          // onClick={handleUpvote}
+          
+          >
+
+
+  <AutoAwesomeIcon sx={{ color: "#70FF00" }}/></IconButton>
         </div>
       </div>
     </>
