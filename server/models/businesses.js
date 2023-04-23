@@ -66,6 +66,7 @@ const BizPosts = sequelize.define('BizPosts', {
 
 });
 
+
 Biz.hasMany(BizPosts, { as: 'bizPosts', foreignKey: 'bizId' });
 BizPosts.belongsTo(Biz, { foreignKey: 'bizPostId' });
 

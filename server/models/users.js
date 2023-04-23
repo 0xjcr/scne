@@ -79,5 +79,5 @@ Users.hasMany(UserPosts, { as: 'posts', foreignKey: 'userId' });
 UserPosts.belongsTo(Users, { foreignKey: 'userPostId' });
 
 module.exports = sequelize.models.Users;
-module.exports = sequelize.models.Posts;
+module.exports = sequelize.models.UserPosts;
 module.exports = sequelize;

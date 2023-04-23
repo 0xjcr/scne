@@ -36,9 +36,12 @@ router.post('/adminScene', scenesController.createScene);
 router.get('/', scenesController.getAllScenes);
 router.delete('/adminScene/:id', scenesController.deleteScene);
 
-// posts routes
-router.post('/find', postsController.createPost); 
+//posts routes
 router.get('/find', postsController.getAllPosts);
-
+router.post('/user', postsController.createUserPost); 
+router.post('/biz', postsController.createBizPost); 
+router.delete('/user', postsController.deletePost);
+router.get('/find', postsController.getAllPosts);
+router.delete('/biz', postsController.deletePost);
 
 module.exports = router;
