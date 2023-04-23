@@ -4,6 +4,7 @@ const userController = require('../controllers/userProfile');
 const businessController = require('../controllers/businessProfile');
 const scenesController = require('../controllers/scene');
 const reviewsController = require('../controllers/reviews');
+const postsController = require('../controllers/posts');
 
 
 
@@ -34,6 +35,10 @@ router.get('/biz/:id/review', reviewsController.getAllReviews);
 router.post('/adminScene', scenesController.createScene); 
 router.get('/', scenesController.getAllScenes);
 router.delete('/adminScene/:id', scenesController.deleteScene);
+
+// posts routes
+router.post('/find', postsController.createPost); 
+router.get('/find', postsController.getAllPosts);
 
 
 module.exports = router;
