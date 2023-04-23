@@ -1,7 +1,7 @@
 
 body {
-    background-image: url('../public/backgroundimage1.png') ; 
-    /* background-color: rgba(0, 0, 0, 0.23);
+    /* background-image: url('../public/backgroundimage1.png') ;  */
+    background-color: rgba(0, 0, 0, 0.15);
     /* color: #6e06de */
     color: white;
     
@@ -10,7 +10,7 @@ body {
 
 .navbarContainer {
     position: fixed;
-    bottom: 20px;
+    bottom: 15px;
     left: 0;
     right: 0;
     /* background: rgba(233, 232, 255, 0.2); */

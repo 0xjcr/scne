@@ -54,7 +54,7 @@ const Topbar = ({ scene, onSceneChange }) => {
           icon={
             <Box sx={{ bgcolor: 'transparent', p: 1, paddingBottom: '5px' }}>
 
-              <UfoLogo width="80px" height="80px" />
+              <UfoLogo width="100px" height="100px" />
             </Box>
           }
           direction="left"
@@ -66,11 +66,11 @@ const Topbar = ({ scene, onSceneChange }) => {
             icon={'mixology'}
             tooltipTitle="mixology"
             sx={{
-              borderRadius: '4px',
+              borderRadius: '2px',
               width: '80px',
-              height: '30px',
+              height: '40px',
               minWidth: '80px',
-              bgcolor: 'rgba(233, 232, 255, 0.2)',
+              bgcolor: 'rgba(5, 0, 142, 0.1)',
               '&:hover': {
                 bgcolor: 'rgba(112, 255, 0, 0.5)',
               },
@@ -84,11 +84,11 @@ const Topbar = ({ scene, onSceneChange }) => {
             icon={'wellness'}
             tooltipTitle="wellness"
             sx={{
-              borderRadius: '4px',
+              borderRadius: '2px',
               width: '80px',
-              height: '30px',
+              height: '40px',
               minWidth: '80px',
-              bgcolor: 'rgba(233, 232, 255, 0.2)',
+              bgcolor: 'rgba(5, 0, 142, 0.1)',
               '&:hover': {
                 bgcolor: 'rgba(112, 255, 0, 0.5)',
               },
@@ -102,11 +102,11 @@ const Topbar = ({ scene, onSceneChange }) => {
             icon={'coffee'}
             tooltipTitle="coffee"
             sx={{
-              borderRadius: '4px',
+              borderRadius: '2px',
               width: '80px',
-              height: '30px',
+              height: '40px',
               minWidth: '80px',
-              bgcolor: 'rgba(233, 232, 255, 0.2)',
+              bgcolor: 'rgba(5, 0, 142, 0.1)',
               '&:hover': {
                 bgcolor: 'rgba(112, 255, 0, 0.5)',
               },
