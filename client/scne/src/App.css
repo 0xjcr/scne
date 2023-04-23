@@ -1,8 +1,9 @@
 
 body {
-    /* background-image: url('../public/backgroundimage1.png') ; */
-    background-color: lightgrey;
-    color: #6e06de
+    background-image: url('../public/backgroundimage1.png') ; 
+    /* background-color: rgba(0, 0, 0, 0.23);
+    /* color: #6e06de */
+    color: white;
     
     
 } 
@@ -320,3 +321,84 @@ padding: 2%;
     gap: 40%;
     
   } 
+
+  @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
+      .navbarContainer {
+        bottom: 0;
+        height: 6vh;
+        padding: 8%;
+      }
+      
+      .topbar {
+        top: 0;
+        height: 7vh;
+        padding-bottom: 7%;
+      }
+      
+      .topbarCity {
+        font-size: 3rem;
+      }
+    
+      .tile {
+        grid-template-rows: 6vh 20vh 6vh;
+        max-width:40vw;
+      }
+    
+      .listContainer {
+        padding-top: 6vh;
+       
+      }
+    
+      .list {
+        overflow-y: auto;
+        height: calc(100vh - 29vh);
+        grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+        }
+
+      .ranking {
+        font-size: 60px;
+      }
+    
+      .circleuser {
+        flex-basis: 20%;
+        max-height: 80px;
+        max-width: 80px;
+        min-height: 80px;
+        min-width: 80px;
+        font-size: 12px;
+      }
+    
+      .circleuser h3 {
+        font-size: 20px;
+      }
+      
+      .businessProfileContainer,
+      .userProfileContainer {
+        margin-top: 5%;
+        margin-left: 10%;
+        height: 85vh;
+        width: 80%;
+      }
+    
+      .busProfilePicCircle,
+      .userProfilePicCircle {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .busTileCircle {
+        width: 200px;
+        height: 200px;
+      }
+    
+      .login {
+        width: 60%;
+        height: 85vh;
+      }
+      
+      .yourProfile {
+        margin-top: -80px;
+      }
+    }
+  }
