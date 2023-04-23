@@ -28,9 +28,12 @@ const Login = () => {
 
   return (
     <div className="login">
-      <h1>SCNE</h1>
+      <p style={{fontSize: 100, margin:0}}>SCNE</p>
       <img src="../logo2.png" style={{ width: 250, height: 250 }} alt="" ></img>
-      <Button variant="contained" onClick={() => navigate('/join')}>
+      <Button 
+      sx={{backgroundColor:'#6e06de', fontSize:'20px',}}
+      variant="contained" 
+      onClick={() => navigate('/join')}>
         GET STARTED
       </Button>
     
@@ -40,6 +43,7 @@ const Login = () => {
         label="EMAIL"
         variant="outlined"
         value={email}
+        sx={{ width:'80%',}}
         onChange={(event) => setEmail(event.target.value)}
       />
       <TextField
@@ -47,10 +51,18 @@ const Login = () => {
         label="PASSWORD"
         variant="outlined"
         value={password}
+        sx={{ width:'80%',}}
         onChange={(event) => setPassword(event.target.value)}
       />
 
-      <Button type="submit" onClick={handleLogin} variant="outlined">
+      <Button 
+      sx={{
+        color:'#6e06de',
+        fontSize:'20px',
+        borderColor:'#6e06de',
+    }}
+      type="submit" 
+      onClick={handleLogin} variant="outlined">
         LOGIN
       </Button>
     </div>
