@@ -57,18 +57,19 @@ function SwipeableEdgeDrawer(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
+    <>
     <Root>
       <CssBaseline />
       <Global
         styles={{
           '.MuiDrawer-root > .MuiPaper-root': {
-            height: `calc(50% - ${drawerBleeding}px)`,
+            height: `calc(100% - ${drawerBleeding}px)`,
             overflow: 'visible',
           },
         }}
       />
       <Box sx={{ textAlign: 'center', pt: 1 }}>
-        <Button onClick={toggleDrawer(true)}>Open</Button>
+        <Button onClick={toggleDrawer(true)}>DISCOVER</Button>
       </Box>
       <SwipeableDrawer
         container={container}
@@ -106,8 +107,11 @@ function SwipeableEdgeDrawer(props) {
         >
           <Skeleton variant="rectangular" height="100%" />
         </StyledBox>
+        <Navbar></Navbar>
       </SwipeableDrawer>
+      
     </Root>
+    </>
   );
 }
 

@@ -1,8 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, useHistory }
 from 'react-router-dom';
-import { useEffect } from 'react';
-
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 // Pages
 import SceneCommunity from './pages/SceneCommunity';
@@ -17,16 +16,27 @@ import ProfileBusiness from './pages/ProfileBusiness';
 import Login from './pages/Login';
 
 
+const font =  "'Rajdhani', sans-serif";
+const theme = createTheme({
+  typography: {
+    fontFamily: font,
+    button: {
+      textTransform: "none",
+    },
+  },
+});
+
+
+
 function App() {
  
 
   
   return (
     <>
-    
+    <ThemeProvider theme={theme}>
     <Router>
     <Routes>
-     
      <Route path='/join' element={<SignUp />}/>
      <Route path='/joinbiz' element={<SignUpBusiness />}/>
      <Route path='/list' element={<SceneList />}/>
@@ -37,9 +47,8 @@ function App() {
      <Route path="/biz/:id" element={<ProfileBusiness />} />
      <Route path="/" element={<Login />} />
     </Routes>
-    
     </Router>
-    
+    </ThemeProvider>
     </>
   );
 }

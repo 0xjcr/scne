@@ -66,6 +66,7 @@ const Topbar = ({ scene, onSceneChange }) => {
             icon={'mixology'}
             tooltipTitle="mixology"
             sx={{
+              fontSize: '1.3rem',
               borderRadius: '2px',
               width: '80px',
               height: '40px',
@@ -84,6 +85,7 @@ const Topbar = ({ scene, onSceneChange }) => {
             icon={'wellness'}
             tooltipTitle="wellness"
             sx={{
+              fontSize: '1.3rem',
               borderRadius: '2px',
               width: '80px',
               height: '40px',
@@ -102,6 +104,7 @@ const Topbar = ({ scene, onSceneChange }) => {
             icon={'coffee'}
             tooltipTitle="coffee"
             sx={{
+              fontSize: '1.3rem',
               borderRadius: '2px',
               width: '80px',
               height: '40px',
