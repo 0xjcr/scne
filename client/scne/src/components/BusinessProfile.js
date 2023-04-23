@@ -48,6 +48,7 @@ const BusinessProfile = ({ name, bio, city, address, phone, reviewCount, ig, pho
                 reviewCount={user.reviewCount}
                 photo={user.photo}
                 clickable={true}
+                member={user.member}
               />
             ))}
           </div>

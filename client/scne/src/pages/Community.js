@@ -27,6 +27,7 @@ const Community = ({ scene }) => {
             firstName={user.firstName} // Change this line
             endorsed={user.endorsed}
             photo={user.photo}
+            member={user.member}
           />
         ))}
       </div>

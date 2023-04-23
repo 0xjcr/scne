@@ -92,6 +92,7 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => 
               reviewCount={user.reviewCount}
               photo={user.photo}
               clickable={false}
+              member={user.member}
             />
           ))}
         </div>

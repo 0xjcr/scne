@@ -4,7 +4,7 @@
 
 import { useNavigate } from 'react-router-dom';
 
-const CircleUser = ({ id, firstName, reviewCount, photo, clickable = true }) => {
+const CircleUser = ({ id, firstName, member, photo, clickable = true }) => {
   const navigate = useNavigate();
 
   const handleUserClick = () => {
@@ -14,7 +14,15 @@ const CircleUser = ({ id, firstName, reviewCount, photo, clickable = true }) => 
   };
 
   return (
-    <div className="circleuser" onClick={handleUserClick}>
+    <div
+      className="circleuser"
+      onClick={handleUserClick}
+      style={{
+        borderStyle: "solid",
+        borderWidth: member ? "2px" : "1px",
+        borderColor: member ? "rgba(112, 255, 0, 1)" : "white",
+      }}
+    >
       <img className="circleuser-image" src={photo} alt={firstName} />
     </div>
   );
