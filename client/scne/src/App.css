@@ -1,8 +1,7 @@
 
-
-
 body {
-    background-image: url('../public/backgroundimage1.png') ;
+    /* background-image: url('../public/backgroundimage1.png') ; */
+    background-color: lightgrey;
     color: #6e06de
     
     
@@ -81,7 +80,7 @@ body {
 
 .tile {
 display: grid;
-grid-template-rows: 8vh 10vh 10vh;
+grid-template-rows: 8vh 14vh 6vh;
 align-items: center;
 background: rgba(5, 0, 142, 0.2);
 box-shadow: rgba(110, 6, 222, 0.4) 0px 5px, rgba(110, 6, 222, 0.3) 0px 10px, rgba(110, 6, 222, 0.2) 0px 15px, rgba(110, 6, 222, 0.1) 0px 20px, rgba(110, 6, 222, 0.05) 0px 25px;
@@ -100,12 +99,19 @@ padding: 2%;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  
+  
 }
+
+.ranking {
+  font-size: 40px;
+}
+
 
 .middle-row {
   display: flex;
   justify-content: center;
-  margin-bottom: 2vh;
+  margin-bottom: 6vh;
   
 }
 
@@ -114,6 +120,7 @@ padding: 2%;
   align-items: flex-start;
   justify-content: flex-start;
   margin-right: 8px;
+  justify-content: space-around;
   
 }
 
@@ -121,6 +128,7 @@ padding: 2%;
   margin-right: 8px;
   margin-left: 8px;
   margin-bottom: 20px;
+  
 }
 
 .navicons {
@@ -238,9 +246,9 @@ padding: 2%;
 
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border-radius: 30%;
     overflow: hidden;
     box-shadow: rgba(112,255,0, 0.4) -5px 5px, rgba(112,255,0, 0.3) -10px 10px;
 
