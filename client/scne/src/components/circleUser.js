@@ -19,8 +19,9 @@ const CircleUser = ({ id, firstName, member, photo, clickable = true }) => {
       onClick={handleUserClick}
       style={{
         borderStyle: "solid",
-        borderWidth: member ? "2px" : "1px",
+        borderWidth: member ? "1px" : "1px",
         borderColor: member ? "rgba(112, 255, 0, 1)" : "white",
+        
       }}
     >
       <img className="circleuser-image" src={photo} alt={firstName} />
