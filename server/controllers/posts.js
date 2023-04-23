@@ -6,35 +6,32 @@ exports.createPost = async (req, res) => {
     const { content, event, comment, scene } = req.body;
   
     try {
-      const Posts = await Posts.create({ content, event, comment, scene });
-      res.status(201).json(posts);
+      const newPost = await Posts.create({ content, event, comment, scene });
+      res.status(201).json(newPost);
     } catch (err) {
       res.status(400).json({ message: err.message });
     }
-  };
+};
 
-  exports.deletePost = async (req, res) => {
+exports.deletePost = async (req, res) => {
     const { id } = req.body;
   
     try {
-      const Posts = await Posts.findByPk(id);
+      const postToDelete = await Posts.findByPk(id);
   
-      await Posts.destroy();
+      await postToDelete.destroy();
       res.status(204).json({ message: "Post deleted" });
     } catch (err) {
       res.status(400).json({ message: err.message });
     }
-  };
-
+};
 
 // get all Posts
 exports.getAllPosts = async (req, res) => {
     try {
-      const Posts = await Posts.findAll();
-      res.status(200).json(posts);
+      const allPosts = await Posts.findAll();
+      res.status(200).json(allPosts);
     } catch (err) {
       res.status(400).json({ message: err.message });
     }
-  };  
-
-  
+};
