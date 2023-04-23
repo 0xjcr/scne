@@ -56,7 +56,7 @@ const EditUser = () => {
   };
   return (
     <div className="editProfilePage">
-      <h2>EDIT PROFILE</h2>
+      <h1 style={{ textAlign: 'center' }}>EDIT PROFILE</h1>
       <div>
         <Box
           component="form"
@@ -66,6 +66,10 @@ const EditUser = () => {
           noValidate
           autoComplete="off"
           onSubmit={handleSubmit}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
         >
           
           <CloudinaryImageUpload userId={id} onUpload={handleImageUpload} isBusiness={false}></CloudinaryImageUpload>
@@ -90,7 +94,7 @@ const EditUser = () => {
           value={inputs.member}
           onChange={handleChange} />
 
-          <h4>JOIN SCENES NEAR YOU</h4>
+          <h4 style={{ textAlign: 'center' }}>JOIN SCENES NEAR YOU</h4>
           <Fab variant="extended" onClick={() => handleButtonClick('coffee')}>
             COFFEE
             <AddIcon sx={{ mr: 1 }} />
@@ -99,11 +103,17 @@ const EditUser = () => {
             WELLNESS
             <AddIcon sx={{ mr: 1 }} />
           </Fab>
-          <Fab variant="extended" onClick={() => handleButtonClick('mixology')}>
+          <Fab variant="extended" onClick={() => handleButtonClick('mixology')}
+          >
             MIXOLOGY
             <AddIcon sx={{ mr: 1 }} />
+            
           </Fab>
-          <Button type="submit" variant="contained">DONE</Button>
+          <Button type="submit" variant="contained" sx={{
+          backgroundColor: '#6e06de',
+          fontSize: 'larger',
+          '&:hover': { backgroundColor: '#4b03b5' },
+        }}>DONE</Button>
         </Box>
       </div>
     </div>
