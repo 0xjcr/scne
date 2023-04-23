@@ -51,6 +51,10 @@ const navigate = useNavigate();
           noValidate
           autoComplete="off"
           onSubmit={handleSubmit}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
         >
           <TextField
             id="outlined-basic-firstname"
@@ -99,11 +103,11 @@ const navigate = useNavigate();
           </Select>
           </FormControl>
             
-          <Button type="submit" variant="outlined">
+          <Button sx={{border:'2px solid #6e06de ', color:'#6e06de', }} type="submit" variant="outlined">
             CREATE
           </Button>
         </Box>
-        <Button onClick={handleBusinessClick} variant="text">FOR BUSINESS</Button>
+        <Button sx={{marginTop:'50px',width:'100%', fontSize:'25px', color:'#6e06de'}} onClick={handleBusinessClick} variant="text">ARE YOU A BUSINESS?</Button>
       </div>
     </>
   );

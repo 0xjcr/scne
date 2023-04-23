@@ -44,6 +44,10 @@ const SignUpBiz = ({setBusinessState}) => {
           noValidate
           autoComplete="off"
           onSubmit={handleSubmit}
+          display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
         >
           <TextField
             id="outlined-basic-name"
@@ -127,7 +131,7 @@ const SignUpBiz = ({setBusinessState}) => {
             value={inputs.bio}
             onChange={handleChange}
           />
-          <Button type="submit" variant="outlined">
+          <Button sx={{color:'#6e06de', border:'1px solid #6e06de'}}type="submit" variant="outlined">
             CREATE
           </Button>
         </Box>
