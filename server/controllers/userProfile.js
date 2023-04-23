@@ -4,6 +4,9 @@ const session = require('express-session');
 const sequelize = require('../models/users');
 const Users = sequelize.models.Users;
 
+const sequelizeBiz = require('../models/businesses');
+const Biz = sequelize.models.Biz;
+
 // create a user profile
 exports.createProfile = async (req, res) => {
   const { firstName, lastName, city, ig, email, password, bio,  } = req.body;
@@ -33,7 +36,7 @@ exports.login = async (req, res) => {
 const { email, password } = req.body;
 try {
 const user = await Users.findOne({ where: { email } });
-// const biz = await Biz.findOne({ where: { email } });
+ const biz = await Biz.findOne({ where: { email } });
 if (!user && !biz) {
 res.status(400).json({ message: 'Email not found' });
 } else if (user) {

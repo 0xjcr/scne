@@ -11,10 +11,13 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const { id } = await login(email, password);
-      if (id) {
-        localStorage.setItem('userId', id); // set user ID in session storage
-        navigate(`/profile/${id}`);
+      const { user, biz } = await login(email, password);
+      if (user) {
+        localStorage.setItem('userId', user.id);
+        navigate(`/profile/${user.id}`);
+      } else if (biz) {
+        localStorage.setItem('bizId', biz.id);
+        navigate(`/biz/${biz.id}`);
       } else {
         alert('😤');
       }

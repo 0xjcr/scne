@@ -8,6 +8,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { createBusiness } from '../api-service';
 import CloudinaryImageUpload from './CloudinaryImageUpload';
+import { useNavigate } from 'react-router-dom';
 
 
 const SignUpBiz = ({setBusinessState}) => {
@@ -16,11 +17,13 @@ const SignUpBiz = ({setBusinessState}) => {
     const handleChange = (event) => {
         setInputs({ ...inputs, [event.target.name]: event.target.value });
       };
+    const navigate = useNavigate();
 
       const handleSubmit = (event) => {
         event.preventDefault();
         createBusiness(inputs).then((newBusiness) => {
           setBusinessState((existingBusinesses) => [...existingBusinesses, newBusiness]);
+          navigate('list')
         });  
 
         setInputs({ name: '', city: '', address: '', phone:'', email: '', password: '', scene: 'coffee', photo:'', bio:'' });

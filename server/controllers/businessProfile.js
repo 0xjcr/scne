@@ -80,3 +80,35 @@ exports.deleteBusiness = async (req, res) => {
       res.status(400).json({ message: err.message });
     }
   };
+
+  // login 
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+  const user = await Users.findOne({ where: { email } });
+   const biz = await Biz.findOne({ where: { email } });
+  if (!user && !biz) {
+  res.status(400).json({ message: 'Email not found' });
+  } else if (user) {
+  // Check if the passwords match
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (isMatch) {
+  req.session.user = user;
+  res.status(200).json({ message: 'Logged in successfully', user });
+  } else {
+  res.status(400).json({ message: 'Invalid password' });
+  }
+  } else if (biz) {
+  // Check if the passwords match
+  const isMatch = await bcrypt.compare(password, biz.password);
+  if (isMatch) {
+  req.session.biz = biz;
+  res.status(200).json({ message: 'Logged in successfully', biz });
+  } else {
+  res.status(400).json({ message: 'Invalid password' });
+  }
+  }
+  } catch (err) {
+  res.status(400).json({ message: err.message });
+  }
+  };
