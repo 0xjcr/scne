@@ -1,6 +1,7 @@
 const {DataTypes } = require('sequelize');
 const sequelize = require('./index');
 
+
 const Users = sequelize.define('Users', {
     
     firstName: {
@@ -52,9 +53,31 @@ const Users = sequelize.define('Users', {
     },
     scene2: {
         type: DataTypes.STRING,
-    },
-       
+    }
 });
 
+const UserPosts = sequelize.define('UserPosts', {
+    
+    content: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    event: {
+        type: DataTypes.BOOLEAN,
+    },
+    comment: {
+        type: DataTypes.BOOLEAN,
+    },
+    scene: {
+        type: DataTypes.STRING,
+    }
+
+});
+
+
+Users.hasMany(UserPosts, { as: 'posts', foreignKey: 'userId' });
+UserPosts.belongsTo(Users, { foreignKey: 'userPostId' });
+
 module.exports = sequelize.models.Users;
+module.exports = sequelize.models.Posts;
 module.exports = sequelize;

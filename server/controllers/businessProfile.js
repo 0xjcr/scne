@@ -1,5 +1,6 @@
 const sequelize = require('../models/businesses');
 const Biz = sequelize.models.Biz;
+const Users = sequelize.models.Users;
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 

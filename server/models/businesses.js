@@ -1,4 +1,4 @@
-const {DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('./index');
 
 const Biz = sequelize.define('Biz', {
@@ -48,5 +48,27 @@ const Biz = sequelize.define('Biz', {
 
 });
 
+const BizPosts = sequelize.define('BizPosts', {
+    
+    content: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    event: {
+        type: DataTypes.BOOLEAN,
+    },
+    comment: {
+        type: DataTypes.BOOLEAN,
+    },
+    scene: {
+        type: DataTypes.STRING,
+    }
+
+});
+
+Biz.hasMany(BizPosts, { as: 'bizPosts', foreignKey: 'bizId' });
+BizPosts.belongsTo(Biz, { foreignKey: 'bizPostId' });
+
 module.exports = sequelize.models.Biz;
+module.exports = sequelize.models.BizPosts;
 module.exports = sequelize;
