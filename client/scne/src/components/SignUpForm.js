@@ -27,7 +27,7 @@ const navigate = useNavigate();
     event.preventDefault();
     createProfile(inputs).then((newUser) => {
       setUserState((existingUsers) => [...existingUsers, newUser]);
-    }).then(navigate('/profile'));
+    }).then(navigate('/'));
 
     setInputs({ firstName: '', lastName: '', email: '', password: '', city: '' });
   };
