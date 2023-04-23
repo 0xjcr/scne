@@ -18,6 +18,7 @@ const Navbar = ({ scene, onSceneChange }) => {
         <div className="navbar">
           <Link to="/list">
             <Avatar sx={{
+        border: '1px solid rgba(112, 255, 0, 1)',      
         bgcolor: 'rgba(5, 0, 142, 0.1)',
       }} className="navicons">
               <FormatListNumberedIcon sx={{ color: '#6e06de' }}/>
@@ -25,6 +26,7 @@ const Navbar = ({ scene, onSceneChange }) => {
           </Link>
           <Link to="/community">
             <Avatar sx={{
+              border: '1px solid rgba(112, 255, 0, 1)', 
         bgcolor: 'rgba(5, 0, 142, 0.1)',
       }} className="navicons">
               <PeopleIcon sx={{ color: '#6e06de' }}/>
@@ -32,6 +34,7 @@ const Navbar = ({ scene, onSceneChange }) => {
           </Link>
           <Link to="/find">
             <Avatar sx={{
+              border: '1px solid rgba(112, 255, 0, 1)', 
         bgcolor: 'rgba(5, 0, 142, 0.1)',
       }} className="navicons">
               <ExploreIcon sx={{ color: '#6e06de' }}/>
@@ -39,6 +42,7 @@ const Navbar = ({ scene, onSceneChange }) => {
           </Link>
           <Link to={`/profile/${id}`}>
             <Avatar sx={{
+              border: '1px solid rgba(112, 255, 0, 1)', 
         bgcolor: 'rgba(5, 0, 142, 0.1)',
       }} className="navicons">
               <AccountCircleIcon sx={{ color: '#6e06de' }}/>

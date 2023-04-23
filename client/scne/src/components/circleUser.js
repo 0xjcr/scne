@@ -4,7 +4,7 @@
 
 import { useNavigate } from 'react-router-dom';
 
-const CircleUser = ({ id, firstName, member, photo, clickable = true }) => {
+const CircleUser = ({ id, firstName, member, photo, clickable = true, scale = 1 }) => {
   const navigate = useNavigate();
 
   const handleUserClick = () => {
@@ -12,6 +12,8 @@ const CircleUser = ({ id, firstName, member, photo, clickable = true }) => {
       navigate(`/profile/${id}`);
     }
   };
+
+  const scaledMargin = 14 * scale;
 
   return (
     <div
@@ -21,6 +23,8 @@ const CircleUser = ({ id, firstName, member, photo, clickable = true }) => {
         borderStyle: "solid",
         borderWidth: member ? "1px" : "1px",
         borderColor: member ? "rgba(112, 255, 0, 1)" : "white",
+        transform: `scale(${scale})`,
+        margin: `${scaledMargin}px`,
         
       }}
     >

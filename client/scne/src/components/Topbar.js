@@ -52,9 +52,9 @@ const Topbar = ({ scene, onSceneChange }) => {
         <StyledSpeedDial
           ariaLabel="SpeedDial"
           icon={
-            <Box sx={{ bgcolor: 'transparent', p: 1, paddingBottom: '5px' }}>
+            <Box sx={{ bgcolor: 'transparent', p: 1 }}>
 
-              <UfoLogo width="100px" height="100px" />
+              <UfoLogo width="100px" height="100px"/>
             </Box>
           }
           direction="left"

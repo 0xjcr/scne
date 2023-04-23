@@ -28,6 +28,7 @@ const Community = ({ scene }) => {
             endorsed={user.endorsed}
             photo={user.photo}
             member={user.member}
+            scale={1.5}
           />
         ))}
       </div>
