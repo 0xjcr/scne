@@ -38,10 +38,10 @@ router.delete('/adminScene/:id', scenesController.deleteScene);
 
 //posts routes
 router.get('/feed', postsController.getAllPosts);
-router.post('/user', postsController.createUserPost); 
-router.post('/feed', postsController.createBizPost); 
-router.delete('/user', postsController.deletePost);
+router.post('/feed', postsController.createUserPost); 
+router.post('/feedbiz', postsController.createBizPost); 
+// router.delete('/user', postsController.deletePost);
 // router.get('/feed', postsController.getAllPosts);
-router.delete('/biz', postsController.deletePost);
+// router.delete('/biz', postsController.deletePost);
 
 module.exports = router;

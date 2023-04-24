@@ -73,6 +73,8 @@ const BizPosts = sequelize.define('BizPosts', {
 Biz.hasMany(BizPosts, { as: 'bizPosts', foreignKey: 'bizId' });
 BizPosts.belongsTo(Biz, { foreignKey: 'bizPostId' });
 
-module.exports = sequelize.models.Biz;
-module.exports = sequelize.models.BizPosts;
+// module.exports = {
+//     Biz: sequelize.models.Biz,
+//     BizPosts: sequelize.models.BizPosts,
+// }
 module.exports = sequelize;

@@ -1,5 +1,9 @@
-const sequelize = require('../models/posts');
-const { Users, Biz, UserPosts, BizPosts  } = require('../models');
+const sequelize = require('../models/users');
+const {UserPosts, Users} = sequelize.models;
+const {BizPosts, Biz} = sequelize.models;
+
+
+
 
 
 
@@ -10,11 +14,11 @@ exports.createUserPost = async (req, res) => {
         content: req.body.content,
         event: req.body.event,
         comment: req.body.comment,
-        scene: req.body.scene
+        scene: req.body.scene,
+        postPhoto: req.body.postPhoto
       });
 
       
-  
       // Associate the post with a user
       if (req.body.userId) {
         const user = await Users.findByPk(req.body.userId);
@@ -38,13 +42,16 @@ exports.createUserPost = async (req, res) => {
     }
   };
 
+
+
   exports.createBizPost = async (req, res) => {
     try {
       const post = await BizPosts.create({
         content: req.body.content,
         event: req.body.event,
         comment: req.body.comment,
-        scene: req.body.scene
+        scene: req.body.scene,
+        postPhoto: req.body.postPhoto
       });
 
       
