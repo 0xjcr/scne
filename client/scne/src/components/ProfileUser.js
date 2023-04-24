@@ -37,9 +37,21 @@ const ProfileUser = () => {
   };
 
   const handleLogout = async () => {
-    navigate(`/logout`)
-    await logout();
-    ;
+    try {
+      
+      await navigate('/logout');
+  
+      
+      await logout();
+  
+      
+      localStorage.removeItem('user');
+    } catch (error) {
+      console.error('Error during logout:', error);
+    
+  };
+    
+    
   };
 
   if (!user) {
