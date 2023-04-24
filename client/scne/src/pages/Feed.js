@@ -26,15 +26,15 @@ const Feed = () => {
 
   const [postState, setPostState] = useState([]);
 
-  // useEffect(() => {
-  //   getAllPosts().then((res) => {
-  //     if (Array.isArray(res)) {
-  //       setPostState(res);
-  //     } else {
-  //       console.error('API response is not an array');
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    getAllPosts().then((res) => {
+      if (Array.isArray(res)) {
+        setPostState(res);
+      } else {
+        console.error('API response is not an array');
+      }
+    });
+  }, []);
 
   const handleCreatePostClick = () => {
     navigate(`/addpost/`);

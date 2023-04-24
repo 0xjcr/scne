@@ -89,17 +89,30 @@ exports.deletePost = async (req, res) => {
 // get all Posts
 exports.getAllPosts = async (req, res) => {
     try {
-      const allPosts = await UserPosts.findAll({
+      const userPosts = await UserPosts.findAll({
         include: [
-          { model: Users,
-        as: 'user' },
-        ]
-      }).concat(await BizPosts.findAll({
+          {
+            model: Users,
+            as: 'user',
+          },
+        ],
+      });
+  
+      const bizPosts = await BizPosts.findAll({
         include: [
-          { model: Biz,
-        as: 'biz' }
-        ]
-      }));
+          {
+            model: Biz,
+            as: 'biz',
+          },
+        ],
+      });
+  
+      // Combine UserPosts and BizPosts using the spread operator
+      const allPosts = [...userPosts, ...bizPosts];
+  
+      
+      allPosts.sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+  
       res.status(200).json(allPosts);
     } catch (err) {
       res.status(400).json({ message: err.message });
