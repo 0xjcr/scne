@@ -70,7 +70,7 @@ const BizPosts = sequelize.define('BizPosts', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'Bizs',
+            model: Bizs,
             key: 'id'
         }
     }

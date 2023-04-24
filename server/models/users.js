@@ -78,7 +78,7 @@ const UserPosts = sequelize.define('UserPosts', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'Users',
+            model: Users,
             key: 'id'
         }
     }

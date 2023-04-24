@@ -1,9 +1,6 @@
 const sequelize = require('../models/users');
 const {UserPosts, Users} = sequelize.models;
-const {BizPosts, Biz} = sequelize.models;
-
-
-
+const {BizPosts, Bizs} = sequelize.models;
 
 
 
@@ -101,7 +98,7 @@ exports.getAllPosts = async (req, res) => {
       const bizPosts = await BizPosts.findAll({
         include: [
           {
-            model: Biz,
+            model: Bizs,
             as: 'biz',
           },
         ],
