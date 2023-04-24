@@ -10,6 +10,7 @@ const Navbar = ({ scene, onSceneChange }) => {
   const id = localStorage.getItem('userId');
   const isBusiness = localStorage.getItem('bizId') === 'true';
 
+
   const handleChange = (value) => {
     onSceneChange(value);
   };
@@ -43,7 +44,7 @@ const Navbar = ({ scene, onSceneChange }) => {
             </Avatar>
           </Link>
           { (
-            <Link to={`/biz/${id}`}>
+            <Link to={`/biz/${localStorage.bizId}`}>
               <Avatar sx={{
                 border: '1px solid rgba(112, 255, 0, 1)',
                 bgcolor: 'rgba(5, 0, 142, 0.1)',
