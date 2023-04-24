@@ -14,10 +14,14 @@ const Login = () => {
       const { user, bizs } = await login(email, password);
       if (user) {
         localStorage.setItem('userId', user.id);
+        console.log(localStorage);
         navigate(`/profile/${user.id}`);
       } else if (bizs) {
+// 
+
         localStorage.setItem('bizId', bizs.id);
-        navigate(`/biz/${bizs.id}`);
+        navigate(`/biz/${bizs.id}`)
+        console.log(localStorage);
       } else {
         alert('😤');
       }
