@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Post from '../components/Post';
@@ -6,8 +6,9 @@ import { getAllPosts } from '../api-service';
 import Topbar from '../components/Topbar';
 import Button from '@mui/material/Button';
 
-
+const PostContext = createContext();
 const Feed = () => {
+  
   const navigate = useNavigate();
 
   const storedScene = localStorage.getItem("scene");
@@ -41,13 +42,15 @@ const Feed = () => {
   };
 
   return (
+    <PostContext.Provider value={setPostState}>
+<Topbar scene={scene} onSceneChange={handleSceneChange}/>
+ <Button variant="contained" sx={{marginTop:'12vh',width:'70vw', height: '5vh' , fontSize:'25px', marginLeft:'15vw', backgroundColor: '#6e06de'}} onClick={handleCreatePostClick} >CREATE A POST</Button>
     <div>
-      <Topbar scene={scene} onSceneChange={handleSceneChange}/>
       <div className="feedContainer">
-      <Button variant="contained" sx={{marginTop:'12vh',width:'70vw', height: '5vh' , fontSize:'25px', marginLeft:'15vw', backgroundColor: '#6e06de'}} onClick={handleCreatePostClick} >CREATE A POST</Button>
+      
       </div>
       {postState.map((post, index) => (
-        <div key={post.id} onClick={() => handleCreatePostClick(post.id)}>
+        <div>
           <Post
             id={post.id}
             content={post.content}
@@ -64,7 +67,9 @@ const Feed = () => {
       
       <Navbar />
     </div>
+    </PostContext.Provider>
   );
 };
 
 export default Feed;
+export { PostContext };

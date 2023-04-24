@@ -155,7 +155,7 @@ exports.getAllBusinesses = async () => {
   // Create a user post
 exports.createUserPost = async (postDetails) => {
   try {
-    const response = await fetch('http://localhost:3333/userposts', {
+    const response = await fetch('http://localhost:3333/addpost', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -171,7 +171,7 @@ exports.createUserPost = async (postDetails) => {
 // Create a biz post
 exports.createBizPost = async (postDetails) => {
   try {
-    const response = await fetch('http://localhost:3333/bizposts', {
+    const response = await fetch('http://localhost:3333/addpost', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
