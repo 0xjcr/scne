@@ -5,7 +5,7 @@ const sequelize = require('../models/users');
 const Users = sequelize.models.Users;
 
 const sequelizeBiz = require('../models/businesses');
-const Biz = sequelize.models.Biz;
+const Bizs = sequelize.models.Bizs;
 
 // create a user profile
 exports.createProfile = async (req, res) => {
@@ -36,8 +36,8 @@ exports.login = async (req, res) => {
 const { email, password } = req.body;
 try {
 const user = await Users.findOne({ where: { email } });
- const biz = await Biz.findOne({ where: { email } });
-if (!user && !biz) {
+ const bizs = await Bizs.findOne({ where: { email } });
+if (!user && !bizs) {
 res.status(400).json({ message: 'Email not found' });
 } else if (user) {
 // Check if the passwords match
@@ -48,12 +48,12 @@ res.status(200).json({ message: 'Logged in successfully', user });
 } else {
 res.status(400).json({ message: 'Invalid password' });
 }
-} else if (biz) {
+} else if (bizs) {
 // Check if the passwords match
-const isMatch = await bcrypt.compare(password, biz.password);
+const isMatch = await bcrypt.compare(password, bizs.password);
 if (isMatch) {
-req.session.biz = biz;
-res.status(200).json({ message: 'Logged in successfully', biz });
+req.session.bizs = bizs;
+res.status(200).json({ message: 'Logged in successfully', bizs });
 } else {
 res.status(400).json({ message: 'Invalid password' });
 }

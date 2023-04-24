@@ -32,8 +32,8 @@ const PostForm = () => {
     const loggedInUserId = localStorage.getItem('userId');
     const newPost = { ...inputs, userId: loggedInUserId };
     createUserPost(newPost).then((newPost) => {
-      setPostState((existingPosts) => [...existingPosts, newPost]);
-      navigate('/feed');
+      setPostState((existingPosts) => [...existingPosts, newPost]).then(navigate('/feed'))
+      
     });
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };

@@ -11,13 +11,13 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const { user, biz } = await login(email, password);
+      const { user, bizs } = await login(email, password);
       if (user) {
         localStorage.setItem('userId', user.id);
         navigate(`/profile/${user.id}`);
-      } else if (biz) {
-        localStorage.setItem('bizId', biz.id);
-        navigate(`/biz/${biz.id}`);
+      } else if (bizs) {
+        localStorage.setItem('bizId', bizs.id);
+        navigate(`/biz/${bizs.id}`);
       } else {
         alert('😤');
       }
