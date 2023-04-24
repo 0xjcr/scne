@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 
 const CircleUser = ({ id,userId, firstName, member, photo,  clickable = true, scale = 1 }) => {

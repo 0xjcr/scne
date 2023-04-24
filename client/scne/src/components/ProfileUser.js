@@ -1,4 +1,4 @@
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getProfile, updateProfileAlt, logout } from '../api-service';
 import { Divider, Chip } from '@mui/material';
