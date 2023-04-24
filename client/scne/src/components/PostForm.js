@@ -17,6 +17,7 @@ import { createUserPost } from '../api-service';
 import { PostContext } from '../pages/Feed';
 
 const PostForm = () => {
+
     const setPostState = useContext(PostContext);
   const [inputs, setInputs] = useState({ content: '', event: false, comment: false, scene: '', postPhoto: '' });
 
@@ -28,11 +29,12 @@ const PostForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createUserPost(inputs).then((newPost) => {
+    const loggedInUserId = localStorage.getItem('userId');
+    const newPost = { ...inputs, userId: loggedInUserId };
+    createUserPost(newPost).then((newPost) => {
       setPostState((existingPosts) => [...existingPosts, newPost]);
-      navigate('feed');
+      navigate('/feed');
     });
-
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
 

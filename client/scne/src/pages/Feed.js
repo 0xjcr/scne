@@ -42,7 +42,7 @@ const Feed = () => {
   };
 
   return (
-    <PostContext.Provider value={setPostState}>
+    <PostContext.Provider value={postState, setPostState}>
 <Topbar scene={scene} onSceneChange={handleSceneChange}/>
  <Button variant="contained" sx={{marginTop:'12vh',width:'70vw', height: '5vh' , fontSize:'25px', marginLeft:'15vw', backgroundColor: '#6e06de'}} onClick={handleCreatePostClick} >CREATE A POST</Button>
     <div>
