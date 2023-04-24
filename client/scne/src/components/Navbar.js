@@ -21,7 +21,7 @@ const Navbar = ({ scene, onSceneChange }) => {
         <div className="navbar">
           <Link to="/list">
             <Avatar sx={{
-              border: '1px solid rgba(112, 255, 0, 1)',
+              border: '1.5px solid white',
               bgcolor: 'rgba(5, 0, 142, 0.1)',
             }} className="navicons">
               <FormatListNumberedIcon sx={{ color: '#6e06de' }} />
@@ -29,7 +29,7 @@ const Navbar = ({ scene, onSceneChange }) => {
           </Link>
           <Link to="/community">
             <Avatar sx={{
-              border: '1px solid rgba(112, 255, 0, 1)',
+              border: '1.5px solid white',
               bgcolor: 'rgba(5, 0, 142, 0.1)',
             }} className="navicons">
               <PeopleIcon sx={{ color: '#6e06de' }} />
@@ -37,7 +37,7 @@ const Navbar = ({ scene, onSceneChange }) => {
           </Link>
           <Link to="/feed">
             <Avatar sx={{
-              border: '1px solid rgba(112, 255, 0, 1)',
+              border: '1.5px solid white',
               bgcolor: 'rgba(5, 0, 142, 0.1)',
             }} className="navicons">
               <FeedIcon sx={{ color: '#6e06de' }} />
@@ -46,7 +46,7 @@ const Navbar = ({ scene, onSceneChange }) => {
           { localStorage.getItem('bizId') && (
             <Link to={`/biz/${localStorage.bizId}`}>
               <Avatar sx={{
-                border: '1px solid rgba(112, 255, 0, 1)',
+                border: '1.5px solid white',
                 bgcolor: 'rgba(5, 0, 142, 0.1)',
               }} className="navicons">
                 <BusinessIcon sx={{ color: '#6e06de' }} />

@@ -7,6 +7,7 @@ import { getAllProfiles, updateUpvote } from '../api-service';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
+import backgroundImage from '../pages/bgimages/Untitled design (1).svg';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-root': {
@@ -47,7 +48,12 @@ const AltTile = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => {
     };
   
     return (
-        <Card sx={{ maxWidth: '90vw', margin: '5vw'}}>
+        <Card sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', backgroundImage: `url(${backgroundImage})` }}>
+
+{/* <Card sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', backgroundColor: 'white'}}>
+ */}
+
+
         <CardActionArea>
           <CardMedia
            
@@ -94,6 +100,8 @@ const AltTile = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => {
                 photo={user.photo}
                 clickable={false}
                 member={user.member}
+                scale={1.25}
+                border={'5px solid'}
               />
             ))}
           </div>
