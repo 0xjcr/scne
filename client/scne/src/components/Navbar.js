@@ -32,7 +32,7 @@ const Navbar = ({ scene, onSceneChange }) => {
               <PeopleIcon sx={{ color: '#6e06de' }}/>
             </Avatar>
           </Link>
-          <Link to="/find">
+          <Link to="/feed">
             <Avatar sx={{
               border: '1px solid rgba(112, 255, 0, 1)', 
         bgcolor: 'rgba(5, 0, 142, 0.1)',

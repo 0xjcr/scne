@@ -151,3 +151,68 @@ exports.getAllBusinesses = async () => {
     const response = await fetch(`http://localhost:3333/biz/${id}`);
     return await response.json();
   };
+
+  // Create a user post
+exports.createUserPost = async (postDetails) => {
+  try {
+    const response = await fetch('http://localhost:3333/userposts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postDetails),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+// Create a biz post
+exports.createBizPost = async (postDetails) => {
+  try {
+    const response = await fetch('http://localhost:3333/bizposts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postDetails),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+// Delete a post
+exports.deletePost = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:3333/posts/${id}`, {
+      method: 'DELETE',
+    });
+    return await response.json();
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+// Get all posts
+exports.getAllPosts = async () => {
+  try {
+    const response = await fetch('http://localhost:3333/feed', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    // Combine UserPosts and BizPosts into a single array with consistent keys
+    const combinedPosts = data.map((post) => {
+      const { id, content, event, comment, scene, postPhoto } = post;
+      return { id, content, event, comment, scene, postPhoto };
+    });
+    return combinedPosts;
+  } catch (error) {
+    console.error('error', error);
+  }
+};

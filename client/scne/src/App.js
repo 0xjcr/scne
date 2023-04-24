@@ -5,7 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 // Pages
 import SceneCommunity from './pages/SceneCommunity';
-import Find from './pages/Find';
+import Feed from './pages/Feed';
 import SceneList from './pages/SceneList';
 // import Map from './pages/Map';
 import Profile from './pages/Profile';
@@ -40,7 +40,7 @@ function App() {
      <Route path='/join' element={<SignUp />}/>
      <Route path='/joinbiz' element={<SignUpBusiness />}/>
      <Route path='/list' element={<SceneList />}/>
-     <Route path='/find' element={<Find />}/>
+     <Route path='/feed' element={<Feed />}/>
      <Route path='/community' element={<SceneCommunity />}/>
      <Route path='/editprofile/:id' element={<EditUserProfile />}/>
      <Route path="/profile/:id" element={<Profile />} />

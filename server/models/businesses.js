@@ -62,6 +62,9 @@ const BizPosts = sequelize.define('BizPosts', {
     },
     scene: {
         type: DataTypes.STRING,
+    },
+    postPhoto: {
+        type: DataTypes.STRING,
     }
 
 });

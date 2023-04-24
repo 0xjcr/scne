@@ -1,5 +1,4 @@
 import Navbar from "../components/Navbar";
-import Topbar from "../components/Topbar";
 import CircleUser from "../components/CircleUser";
 import { useState, useEffect } from 'react';
 import { getAllProfiles } from "../api-service";

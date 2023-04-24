@@ -70,7 +70,10 @@ const UserPosts = sequelize.define('UserPosts', {
     },
     scene: {
         type: DataTypes.STRING,
-    }
+    },
+    postPhoto: {
+        type: DataTypes.STRING,
+    },
 
 });
 
