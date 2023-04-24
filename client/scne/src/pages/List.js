@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import TileBusiness from '../components/TileBusiness';
 import { useState, useEffect } from 'react';
 import { getAllBusinesses, updateUpvote } from "../api-service";
+import AltTile from "../components/AltTile";
 
 
 const List = ({ scene }) => {
@@ -40,7 +41,7 @@ const List = ({ scene }) => {
       <div className="list">
         {filteredAndSortedBiz.map((biz, index) => (
           <div key={biz.id} onClick={() => handleBusinessClick(biz.id)}>
-            <TileBusiness
+            <AltTile
               id={biz.id}
               name={biz.name}
               upvotes={biz.upvotes}

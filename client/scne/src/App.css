@@ -4,10 +4,11 @@
   font-family: 'Rajdhani', sans-serif;
 }
 body {
-    background-image: url('../public/backgroundimage1.png') ; 
+    /* background-image: url('../public/backgroundimage1.png');  */
     /* background-color: rgba(0, 0, 0, 0.15); */
-    color: #6e06de;
-    /* color: white; */
+    background-color: rgba(0, 0, 0, 0.85); 
+    /* color: #6e06de; */
+    color: white;
     
 } 
 
@@ -16,7 +17,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: lightgray;
+    background-color: white;
     /* box-shadow: 0 8px 0 0 rgba( 31, 38, 135, 0.37 ); */
     /* backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
@@ -47,7 +48,7 @@ body {
     left: 0;
     right: 0;
     height: 4.5vh;
-    background: lightgray;
+    background: white;
     /* box-shadow: 0 8px 0 0 rgba( 31, 38, 135, 0.37 ); */
     /* backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
@@ -64,9 +65,7 @@ body {
   .topbarCity {
     display: flex;
     margin-top: 0px;
-
     font-size: 2rem;
-
   }
   
 .editProfilePage {
@@ -85,7 +84,7 @@ grid-template-rows: 8vh 14vh 6vh;
 align-items: center;
 background: rgba(5, 0, 142, 0.2);
 
-box-shadow: rgba(110, 6, 222, 0.4) 0px 5px, rgba(110, 6, 222, 0.3) 0px 10px, rgba(110, 6, 222, 0.2) 0px 15px, rgba(110, 6, 222, 0.1) 0px 20px, rgba(110, 6, 222, 0.05) 0px 25px;
+/* box-shadow: rgba(110, 6, 222, 0.4) 0px 5px, rgba(110, 6, 222, 0.3) 0px 10px, rgba(110, 6, 222, 0.2) 0px 15px, rgba(110, 6, 222, 0.1) 0px 20px, rgba(110, 6, 222, 0.05) 0px 25px; */
 backdrop-filter: blur( 4.5px );
 -webkit-backdrop-filter: blur( 4.5px );
 border-radius: 10px;

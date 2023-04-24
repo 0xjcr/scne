@@ -72,7 +72,7 @@ const TileBusiness = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => 
         </div>
         <div className="middle-row">
   {ranking < 11 ? (
-    <StyledBadge badgeContent={ranking} color="secondary">
+    <StyledBadge badgeContent={`#` + ranking} color="secondary">
       <div className="busTileCircle">
         <img className="busTilePic" src={photo} alt={'hello'} />
       </div>

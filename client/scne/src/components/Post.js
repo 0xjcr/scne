@@ -13,7 +13,7 @@ const Post = ({ photo, id, content, event, comment, scene, postPhoto, user }) =>
       <div className="postTile" style={tileStyle}>
         <CircleUser user={user} />
         {/* <img src={(user.photo) || photo} alt="" /> */}
-        {postPhoto && <img style={{ width: '80%', height: '80%', borderRadius: '10px', border: '1px solid white', margin: '10px' }} src={postPhoto} alt="" />}
+        {postPhoto && <img style={{ width: '90%', height: '90%', borderRadius: '10px', border: '1px solid white', margin: '10px' }} src={postPhoto} alt="" />}
         <div style={{ margin: '10px'}} >{content}</div>
       </div>
     );
