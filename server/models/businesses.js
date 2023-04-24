@@ -65,13 +65,21 @@ const BizPosts = sequelize.define('BizPosts', {
     },
     postPhoto: {
         type: DataTypes.STRING,
+    },
+    bizId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'Biz',
+            key: 'id'
+        }
     }
 
 });
 
 
-Biz.hasMany(BizPosts, { as: 'bizPosts', foreignKey: 'bizId' });
-BizPosts.belongsTo(Biz, { foreignKey: 'bizPostId' });
+Biz.hasMany(BizPosts, { as: 'bizPosts', foreignKey: 'bizId', onDelete: 'CASCADE' });
+BizPosts.belongsTo(Biz, { foreignKey: 'bizPostId', as: 'user', onDelete: 'CASCADE' });
 
 // module.exports = {
 //     Biz: sequelize.models.Biz,

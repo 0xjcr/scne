@@ -74,12 +74,20 @@ const UserPosts = sequelize.define('UserPosts', {
     postPhoto: {
         type: DataTypes.STRING,
     },
+    userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'Users',
+            key: 'id'
+        }
+    }
 
 });
 
 
-Users.hasMany(UserPosts, { as: 'posts', foreignKey: 'userId' });
-UserPosts.belongsTo(Users, { foreignKey: 'userPostId' });
+Users.hasMany(UserPosts, { as: 'posts', foreignKey: 'userId', onDelete: 'CASCADE' });
+UserPosts.belongsTo(Users, { foreignKey: 'userId', as: 'user', onDelete: 'CASCADE' });
 
 // module.exports = {
 //     Users: sequelize.models.Users,

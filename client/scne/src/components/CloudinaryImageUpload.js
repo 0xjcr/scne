@@ -44,7 +44,7 @@ const CloudinaryImageUpload = ({ userId, isBusiness, onUpload }) => {
       {loading ? (
         <h3>Loading...</h3>
       ) : (
-        <img src={image} style={{ width: '300px' }} alt="" />
+        <img src={image} style={{ width: '100px', height: '100px', borderRadius:'50%', marginTop: '5px' }} alt="" />
       )}
     </div>
   );

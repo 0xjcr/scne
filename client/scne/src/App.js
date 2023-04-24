@@ -14,6 +14,7 @@ import SignUpBusiness from './pages/SignUpBusiness';
 import EditUserProfile from './pages/EditUserProfile';
 import ProfileBusiness from './pages/ProfileBusiness';
 import Login from './pages/Login';
+import PostForm from './components/PostForm';
 
 
 const font =  "'Rajdhani', sans-serif";
@@ -46,6 +47,7 @@ function App() {
      <Route path="/profile/:id" element={<Profile />} />
      <Route path="/biz/:id" element={<ProfileBusiness />} />
      <Route path="/" element={<Login />} />
+     <Route path='/addpost' element={<PostForm />}/>
     </Routes>
     </Router>
     </ThemeProvider>

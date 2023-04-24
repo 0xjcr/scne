@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import Post from '../components/Post';
 import { getAllPosts } from '../api-service';
 import Topbar from '../components/Topbar';
+import Button from '@mui/material/Button';
+
 
 const Feed = () => {
 
@@ -21,35 +23,40 @@ const Feed = () => {
 
   const [postState, setPostState] = useState([]);
 
-  useEffect(() => {
-    getAllPosts().then((res) => {
-      if (Array.isArray(res)) {
-        setPostState(res);
-      } else {
-        console.error('API response is not an array');
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   getAllPosts().then((res) => {
+  //     if (Array.isArray(res)) {
+  //       setPostState(res);
+  //     } else {
+  //       console.error('API response is not an array');
+  //     }
+  //   });
+  // }, []);
 
-  const handlePostClick = (id) => {
-    navigate(`/posts/${id}`);
+  const handleCreatePostClick = () => {
+    navigate(`/addpost/`);
   };
 
   return (
     <div>
       <Topbar scene={scene} onSceneChange={handleSceneChange}/>
+      <div className="feedContainer">
+      <Button variant="contained" sx={{marginTop:'12vh',width:'70vw', height: '5vh' , fontSize:'25px', marginLeft:'15vw', backgroundColor: '#6e06de'}} onClick={handleCreatePostClick} >CREATE A POST</Button>
+      </div>
       {postState.map((post, index) => (
-        <div key={post.id} onClick={() => handlePostClick(post.id)}>
-          <Post
+        <div key={post.id} onClick={() => handleCreatePostClick(post.id)}>
+          {/* <Post
             id={post.id}
             content={post.content}
             event={post.event}
             comment={post.comment}
             scene={post.scene}
             postPhoto={post.postPhoto}
-          />
+          /> */}
+          
         </div>
       ))}
+      
       <Navbar />
     </div>
   );
