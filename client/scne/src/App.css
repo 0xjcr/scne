@@ -356,21 +356,17 @@ font-size: 20px;
   } 
 
 .createPost{
-/* position: fixed; */
-top: 50px;
+margin-bottom: 10px;
+
   
 }
   .feedContainer {
     position: fixed;
     overflow: auto;
-    max-height: calc(80vh - 64px);
+    max-height: calc(85vh - 74px);
     
   }
   
-
-
-
-
 
   @media screen and (min-width: 768px) {
     @media screen and (min-width: 768px) {

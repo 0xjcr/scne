@@ -56,8 +56,8 @@ const Feed = ({user}) => {
         CREATE A POST
       </Button> </div>
 
-      <div>
-        <div className="feedContainer"></div>
+      <div className="feedContainer">
+        <div className="feedListContainer"></div>
         {filteredPosts.map((post, index) => (
           <div key={index}>
             <Post
