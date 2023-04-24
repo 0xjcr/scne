@@ -70,9 +70,9 @@ exports.login = async (email, password) => {
 };
 
 
-  exports.logout = async () => {
+  exports.logout = async (id) => {
     try {
-      const response = await fetch('http://localhost:3333/logout', {
+      const response = await fetch(`http://localhost:3333/logout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -21,8 +21,7 @@ const ProfileUser = () => {
     }
   };
 
-  // const { newUser } = useLocation();
-  // console.log(newUser);
+ 
 
   useEffect(() => {
     if (loggedInUserId && id === loggedInUserId) {
@@ -38,8 +37,9 @@ const ProfileUser = () => {
   };
 
   const handleLogout = async () => {
+    navigate(`/logout`)
     await logout();
-    navigate(`/`);
+    ;
   };
 
   if (!user) {

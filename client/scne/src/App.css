@@ -358,9 +358,9 @@ font-size: 20px;
 
   .feedContainer {
     position: relative;
-    top: 500px;
     overflow: auto;
-    max-height: calc(80vh - 64px); 
+    max-height: calc(80vh - 64px);
+    
   }
   
 
