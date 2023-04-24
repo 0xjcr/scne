@@ -2,9 +2,10 @@
 import CircleUser from './CircleUser';
 
 const Post = ({ photo, id, content, event, comment, scene, postPhoto, user }) => {
-
+  console.log("Event:", event);
     const tileStyle = {
       backgroundColor: event ? 'rgba(112,255,0, 0.4)' : '', 
+      
     };
   
     return (

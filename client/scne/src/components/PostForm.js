@@ -17,12 +17,27 @@ import { createUserPost } from '../api-service';
 import { PostContext } from '../pages/Feed';
 
 const PostForm = () => {
-
-    const setPostState = useContext(PostContext);
-  const [inputs, setInputs] = useState({ content: '', event: false, comment: false, scene: '', postPhoto: '' });
+  const setPostState = useContext(PostContext);
+  const [inputs, setInputs] = useState({
+    content: '',
+    event: '',
+    comment: '',
+    scene: '',
+    postPhoto: '',
+  });
 
   const handleChange = (event) => {
-    setInputs({ ...inputs, [event.target.name]: event.target.value });
+    const value =
+      event.target.type === 'checkbox'
+        ? event.target.checked
+        : event.target.value;
+    if (event.target.name === 'comment') {
+      setInputs({ ...inputs, comment: true, event: false });
+    } else if (event.target.name === 'event') {
+      setInputs({ ...inputs, comment: false, event: true });
+    } else {
+      setInputs({ ...inputs, [event.target.name]: value });
+    }
   };
 
   const navigate = useNavigate();
@@ -33,10 +48,8 @@ const PostForm = () => {
     const newPost = { ...inputs, userId: loggedInUserId };
     createUserPost(newPost).then((newPost) => {
       // setPostState((existingPosts) => [...existingPosts, newPost]).then
-      (navigate('/feed'))
-      
+      navigate('/feed');
     });
-    setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
 
   const handleImageUpload = (imageUrl) => {
@@ -46,44 +59,53 @@ const PostForm = () => {
   return (
     <div>
       <div className='postform'>
-        
         <Box
-          component="form"
+          component='form'
           sx={{
             '& > :not(style)': { m: 2, width: '25ch' },
           }}
           noValidate
-          autoComplete="off"
+          autoComplete='off'
           onSubmit={handleSubmit}
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
+          display='flex'
+          flexDirection='column'
+          alignItems='center'
+          justifyContent='center'
         >
-          
           <FormControl fullWidth>
-          <FormLabel id="demo-row-radio-buttons-group-label">POST TYPE</FormLabel>
-      <RadioGroup
-        row
-        aria-labelledby="demo-row-radio-buttons-group-label"
-        name="row-radio-buttons-group"
-      >
-        <FormControlLabel value="comment" control={<Radio />} label="COMMENT" />
-        <FormControlLabel value="event" control={<Radio />} label="EVENT" />
-        
-      </RadioGroup>
-            
-
+            <FormLabel id='demo-row-radio-buttons-group-label'>
+              POST TYPE
+            </FormLabel>
+            <RadioGroup
+  row
+  aria-labelledby='demo-row-radio-buttons-group-label'
+  name='row-radio-buttons-group'
+  defaultValue={false}
+  onChange={handleChange}
+>
+  <FormControlLabel
+    value='comment'
+    name='comment'
+    control={<Radio />}
+    label='COMMENT'
+  />
+  <FormControlLabel
+    value='event'
+    name='event'
+    control={<Radio />}
+    label='EVENT'
+  />
+</RadioGroup>
           </FormControl>
 
           <FormControl fullWidth>
-            <InputLabel id="simple-select-label">SCENE</InputLabel>
+            <InputLabel id='simple-select-label'>SCENE</InputLabel>
             <Select
-              labelId="scene-id"
-              id="simple-select"
+              labelId='scene-id'
+              id='simple-select'
               value={inputs.scene}
-              label="SCENE"
-              name="scene"
+              label='SCENE'
+              name='scene'
               onChange={handleChange}
             >
               <MenuItem value={'coffee'}>COFFEE</MenuItem>
@@ -91,6 +113,7 @@ const PostForm = () => {
               <MenuItem value={'mixology'}>MIXOLOGY</MenuItem>
             </Select>
           </FormControl>
+
 
           <CloudinaryImageUpload onUpload={handleImageUpload} isBusiness={true} />
           <TextField
