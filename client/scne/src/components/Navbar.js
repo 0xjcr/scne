@@ -43,7 +43,7 @@ const Navbar = ({ scene, onSceneChange }) => {
               <ExploreIcon sx={{ color: '#6e06de' }} />
             </Avatar>
           </Link>
-          { (
+          { localStorage.getItem('bizId') && (
             <Link to={`/biz/${localStorage.bizId}`}>
               <Avatar sx={{
                 border: '1px solid rgba(112, 255, 0, 1)',

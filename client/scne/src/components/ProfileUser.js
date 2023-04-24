@@ -46,7 +46,7 @@ const ProfileUser = () => {
   
       
       localStorage.removeItem('userId');
-
+      localStorage.removeItem('bizId');
 
     } catch (error) {
       console.error('Error during logout:', error);
