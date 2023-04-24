@@ -7,10 +7,7 @@ useEffect(() => {
 
 logout();
 
-})
-
-
-
+}, [])
 
 
   return (

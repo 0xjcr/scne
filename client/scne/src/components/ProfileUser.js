@@ -40,12 +40,14 @@ const ProfileUser = () => {
     try {
       
       await navigate('/logout');
-  
+      console.log('logout')
       
       await logout();
   
       
-      localStorage.removeItem('user');
+      localStorage.removeItem('userId');
+
+
     } catch (error) {
       console.error('Error during logout:', error);
     

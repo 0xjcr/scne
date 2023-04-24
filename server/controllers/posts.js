@@ -94,7 +94,7 @@ exports.getAllPosts = async (req, res) => {
           },
         ],
       });
-  
+  console.log(userPosts)
       const bizPosts = await BizPosts.findAll({
         include: [
           {

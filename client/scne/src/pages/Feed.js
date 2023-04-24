@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 
 const PostContext = createContext();
 
-const Feed = () => {
+const Feed = ({user}) => {
   const navigate = useNavigate();
   const [scene, setScene] = useState('coffee');
   const [postState, setPostState] = useState([]);
@@ -39,7 +39,7 @@ const Feed = () => {
     <PostContext.Provider value={[postState, setPostState]}>
       <Topbar scene={scene} onSceneChange={handleSceneChange} />
       
-      <div> <Button
+      <div className="createPost"> <Button
         variant="contained"
         sx={{
          position: 'sticky',
@@ -69,6 +69,7 @@ const Feed = () => {
               postPhoto={post.postPhoto}
               userId={post.userId}
               bizId={post.bizId}
+              user={post.user}
             />
           </div>
         ))}

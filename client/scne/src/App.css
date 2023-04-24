@@ -355,9 +355,13 @@ font-size: 20px;
     
   } 
 
-
+.createPost{
+/* position: fixed; */
+top: 50px;
+  
+}
   .feedContainer {
-    position: relative;
+    position: fixed;
     overflow: auto;
     max-height: calc(80vh - 64px);
     
