@@ -24,6 +24,7 @@ const ProfileBusiness = () => {
           reviewCount={business.reviewCount}
           ig={business.ig}
           photo={business.photo}
+          loggedInUserId={business.id}
         />
       ) : (
         <div>Loading...</div>

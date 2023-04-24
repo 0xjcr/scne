@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import PeopleIcon from '@mui/icons-material/People';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ExploreIcon from '@mui/icons-material/Explore';
+import FeedIcon from '@mui/icons-material/Feed';
 import BusinessIcon from '@mui/icons-material/Business';
 import { Box, Avatar } from '@mui/material';
 
@@ -40,7 +40,7 @@ const Navbar = ({ scene, onSceneChange }) => {
               border: '1px solid rgba(112, 255, 0, 1)',
               bgcolor: 'rgba(5, 0, 142, 0.1)',
             }} className="navicons">
-              <ExploreIcon sx={{ color: '#6e06de' }} />
+              <FeedIcon sx={{ color: '#6e06de' }} />
             </Avatar>
           </Link>
           { localStorage.getItem('bizId') && (
