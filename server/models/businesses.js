@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./index');
 
-const Biz = sequelize.define('Biz', {
+const Bizs = sequelize.define('Bizs', {
     
     name: {
         type: DataTypes.STRING,
@@ -70,7 +70,7 @@ const BizPosts = sequelize.define('BizPosts', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'Biz',
+            model: 'Bizs',
             key: 'id'
         }
     }
@@ -78,8 +78,8 @@ const BizPosts = sequelize.define('BizPosts', {
 });
 
 
-Biz.hasMany(BizPosts, { as: 'bizPosts', foreignKey: 'bizId', onDelete: 'CASCADE' });
-BizPosts.belongsTo(Biz, { foreignKey: 'bizPostId', as: 'user', onDelete: 'CASCADE' });
+Bizs.hasMany(BizPosts, { as: 'bizPosts', foreignKey: 'bizId', onDelete: 'CASCADE' });
+BizPosts.belongsTo(Bizs, { foreignKey: 'bizId', as: 'biz', onDelete: 'CASCADE' });
 
 // module.exports = {
 //     Biz: sequelize.models.Biz,

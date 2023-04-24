@@ -1,5 +1,5 @@
 const sequelize = require('../models/businesses');
-const Biz = sequelize.models.Biz;
+const Bizs = sequelize.models.Bizs;
 const Users = sequelize.models.Users;
 const bcrypt = require('bcrypt');
 const session = require('express-session');
@@ -26,7 +26,7 @@ exports.updateBusiness = async (req, res) => {
     const { name, city, postcode, address, phone, scene, ig, email, password, upvotes, reviewCount } = req.body;
   
     try {
-      const business = await Biz.findByPk(id);
+      const business = await Bizs.findByPk(id);
       await business.update({ name, city, postcode, address, phone, scene, ig, email, password, upvotes, reviewCount }); 
       res.status(200).json(business);
     } catch (err) {
@@ -40,7 +40,7 @@ exports.updateBusiness = async (req, res) => {
     const { upvotes } = req.body;
   
     try {
-      const business = await Biz.findByPk(id);
+      const business = await Bizs.findByPk(id);
       await business.update({ upvotes });
       res.status(200).json(business);
     } catch (err) {
@@ -50,7 +50,7 @@ exports.updateBusiness = async (req, res) => {
 // get all businesses
 exports.getAllBusinesses = async (req, res) => {
     try {
-      const businesses = await Biz.findAll();
+      const businesses = await Bizs.findAll();
       res.status(200).json(businesses);
     } catch (err) {
       res.status(400).json({ message: err.message });
@@ -62,7 +62,7 @@ exports.getAllBusinesses = async (req, res) => {
     const { id } = req.params;
   
     try {
-      const business = await Biz.findByPk(id);
+      const business = await Bizs.findByPk(id);
       res.status(200).json(business);
     } catch (err) {
       res.status(400).json({ message: err.message });
@@ -87,7 +87,7 @@ exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
   const user = await Users.findOne({ where: { email } });
-   const biz = await Biz.findOne({ where: { email } });
+   const biz = await Bizs.findOne({ where: { email } });
   if (!user && !biz) {
   res.status(400).json({ message: 'Email not found' });
   } else if (user) {

@@ -8,10 +8,14 @@ import Button from '@mui/material/Button';
 
 
 const Feed = () => {
+  const navigate = useNavigate();
 
   const storedScene = localStorage.getItem("scene");
+
   const [scene, setScene] = useState(storedScene || "coffee");
 
+  
+  
   const handleSceneChange = (newScene) => {
     setScene(newScene);
     // Store the selected scene in local storage
@@ -19,7 +23,6 @@ const Feed = () => {
   };
 
 
-  const navigate = useNavigate();
 
   const [postState, setPostState] = useState([]);
 
@@ -45,14 +48,16 @@ const Feed = () => {
       </div>
       {postState.map((post, index) => (
         <div key={post.id} onClick={() => handleCreatePostClick(post.id)}>
-          {/* <Post
+          <Post
             id={post.id}
             content={post.content}
             event={post.event}
             comment={post.comment}
             scene={post.scene}
             postPhoto={post.postPhoto}
-          /> */}
+            userId={post.userId}
+            bizId={post.bizId}
+          />
           
         </div>
       ))}

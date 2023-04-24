@@ -15,17 +15,10 @@ exports.createUserPost = async (req, res) => {
         event: req.body.event,
         comment: req.body.comment,
         scene: req.body.scene,
-        postPhoto: req.body.postPhoto
+        postPhoto: req.body.postPhoto,
+        userId: req.body.userId,
       });
 
-      
-      // Associate the post with a user
-      if (req.body.userId) {
-        const user = await Users.findByPk(req.body.userId);
-        if (user) {
-          await post.setUser(user);
-        }
-      }
   
       // Associate the post with a biz
       if (req.body.bizId) {
@@ -51,7 +44,8 @@ exports.createUserPost = async (req, res) => {
         event: req.body.event,
         comment: req.body.comment,
         scene: req.body.scene,
-        postPhoto: req.body.postPhoto
+        postPhoto: req.body.postPhoto,
+        bizId: req.body.bizId,
       });
 
       
@@ -97,11 +91,13 @@ exports.getAllPosts = async (req, res) => {
     try {
       const allPosts = await UserPosts.findAll({
         include: [
-          { model: Users },
+          { model: Users,
+        as: 'user' },
         ]
       }).concat(await BizPosts.findAll({
         include: [
-          { model: Biz }
+          { model: Biz,
+        as: 'biz' }
         ]
       }));
       res.status(200).json(allPosts);
