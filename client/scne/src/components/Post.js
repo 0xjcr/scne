@@ -9,6 +9,7 @@ const Post = ({ id, content, event, comment, scene, postPhoto, user }) => {
   const { id: userId, firstName, member, photo } = user;
 
   const tileStyle = {
+    border: '1px solid',
     background: event
       ? 'linear-gradient(24deg, rgba(38,251,25,0.21932114882506526) 39%, rgba(181,132,245,0) 56%)'
       : 'linear-gradient(24deg, rgba(110,6,222,1) 39%, rgba(181,132,245,0) 56%)',

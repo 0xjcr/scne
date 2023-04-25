@@ -50,7 +50,7 @@ const AltTile = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => {
     return (
         // <Card sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', backgroundImage: `url(${backgroundImage})` }}>
 
- <Card className="card" sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', background: 'transparent'
+ <Card className="card" sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', background: 'transparent', border: '1px solid'
 }}
 style={{ color: 'whitesmoke' }}
 >

@@ -67,15 +67,15 @@ const ProfileUser = () => {
       <div>
         <Card
           className="card"
-          sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', background: 'transparent' }}
+          sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', background: 'transparent', border: '1px solid' }}
           style={{ color: 'whitesmoke' }}
         >
           {loggedInUserId === id && (
             <div className="editAndLogout">
-              <Button sx={{ width: '25%' }} onClick={handleEdit} variant="outlined" size="small">
+              <Button sx={{ color: 'white' , width: '25%' }} onClick={handleEdit} variant="" size="small">
                 edit
               </Button>
-              <Button sx={{ width: '25%' }} variant="outlined" size="small" onClick={handleLogout}>
+              <Button sx={{ color: 'white', width: '25%' }} variant="" size="small" onClick={handleLogout}>
                 logout
               </Button>
             </div>
@@ -95,7 +95,12 @@ const ProfileUser = () => {
 
               {user.member ? (
                 <Divider>
-                  <Chip label="TEAM" />
+                  <Chip 
+                  sx={{
+                    color: 'black', 
+                    backgroundColor: 'lightgrey', 
+                  }}
+                  label="TEAM" />
                 </Divider>
               ) : (
                 <Divider />
