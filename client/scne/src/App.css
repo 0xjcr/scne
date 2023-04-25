@@ -415,15 +415,31 @@ margin-bottom: 10px;
         max-width:40vw;
       }
     
+.navbarContainer {
+  max-height: 30px;
+  padding: 25px;
+  
+}
+
+.topbar {
+  max-height: 30px;
+  padding: 25px;
+}
+
+      
       .listContainer {
+        display: inline-flex; 
         padding-top: 6vh;
-       
+        overflow-x: auto; 
+  overflow-y: hidden; 
+  white-space: nowrap; 
+    
       }
     
       .list {
-        overflow-y: auto;
-        height: calc(100vh - 29vh);
-        grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+        display: inline-flex; 
+  gap: 2rem;
+
         }
 
       .ranking {
@@ -470,6 +486,8 @@ margin-bottom: 10px;
       .yourProfile {
         margin-top: -80px;
       }
+
+
     }
   }
 

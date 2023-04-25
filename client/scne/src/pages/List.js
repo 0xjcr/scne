@@ -37,6 +37,7 @@ const List = ({ scene }) => {
     .sort((a, b) => b.upvotes - a.upvotes);
 
   return (
+    <div className="listwrapper">
     <div className="listContainer">
       <div className="list">
         {filteredAndSortedBiz.map((biz, index) => (
@@ -54,7 +55,7 @@ const List = ({ scene }) => {
         ))}
       </div>
       <Navbar></Navbar>
-    </div>
+    </div></div>
   );
 };
 
