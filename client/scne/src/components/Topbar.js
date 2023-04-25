@@ -71,7 +71,7 @@ const Topbar = ({ scene, onSceneChange }) => {
               width: '80px',
               height: '40px',
               minWidth: '80px',
-              bgcolor: 'transparent',
+              bgcolor: scene === 'mixology' ? 'rgba(112, 255, 0, 0.5)' : 'transparent',
               '&:hover': {
                 bgcolor: 'rgba(112, 255, 0, 0.5)',
               },
@@ -91,7 +91,7 @@ const Topbar = ({ scene, onSceneChange }) => {
               width: '80px',
               height: '40px',
               minWidth: '80px',
-              bgcolor: 'transparent',
+              bgcolor: scene === 'wellness' ? 'rgba(112, 255, 0, 0.5)' : 'transparent',
               '&:hover': {
                 bgcolor: 'rgba(112, 255, 0, 0.5)',
               },

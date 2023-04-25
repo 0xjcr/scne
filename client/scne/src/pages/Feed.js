@@ -12,22 +12,38 @@ const Feed = ({user}) => {
   const navigate = useNavigate();
   const [scene, setScene] = useState('coffee');
   const [postState, setPostState] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
     getAllPosts().then((res) => {
+      console.log('RES:',res);
       if (Array.isArray(res)) {
         setPostState(res);
+        console.log("postState:", res);
       } else {
         console.error('API response is not an array');
       }
     });
+
   }, []);
 
   const handleCreatePostClick = () => {
     navigate(`/addpost/`);
   };
 
-  const filteredPosts = postState.filter((post) => post.scene === scene);
+
+
+  useEffect(()=> {
+  setFilteredPosts(()=> {
+   return  postState.filter((post) => post.scene === scene);
+    
+  }) 
+  
+
+  }, [scene, postState])
+
+
+ console.log('filteredposts:', filteredPosts)
 
   const handleSceneChange = (newScene) => {
     setScene(newScene);
@@ -58,7 +74,7 @@ const Feed = ({user}) => {
 
       <div className="feedContainer">
         <div className="feedListContainer"></div>
-        {filteredPosts.map((post, index) => (
+        {filteredPosts ? filteredPosts.map((post, index) => (
           <div key={index}>
             <Post
               id={post.id}
@@ -72,7 +88,7 @@ const Feed = ({user}) => {
               user={post.user}
             />
           </div>
-        ))}
+        )): <div></div>}
         <Navbar />
       </div>
     </PostContext.Provider>

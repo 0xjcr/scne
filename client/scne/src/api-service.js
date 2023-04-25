@@ -207,12 +207,10 @@ exports.getAllPosts = async () => {
     });
     const data = await response.json();
     console.log('API response data:', data)
-    // Combine UserPosts and BizPosts into a single array with consistent keys
-    const combinedPosts = data.map((post) => {
-      const { id, content, event, comment, scene, postPhoto } = post;
-      return { id, content, event, comment, scene, postPhoto };
-    });
-    return combinedPosts;
+
+    
+    return data;
+
   } catch (error) {
     console.error('error', error);
   }
