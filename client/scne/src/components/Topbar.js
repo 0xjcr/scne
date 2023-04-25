@@ -5,16 +5,19 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import Box from '@mui/material/Box';
 import { ReactComponent as UfoLogo } from '../ufologo.svg';
 
-const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
+const StyledSpeedDial = styled(SpeedDial)(({theme }) => ({
   position: 'absolute',
   left: '0.1rem',
+  backgroundColor: 'transparent!',
   '&.MuiSpeedDial-directionUp, &.MuiSpeedDial-directionLeft': {
     bottom: theme.spacing(2),
     right: theme.spacing(2),
+    backgroundColor: 'transparent',
   },
   '&.MuiSpeedDial-directionDown, &.MuiSpeedDial-directionRight': {
     top: theme.spacing(2),
     left: theme.spacing(2),
+    backgroundColor: 'transparent',
   },
   '& .MuiSpeedDial-fab': {
     backgroundColor: 'transparent',
@@ -30,15 +33,18 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
     },
   },
   '& .MuiSpeedDialAction-staticTooltipLabel': {
-    width: 'auto',
-    padding: '0.5rem',
-    borderRadius: '0.25rem',
-    backgroundColor: '#f7f7f7',
-    color: '#333',
-    fontWeight: 'bold',
+    // width: 'auto',
+    // padding: '0.5rem',
+    // borderRadius: '0.25rem',
+    // backgroundColor: '#f7f7f7',
+    // color: '#333',
+    // fontWeight: 'bold',
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
   '& .MuiSpeedDialAction-fab': {
-    borderRadius: '0.5rem',
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
 }));
 const Topbar = ({ scene, onSceneChange }) => {
@@ -62,70 +68,55 @@ const Topbar = ({ scene, onSceneChange }) => {
           
         >
           <SpeedDialAction
-            icon={'mixology'}
-            tooltipTitle="mixology"
-            sx={{
-              fontSize: '1.3rem',
-              color: 'white',
-              borderRadius: '2px',
-              width: '80px',
-              height: '40px',
-              minWidth: '80px',
-              bgcolor: scene === 'mixology' ? 'rgba(112, 255, 0, 0.5)' : 'transparent',
-              '&:hover': {
-                bgcolor: 'rgba(112, 255, 0, 0.5)',
-              },
-              '&.Mui-selected': {
-                bgcolor: 'rgba(112, 255, 0, 0.5)',
-              },
-            }}
-            onClick={() => handleChange('mixology')}
-          />
-          <SpeedDialAction
-            icon={'wellness'}
-            tooltipTitle="wellness"
-            sx={{
-              fontSize: '1.3rem',
-              color: 'white',
-              borderRadius: '2px',
-              width: '80px',
-              height: '40px',
-              minWidth: '80px',
-              bgcolor: scene === 'wellness' ? 'rgba(112, 255, 0, 0.5)' : 'transparent',
-              '&:hover': {
-                bgcolor: 'rgba(112, 255, 0, 0.5)',
-              },
-              '&.Mui-selected': {
-                bgcolor: 'rgba(112, 255, 0, 0.5)',
-              },
-            }}
-            onClick={() => handleChange('wellness')}
-          />
-          <SpeedDialAction
-            icon={'coffee'}
-            tooltipTitle="coffee"
-            sx={{
-              fontSize: '1.3rem',
-              color: 'white',
-              borderRadius: '2px',
-              width: '80px',
-              height: '40px',
-              minWidth: '80px',
-              bgcolor: scene === 'coffee' ? 'rgba(112, 255, 0, 0.5)' : 'transparent',
-              '&:hover': {
-                bgcolor: 'rgba(112, 255, 0, 0.5)',
-              },
-              '&.Mui-selected': {
-                bgcolor: 'rgba(112, 255, 0, 0.5)',
-              },
-            }}
-            onClick={() => handleChange('coffee')}
-            selected={scene === 'coffee'}
-          />
-        </StyledSpeedDial>
-      </div>
-    </>
-  );
+  icon={'mixology'}
+  tooltipTitle="mixology"
+  sx={{
+    fontSize: scene === 'mixology' ? '2rem' : '1.rem',
+    color: 'white',
+    backgroundColor: 'transparent',
+    border: 'none',
+    boxShadow: 'none',
+    width: '80px',
+    height: '40px',
+    minWidth: '80px',
+  }}
+  onClick={() => handleChange('mixology')}
+/>
+<SpeedDialAction
+  icon={'wellness'}
+  tooltipTitle="wellness"
+  sx={{
+    fontSize: scene === 'wellness' ? '2rem' : '1.rem',
+    color: 'white',
+    backgroundColor: 'transparent',
+    border: 'none',
+    boxShadow: 'none',
+    width: '80px',
+    height: '40px',
+    minWidth: '80px',
+  }}
+  onClick={() => handleChange('wellness')}
+/>
+<SpeedDialAction
+  icon={'coffee'}
+  tooltipTitle="coffee"
+  sx={{
+    fontSize: scene === 'coffee' ? '2rem' : '1.rem',
+    color: 'white',
+    backgroundColor: 'transparent',
+    border: 'none',
+    boxShadow: 'none',
+    width: '80px',
+    height: '40px',
+    minWidth: '80px',
+  }}
+  onClick={() => handleChange('coffee')}
+  selected={scene === 'coffee'}
+/>
+</StyledSpeedDial>
+</div>
+</>
+);
 };
 
 export default Topbar;
