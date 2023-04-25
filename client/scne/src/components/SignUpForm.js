@@ -46,6 +46,7 @@ const navigate = useNavigate();
         <Box
           component="form"
           sx={{
+            color: 'white',
             '& > :not(style)': { m: 2, width: '25ch' },
           }}
           noValidate
@@ -63,6 +64,9 @@ const navigate = useNavigate();
             name="firstName"
             value={inputs.firstName}
             onChange={handleChange}
+            InputLabelProps={{ style: { color: 'white' } }}
+  InputProps={{
+    style: { color: 'white', }}}
           />
           <TextField
             id="outlined-basic-lastname"
@@ -71,6 +75,9 @@ const navigate = useNavigate();
             name="lastName"
             value={inputs.lastName}
             onChange={handleChange}
+            InputLabelProps={{ style: { color: 'white' } }}
+  InputProps={{
+    style: { color: 'white', }}}
           />
           <TextField
             id="outlined-basic-email"
@@ -79,6 +86,9 @@ const navigate = useNavigate();
             name="email"
             value={inputs.email}
             onChange={handleChange}
+            InputLabelProps={{ style: { color: 'white' } }}
+  InputProps={{
+    style: { color: 'white', }}}
           />
           <TextField
             id="outlined-basic-password"
@@ -88,9 +98,12 @@ const navigate = useNavigate();
             name="password"
             value={inputs.password}
             onChange={handleChange}
+            InputLabelProps={{ style: { color: 'white' } }}
+  InputProps={{
+    style: { color: 'white', }}}
           />
           <FormControl fullWidth>
-          <InputLabel id="simple-select-label">CITY</InputLabel>
+          <InputLabel id="simple-select-label" style={{ color: 'white' }} >CITY</InputLabel>
           <Select
             labelId="city-id"
             id="simple-select"
@@ -98,16 +111,19 @@ const navigate = useNavigate();
             label="CITY"
             name="city"
             onChange={handleChange}
+            inputProps={{
+              style: { color: 'white' },
+            }}
           >
-            <MenuItem value={'Barcelona'}>Barcelona</MenuItem>
+            <MenuItem value={'Barcelona'} >Barcelona</MenuItem>
           </Select>
           </FormControl>
             
-          <Button sx={{border:'2px solid #6e06de ', color:'#6e06de', }} type="submit" variant="outlined">
+          <Button sx={{border:'5px solid #6e06de ', color:'white', }} type="submit" variant="outlined">
             CREATE
           </Button>
         </Box>
-        <Button sx={{marginTop:'50px',width:'100%', fontSize:'25px', color:'#6e06de'}} onClick={handleBusinessClick} variant="text">ARE YOU A BUSINESS?</Button>
+        <Button sx={{marginTop:'50px',width:'100%', fontSize:'25px', color:'white'}} onClick={handleBusinessClick} variant="text">ARE YOU A BUSINESS?</Button>
       </div>
     </>
   );
