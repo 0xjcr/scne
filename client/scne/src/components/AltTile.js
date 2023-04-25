@@ -82,7 +82,7 @@ style={{ color: 'whitesmoke' }}
                   height: '30px',
                   transform: 'scale(1.65)',
                   marginRight: '10vw',
-                  marginLeft: '5vw'
+                  marginLeft: '-30%'
                 }}
               >
                 <Button>{upvotes || 0}</Button>

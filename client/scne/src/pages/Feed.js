@@ -18,8 +18,9 @@ const Feed = ({user}) => {
     getAllPosts().then((res) => {
       console.log('RES:',res);
       if (Array.isArray(res)) {
-        setPostState(res);
-        console.log("postState:", res);
+        setPostState([...res]);
+        
+       
       } else {
         console.error('API response is not an array');
       }
@@ -35,6 +36,8 @@ const Feed = ({user}) => {
 
   useEffect(()=> {
   setFilteredPosts(()=> {
+    console.log('scene:', scene);
+    console.log('postState:', postState);
    return  postState.filter((post) => post.scene === scene);
     
   }) 

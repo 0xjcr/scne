@@ -43,25 +43,43 @@ const Login = () => {
     
    
       <TextField
-        id="outlined-basic"
-        label="EMAIL"
-        variant="outlined"
-        value={email}
-        sx={{ width:'80%',}}
-        onChange={(event) => setEmail(event.target.value)}
-      />
+  id="outlined-basic"
+  label="EMAIL"
+  variant="outlined"
+  value={email}
+  onChange={(event) => setEmail(event.target.value)}
+  InputLabelProps={{ sx: { color: 'white' } }}
+  sx={{
+    width: '80%',
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': { borderColor: 'white' },
+      '&:hover fieldset': { borderColor: 'white' },
+    },
+    '& .MuiOutlinedInput-input': { color: 'white' },
+    '& .MuiInputLabel-outlined': { color: 'white' },
+  }}
+/>
       <TextField
-        id="outlined-basic"
-        label="PASSWORD"
-        variant="outlined"
-        value={password}
-        sx={{ width:'80%',}}
-        onChange={(event) => setPassword(event.target.value)}
-      />
+  id="outlined-basic"
+  label="PASSWORD"
+  variant="outlined"
+  value={password}
+  onChange={(event) => setPassword(event.target.value)}
+  InputLabelProps={{ sx: { color: 'white' } }}
+  sx={{
+    width: '80%',
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': { borderColor: 'white' },
+      '&:hover fieldset': { borderColor: 'white' },
+    },
+    '& .MuiOutlinedInput-input': { color: 'white' },
+    '& .MuiInputLabel-outlined': { color: 'white' },
+  }}
+/>
 
       <Button 
       sx={{
-        color:'#6e06de',
+        color:'white',
         fontSize:'20px',
         borderColor:'#6e06de',
     }}
