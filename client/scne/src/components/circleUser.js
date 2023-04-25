@@ -17,7 +17,7 @@ const CircleUser = ({ id,userId, firstName, member, photo,  clickable = true, sc
       onClick={handleUserClick}
       style={{
         borderStyle: "solid",
-        borderWidth: member ? "1px" : "1px",
+        borderWidth: member ? "1px" : "3px",
         borderColor: member ? "rgba(112, 255, 0, 1)" : "white",
         transform: `scale(${scale})`,
         margin: `${scaledMargin}px`
