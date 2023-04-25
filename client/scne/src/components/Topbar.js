@@ -9,10 +9,12 @@ const StyledSpeedDial = styled(SpeedDial)(({theme }) => ({
   position: 'absolute',
   left: '0.1rem',
   backgroundColor: 'transparent!',
+  boxShadow: 'none',
   '&.MuiSpeedDial-directionUp, &.MuiSpeedDial-directionLeft': {
     bottom: theme.spacing(2),
     right: theme.spacing(2),
     backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
   '&.MuiSpeedDial-directionDown, &.MuiSpeedDial-directionRight': {
     top: theme.spacing(2),
