@@ -67,7 +67,7 @@ const Feed = ({user}) => {
           height: '5vh',
           fontSize: '25px',
           marginLeft: '15vw',
-          backgroundColor: '#6e06de',
+          backgroundColor: 'black',
          
         }}
         onClick={handleCreatePostClick}

@@ -11,8 +11,8 @@ const Post = ({ id, content, event, comment, scene, postPhoto, user }) => {
   const tileStyle = {
     border: '1px solid',
     background: event
-      ? 'linear-gradient(24deg, rgba(38,251,25,0.21932114882506526) 39%, rgba(181,132,245,0) 56%)'
-      : 'linear-gradient(24deg, rgba(110,6,222,1) 39%, rgba(181,132,245,0) 56%)',
+      ? 'linear-gradient(24deg, rgba(110,6,222,0.2613333333333333) 0%, rgba(170,245,132,0.30133333333333334) 98%)'
+      : 'linear-gradient(24deg, rgba(232,255,221,0.1226666666666667) 0%, rgba(247,247,247,0.30133333333333334) 98%)',
   };
 
   return (
@@ -49,6 +49,7 @@ const Post = ({ id, content, event, comment, scene, postPhoto, user }) => {
         member={member}
         photo={photo} />
         {postPhoto && (
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
           <CardMedia
             component="img"
             style={{
@@ -56,11 +57,13 @@ const Post = ({ id, content, event, comment, scene, postPhoto, user }) => {
               height: '90%',
               borderRadius: '10px',
               border: '1px solid white',
-              margin: '10px',
+              margin: '5vw',
             }}
             image={postPhoto}
             alt=""
           />
+        </div>
+
         )}
         <Typography variant="h5" style={{ margin: '10px' }}>
           {content}
