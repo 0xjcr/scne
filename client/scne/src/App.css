@@ -330,13 +330,13 @@ color: white;
  .postform {
   background: rgba(5, 0, 142, 0.2);
 
-/* box-shadow: rgba(110, 6, 222, 0.4) 0px 5px, rgba(110, 6, 222, 0.3) 0px 10px, rgba(110, 6, 222, 0.2) 0px 15px, rgba(110, 6, 222, 0.1) 0px 20px, rgba(110, 6, 222, 0.05) 0px 25px; */
 backdrop-filter: blur( 4.5px );
 -webkit-backdrop-filter: blur( 4.5px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 margin: 5vw;
 margin-top: 15vh;
+color: white;
  }
 
  .postTile {
@@ -486,6 +486,18 @@ margin-bottom: 10px;
       .yourProfile {
         margin-top: -80px;
       }
+
+
+
+      .feedContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-y:scroll; 
+        position: fixed;
+        overflow: auto;
+        max-height: calc(85vh - 74px);
+      }
+
 
 
     }

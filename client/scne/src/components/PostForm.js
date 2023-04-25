@@ -71,9 +71,10 @@ const PostForm = () => {
           flexDirection='column'
           alignItems='center'
           justifyContent='center'
+          
         >
           <FormControl fullWidth>
-            <FormLabel id='demo-row-radio-buttons-group-label'>
+            <FormLabel sx={{ color: 'white' }} id='demo-row-radio-buttons-group-label'>
               POST TYPE
             </FormLabel>
             <RadioGroup
@@ -86,20 +87,22 @@ const PostForm = () => {
   <FormControlLabel
     value='comment'
     name='comment'
-    control={<Radio />}
+    control={<Radio sx={{ color: 'white' }} />}
     label='COMMENT'
+    sx={{ color: 'white' }}
   />
   <FormControlLabel
     value='event'
     name='event'
-    control={<Radio />}
+    control={<Radio sx={{ color: 'white' }} />}
     label='EVENT'
+    sx={{ color: 'white' }}
   />
 </RadioGroup>
           </FormControl>
 
           <FormControl fullWidth>
-            <InputLabel id='simple-select-label'>SCENE</InputLabel>
+            <InputLabel sx={{ color: 'white' }} id='simple-select-label'>SCENE</InputLabel>
             <Select
               labelId='scene-id'
               id='simple-select'
@@ -125,6 +128,15 @@ const PostForm = () => {
             rows={4}
             value={inputs.content}
             onChange={handleChange}
+            InputLabelProps={{ sx: { color: 'white' } }}
+    sx={{ color: 'white',
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': { borderColor: 'white' },
+      '&:hover fieldset': { borderColor: 'white' },
+    },
+    '& .MuiOutlinedInput-input': { color: 'white' },
+    '& .MuiInputLabel-outlined': { color: 'white' },
+  }}
           />
           <Button sx={{ backgroundColor: '#6e06de'}} type="submit" variant="contained">
             CREATE
