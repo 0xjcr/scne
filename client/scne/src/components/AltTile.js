@@ -55,8 +55,6 @@ const AltTile = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => {
 style={{ color: 'whitesmoke' }}
 >
  
-
-
         <CardActionArea>
           <CardMedia
            

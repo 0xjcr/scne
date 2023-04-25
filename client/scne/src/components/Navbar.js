@@ -21,40 +21,38 @@ const Navbar = ({ scene, onSceneChange }) => {
         <div className="navbar">
           <Link to="/list">
             
-              <FormatListNumberedIcon sx={{ color: 'white' }} />
+              
+              
+             
+              <FormatListNumberedIcon  className="navicons" sx={{ color: 'white' }} />
             
           </Link>
           <Link to="/community">
             
-              <PeopleIcon sx={{ color: 'white' }} />
+            
+              <PeopleIcon className="navicons" sx={{ color: 'white' }} />
             
           </Link>
           <Link to="/feed">
-            <Avatar sx={{
-              border: '1.5px solid white',
-              bgcolor: 'rgba(5, 0, 142, 0.1)',
-            }} className="navicons">
-              <FeedIcon sx={{ color: 'white' }} />
-            </Avatar>
+            
+             
+              <FeedIcon className="navicons" sx={{ color: 'white' }} />
+           
           </Link>
           { localStorage.getItem('bizId') && (
             <Link to={`/biz/${localStorage.bizId}`}>
-              <Avatar sx={{
-                border: '1.5px solid white',
-                bgcolor: 'rgba(5, 0, 142, 0.1)',
-              }} className="navicons">
-                <BusinessIcon sx={{ color: 'white' }} />
-              </Avatar>
+             
+                <BusinessIcon className="navicons" sx={{ color: 'white' }} />
+             
             </Link>
           )}
           {!isBusiness && id && (
             <Link to={`/profile/${id}`}>
-              <Avatar sx={{
-                border: '1px solid rgba(112, 255, 0, 1)',
-                bgcolor: 'rgba(5, 0, 142, 0.1)',
-              }} className="navicons">
-                <AccountCircleIcon sx={{ color: '#6e06de' }} />
-              </Avatar>
+              
+                
+              
+                <AccountCircleIcon className="navicons" sx={{ color: 'white' }} />
+              
             </Link>
           )}
         </div>
