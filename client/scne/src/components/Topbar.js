@@ -17,11 +17,11 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
     left: theme.spacing(2),
   },
   '& .MuiSpeedDial-fab': {
-    backgroundColor: 'rgba(5, 0, 142, 0.1)',
+    backgroundColor: 'transparent',
     borderRadius: '10%',
     boxShadow: 'none',
     '&:hover': {
-      backgroundColor: 'rgba(5, 0, 142, 0.1)',
+      backgroundColor: 'transparent',
       boxShadow: 'none',
     },
     '&:active': {
@@ -49,12 +49,11 @@ const Topbar = ({ scene, onSceneChange }) => {
   return (
     <>
       <div className="topbar">
-        <StyledSpeedDial
+        <StyledSpeedDial 
           ariaLabel="SpeedDial"
           icon={
-            <Box sx={{ bgcolor: 'transparent', p: 1 }}>
+            <Box sx={{ bgcolor: 'transparent', p: 0.1, borderRadius: '10%' , fontSize: '1.87rem'}}>SCNE
 
-              <UfoLogo width="100px" height="100px"/>
             </Box>
           }
           direction="left"
@@ -67,11 +66,12 @@ const Topbar = ({ scene, onSceneChange }) => {
             tooltipTitle="mixology"
             sx={{
               fontSize: '1.3rem',
+              color: 'white',
               borderRadius: '2px',
               width: '80px',
               height: '40px',
               minWidth: '80px',
-              bgcolor: 'rgba(5, 0, 142, 0.1)',
+              bgcolor: 'transparent',
               '&:hover': {
                 bgcolor: 'rgba(112, 255, 0, 0.5)',
               },
@@ -86,11 +86,12 @@ const Topbar = ({ scene, onSceneChange }) => {
             tooltipTitle="wellness"
             sx={{
               fontSize: '1.3rem',
+              color: 'white',
               borderRadius: '2px',
               width: '80px',
               height: '40px',
               minWidth: '80px',
-              bgcolor: 'rgba(5, 0, 142, 0.1)',
+              bgcolor: 'transparent',
               '&:hover': {
                 bgcolor: 'rgba(112, 255, 0, 0.5)',
               },
@@ -105,11 +106,12 @@ const Topbar = ({ scene, onSceneChange }) => {
             tooltipTitle="coffee"
             sx={{
               fontSize: '1.3rem',
+              color: 'white',
               borderRadius: '2px',
               width: '80px',
               height: '40px',
               minWidth: '80px',
-              bgcolor: 'rgba(5, 0, 142, 0.1)',
+              bgcolor: scene === 'coffee' ? 'rgba(112, 255, 0, 0.5)' : 'transparent',
               '&:hover': {
                 bgcolor: 'rgba(112, 255, 0, 0.5)',
               },
