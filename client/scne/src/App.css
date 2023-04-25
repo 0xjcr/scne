@@ -387,7 +387,7 @@ margin-bottom: 10px;
   .feedContainer {
     position: fixed;
     overflow: auto;
-    max-height: calc(85vh - 74px);
+    max-height: calc(85vh - 90px);
     
   }
 
