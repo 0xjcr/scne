@@ -48,10 +48,13 @@ const AltTile = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => {
     };
   
     return (
-        <Card sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', backgroundImage: `url(${backgroundImage})` }}>
+        // <Card sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', backgroundImage: `url(${backgroundImage})` }}>
 
-{/* <Card sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', backgroundColor: 'white'}}>
- */}
+ <Card className="card" sx={{ maxWidth: '90vw', margin: '5vw', borderRadius: '30px', background: 'transparent'
+}}
+style={{ color: 'whitesmoke' }}
+>
+ 
 
 
         <CardActionArea>

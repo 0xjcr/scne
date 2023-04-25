@@ -20,27 +20,21 @@ const Navbar = ({ scene, onSceneChange }) => {
       <div className="navbarShell">
         <div className="navbar">
           <Link to="/list">
-            <Avatar sx={{
-              border: '1.5px solid white',
-              bgcolor: 'rgba(5, 0, 142, 0.1)',
-            }} className="navicons">
-              <FormatListNumberedIcon sx={{ color: '#6e06de' }} />
-            </Avatar>
+            
+              <FormatListNumberedIcon sx={{ color: 'white' }} />
+            
           </Link>
           <Link to="/community">
-            <Avatar sx={{
-              border: '1.5px solid white',
-              bgcolor: 'rgba(5, 0, 142, 0.1)',
-            }} className="navicons">
-              <PeopleIcon sx={{ color: '#6e06de' }} />
-            </Avatar>
+            
+              <PeopleIcon sx={{ color: 'white' }} />
+            
           </Link>
           <Link to="/feed">
             <Avatar sx={{
               border: '1.5px solid white',
               bgcolor: 'rgba(5, 0, 142, 0.1)',
             }} className="navicons">
-              <FeedIcon sx={{ color: '#6e06de' }} />
+              <FeedIcon sx={{ color: 'white' }} />
             </Avatar>
           </Link>
           { localStorage.getItem('bizId') && (
@@ -49,7 +43,7 @@ const Navbar = ({ scene, onSceneChange }) => {
                 border: '1.5px solid white',
                 bgcolor: 'rgba(5, 0, 142, 0.1)',
               }} className="navicons">
-                <BusinessIcon sx={{ color: '#6e06de' }} />
+                <BusinessIcon sx={{ color: 'white' }} />
               </Avatar>
             </Link>
           )}
