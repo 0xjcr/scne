@@ -72,7 +72,7 @@ const Feed = ({user}) => {
         }}
         onClick={handleCreatePostClick}
       >
-        CREATE A POST
+        +
       </Button> </div>
 
       <div className="feedContainer">

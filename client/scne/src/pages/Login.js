@@ -33,7 +33,7 @@ const Login = () => {
   return (
     <div className="login">
       <p style={{fontSize: 100, margin:0}}>SCNE</p>
-      <img src="../logo2.png" style={{ width: 250, height: 250 }} alt="" ></img>
+      
       <Button 
       sx={{backgroundColor:'#6e06de', fontSize:'20px',}}
       variant="contained" 
