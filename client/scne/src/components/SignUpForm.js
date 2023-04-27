@@ -46,7 +46,7 @@ const SignUpForm = ({ setUserState }) => {
 
   return (
     <>
-      <div>
+      <div data-testid="sign-up">
         <Box
           component="form"
           sx={{
