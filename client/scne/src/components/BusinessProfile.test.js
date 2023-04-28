@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, act } from "@testing-library/react";
 import BusinessProfile from "./BusinessProfile";
 import { getAllProfiles } from "../api-service";
+import { MemoryRouter } from "react-router-dom";
 
 jest.mock("../api-service", () => ({
   getAllProfiles: jest.fn(),
@@ -12,7 +13,13 @@ describe("BusinessProfile", () => {
     const name = "Test Business";
     getAllProfiles.mockResolvedValue([{ id: 1, member: name }]);
 
-    render(<BusinessProfile name={name} />);
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <BusinessProfile name={name} />
+        </MemoryRouter>
+      );
+    });
 
     expect(await screen.findByText(name)).toBeInTheDocument();
   });
@@ -21,7 +28,13 @@ describe("BusinessProfile", () => {
     const bio = "This is a test business";
     getAllProfiles.mockResolvedValue([{ id: 1, bio }]);
 
-    render(<BusinessProfile bio={bio} />);
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <BusinessProfile bio={bio} />
+        </MemoryRouter>
+      );
+    });
 
     expect(await screen.findByText(bio)).toBeInTheDocument();
   });
@@ -30,7 +43,13 @@ describe("BusinessProfile", () => {
     const city = "Test City";
     getAllProfiles.mockResolvedValue([{ id: 1, city }]);
 
-    render(<BusinessProfile city={city} />);
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <BusinessProfile city={city} />
+        </MemoryRouter>
+      );
+    });
 
     expect(await screen.findByText(city)).toBeInTheDocument();
   });
@@ -39,7 +58,13 @@ describe("BusinessProfile", () => {
     const address = "123 Test Street";
     getAllProfiles.mockResolvedValue([{ id: 1, address }]);
 
-    render(<BusinessProfile address={address} />);
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <BusinessProfile address={address} />
+        </MemoryRouter>
+      );
+    });
 
     expect(await screen.findByText(address)).toBeInTheDocument();
   });
@@ -48,7 +73,13 @@ describe("BusinessProfile", () => {
     const phone = "555-1234";
     getAllProfiles.mockResolvedValue([{ id: 1, phone }]);
 
-    render(<BusinessProfile phone={phone} />);
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <BusinessProfile phone={phone} />
+        </MemoryRouter>
+      );
+    });
 
     expect(await screen.findByText(phone)).toBeInTheDocument();
   });
@@ -57,7 +88,13 @@ describe("BusinessProfile", () => {
     const reviewCount = 42;
     getAllProfiles.mockResolvedValue([{ id: 1, reviewCount }]);
 
-    render(<BusinessProfile reviewCount={reviewCount} />);
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <BusinessProfile reviewCount={reviewCount} />
+        </MemoryRouter>
+      );
+    });
 
     expect(await screen.findByText(reviewCount)).toBeInTheDocument();
   });
@@ -66,7 +103,13 @@ describe("BusinessProfile", () => {
     const ig = "@testbusiness";
     getAllProfiles.mockResolvedValue([{ id: 1, ig }]);
 
-    render(<BusinessProfile ig={ig} />);
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <BusinessProfile ig={ig} />
+        </MemoryRouter>
+      );
+    });
 
     expect(await screen.findByText(ig)).toBeInTheDocument();
   });
@@ -75,7 +118,13 @@ describe("BusinessProfile", () => {
     const photo = "https://example.com/photo.jpg";
     getAllProfiles.mockResolvedValue([{ id: 1, photo }]);
 
-    render(<BusinessProfile photo={photo} />);
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <BusinessProfile photo={photo} />
+        </MemoryRouter>
+      );
+    });
 
     expect(screen.getByAltText("")).toHaveAttribute("src", photo);
   });

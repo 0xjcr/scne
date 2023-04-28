@@ -115,7 +115,7 @@ const SignUpForm = ({ setUserState }) => {
               CITY
             </InputLabel>
             <Select
-              // labelId="city-id"
+              labelId="city-id"
               id="simple-select"
               value={inputs.city}
               label="CITY"

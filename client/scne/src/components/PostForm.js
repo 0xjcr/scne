@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import CloudinaryImageUpload from "./CloudinaryImageUpload";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
@@ -14,7 +14,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 import Navbar from "./Navbar";
 import { createUserPost } from "../api-service";
-import { PostContext } from "../pages/Feed";
 
 const PostForm = () => {
   const [inputs, setInputs] = useState({
