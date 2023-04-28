@@ -43,6 +43,21 @@ describe("Intergration Tests", () => {
     expect(result.email).toEqual("johndoe@example.com");
     expect(result.bio).toEqual("This is my bio");
   });
+  it("should return 201 if user is created", async () => {
+    const user = {
+      firstName: "John",
+      lastName: "Doe",
+      city: "New York",
+      ig: "johndoe",
+      email: "johndoe@example.com",
+      password: "abc",
+      bio: "This is my bio",
+    };
 
-  it("should return an error if the request body is missing a required field", async () => {});
+    const res = await request.post("/join").send(user);
+
+    expect(res.status).toBe(201);
+    //expect(res.body.error).toBe(false);
+    expect(res.body.message).toBe(user);
+  });
 });

@@ -13,7 +13,6 @@ exports.createProfile = async (req, res) => {
 
   // Hash the password
   const salt = await bcrypt.genSalt(10);
-  console.log("lookie here ==> ", req.body, salt);
   const hashedPassword = await bcrypt.hash(password, salt);
 
   try {
