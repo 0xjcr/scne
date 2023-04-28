@@ -7,6 +7,12 @@ const { Users } = userModles;
 const bizsModels = require("../models/businesses");
 const { Bizs } = bizsModels;
 
+const returnSafeUser = (profile) => {
+  const { firstName, lastName, city, ig, email, password, bio } = profile;
+  const userWithoutPassword = { firstName, lastName, city, ig, email, bio };
+  return userWithoutPassword;
+};
+
 // create a user profile
 exports.createProfile = async (req, res) => {
   const { firstName, lastName, city, ig, email, password, bio } = req.body;
@@ -25,7 +31,8 @@ exports.createProfile = async (req, res) => {
       password: hashedPassword,
       bio,
     });
-    res.status(201).json(profile);
+    res.status(201);
+    res.json(returnSafeUser(profile));
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
