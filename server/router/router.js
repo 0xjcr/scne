@@ -1,9 +1,8 @@
 const router = require("express").Router();
-
 const userController = require("../controllers/userProfile");
 const businessController = require("../controllers/businessProfile");
-const scenesController = require("../controllers/scene");
-const reviewsController = require("../controllers/reviews");
+// const scenesController = require("../controllers/scene");
+// const reviewsController = require("../controllers/reviews");
 const postsController = require("../controllers/posts");
 
 // user routes
@@ -16,9 +15,9 @@ router.get("/profile/:id", userController.getProfile);
 router.get("/community", userController.getAllProfiles);
 
 // business routes
-router.post("/joinbiz", businessController.createBusiness);
+router.post("/joinbiz", businessController.createBusiness); // route doesn't work currently
 // router.put("/editinfo/:id", businessController.updateBusiness);
-router.put("/list/:id", businessController.updateUpvote);
+router.put("/list/:id", businessController.updateUpvote); // route doesn't work in the backend
 // router.delete("/editinfo/:id", businessController.deleteBusiness);
 router.get("/list", businessController.getAllBusinesses);
 router.get("/biz/:id", businessController.getBusiness);

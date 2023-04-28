@@ -7,6 +7,7 @@ const sequelize = require("../models");
 const { logout } = require("./userProfile");
 const { updateProfileAlt } = require("./userProfile");
 // const { getProfile } = require("./userProfile");
+const { getAllProfiles } = require("./userProfile");
 
 describe("/join endpoint", () => {
   const app = express();
