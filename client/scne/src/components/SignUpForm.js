@@ -111,11 +111,12 @@ const SignUpForm = ({ setUserState }) => {
             }}
           />
           <FormControl fullWidth>
-            <InputLabel id="simple-select-label" style={{ color: "white" }}>
+            <InputLabel id="CITY-label" style={{ color: "white" }}>
               CITY
             </InputLabel>
             <Select
-              labelId="city-id"
+              // labelId="city-id"
+
               id="simple-select"
               value={inputs.city}
               label="CITY"

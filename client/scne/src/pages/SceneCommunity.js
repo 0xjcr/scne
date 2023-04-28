@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Topbar from "../components/Topbar";
 import Community from "./Community";
 
 const SceneCommunity = () => {
-  
   const storedScene = localStorage.getItem("scene");
   const [scene, setScene] = useState(storedScene || "coffee");
 

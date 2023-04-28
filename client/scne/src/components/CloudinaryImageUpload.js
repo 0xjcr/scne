@@ -41,6 +41,7 @@ const CloudinaryImageUpload = ({ userId, isBusiness, onUpload }) => {
         type="file"
         name="file"
         placeholder="Upload an image"
+        aria-label="Upload an image"
         onChange={uploadImage}
       />
       {loading ? (

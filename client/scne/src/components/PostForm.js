@@ -17,7 +17,6 @@ import { createUserPost } from "../api-service";
 import { PostContext } from "../pages/Feed";
 
 const PostForm = () => {
-  const setPostState = useContext(PostContext);
   const [inputs, setInputs] = useState({
     content: "",
     event: "",
@@ -47,7 +46,6 @@ const PostForm = () => {
     const loggedInUserId = localStorage.getItem("userId");
     const newPost = { ...inputs, userId: loggedInUserId };
     createUserPost(newPost).then((newPost) => {
-      // setPostState((existingPosts) => [...existingPosts, newPost]).then
       navigate("/feed");
     });
   };
