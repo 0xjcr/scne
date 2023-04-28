@@ -17,7 +17,7 @@ app.use(
 );
 app.use("/", router);
 // Sync models with database and connect to server
-(async () => {
+const server = (async () => {
   try {
     await sequelize.sync();
     console.log("Connected to the db at port 5432 🟦");
@@ -30,3 +30,5 @@ app.use("/", router);
     console.error("NOT CONNECTED to the database:", error);
   }
 })();
+
+module.export = server;
