@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import SceneList from "./SceneList";
+import SceneList from "../components/SceneList";
 
 describe("SceneList component", () => {
   it("should render without errors", () => {

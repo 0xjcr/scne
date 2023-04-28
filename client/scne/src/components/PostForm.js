@@ -44,7 +44,7 @@ const PostForm = () => {
     event.preventDefault();
     const loggedInUserId = localStorage.getItem("userId");
     const newPost = { ...inputs, userId: loggedInUserId };
-    createUserPost(newPost).then((newPost) => {
+    createUserPost(newPost).then(() => {
       navigate("/feed");
     });
   };

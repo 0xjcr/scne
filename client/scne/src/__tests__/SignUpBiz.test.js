@@ -1,5 +1,5 @@
 import React from "react";
-import SignUpBiz from "./SignUpBiz";
+import SignUpBiz from "../components/SignUpBiz";
 import { render } from "@testing-library/react";
 import { MemoryRouter, Router } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, act } from "@testing-library/react";
-import AltTile from "./AltTile";
+import AltTile from "../components/AltTile";
 import { getAllProfiles, updateUpvote } from "../api-service";
 import { MemoryRouter } from "react-router-dom";
 

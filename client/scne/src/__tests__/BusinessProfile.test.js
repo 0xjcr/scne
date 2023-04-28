@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, act } from "@testing-library/react";
-import BusinessProfile from "./BusinessProfile";
+import BusinessProfile from "../components/BusinessProfile";
 import { getAllProfiles } from "../api-service";
 import { MemoryRouter } from "react-router-dom";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
-import EditUser from "./EditUser";
+import EditUser from "../components/EditUser";
 import { updateProfile } from "../api-service";
 
 jest.mock("../api-service", () => ({

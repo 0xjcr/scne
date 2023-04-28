@@ -1,5 +1,5 @@
 import React from "react";
-import SignUpForm from "./SignUpForm";
+import SignUpForm from "../components/SignUpForm";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter, Router } from "react-router-dom";
 
