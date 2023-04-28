@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Post from "./Post";
+import Post from "../components/Post";
 import { MemoryRouter, Router } from "react-router-dom";
 
 describe("Post", () => {

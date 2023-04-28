@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import UploadWidget from "./UploadWidget";
+import UploadWidget from "../components/UploadWidget";
 
 it("should call open method on click", () => {
   const createUploadWidget = jest.fn();

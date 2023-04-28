@@ -4,27 +4,39 @@ import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
 import { login } from "../api-service";
 
+export const validateEmail = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  if (regex.test(email)) {
+    return true;
+  }
+  return false;
+};
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    try {
-      const { user, bizs } = await login(email, password);
-      if (user) {
-        localStorage.setItem("userId", user.id);
-        //console.log(localStorage);
-        navigate(`/profile/${user.id}`);
-      } else if (bizs) {
-        localStorage.setItem("bizId", bizs.id);
-        navigate(`/biz/${bizs.id}`);
-        //console.log(localStorage);
-      } else {
-        alert("😤");
+    if (validateEmail(email)) {
+      try {
+        const { user, bizs } = await login(email, password);
+        if (user) {
+          localStorage.setItem("userId", user.id);
+          //console.log(localStorage);
+          navigate(`/profile/${user.id}`);
+        } else if (bizs) {
+          localStorage.setItem("bizId", bizs.id);
+          navigate(`/biz/${bizs.id}`);
+          //console.log(localStorage);
+        } else {
+          alert("Please use a valid email address");
+        }
+      } catch (error) {
+        alert("Invalid login credentials");
       }
-    } catch (error) {
-      alert("Invalid login credentials");
+    } else {
+      alert("😤");
     }
   };
 
@@ -85,7 +97,7 @@ const Login = () => {
         onClick={handleLogin}
         variant="outlined"
       >
-        LOGIN
+        LOG IN
       </Button>
     </div>
   );

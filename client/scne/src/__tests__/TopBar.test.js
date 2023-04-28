@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Topbar from "./Topbar";
+import Topbar from "../components/Topbar";
 
 describe("Topbar component", () => {
   it("should render without errors", () => {
