@@ -11,27 +11,26 @@ router.post("/join", userController.createProfile);
 router.post("/", userController.login);
 router.post("/logout", userController.logout);
 router.put("/editprofile/:id", userController.updateProfile);
-router.put("/editprofile/:id", userController.updateProfile);
-router.delete("/editprofile/:id", userController.deleteProfile);
+// router.delete("/editprofile/:id", userController.deleteProfile);
 router.get("/profile/:id", userController.getProfile);
 router.get("/community", userController.getAllProfiles);
 
 // business routes
 router.post("/joinbiz", businessController.createBusiness);
-router.put("/editinfo/:id", businessController.updateBusiness);
+// router.put("/editinfo/:id", businessController.updateBusiness);
 router.put("/list/:id", businessController.updateUpvote);
-router.delete("/editinfo/:id", businessController.deleteBusiness);
+// router.delete("/editinfo/:id", businessController.deleteBusiness);
 router.get("/list", businessController.getAllBusinesses);
 router.get("/biz/:id", businessController.getBusiness);
 
 // review routes
-router.post("/biz/:id/review", reviewsController.createReview);
-router.get("/biz/:id/review", reviewsController.getAllReviews);
+// router.post("/biz/:id/review", reviewsController.createReview);
+// router.get("/biz/:id/review", reviewsController.getAllReviews);
 
 // scene routes
-router.post("/adminScene", scenesController.createScene);
-router.get("/", scenesController.getAllScenes);
-router.delete("/adminScene/:id", scenesController.deleteScene);
+// router.post("/adminScene", scenesController.createScene);
+// router.get("/", scenesController.getAllScenes);
+// router.delete("/adminScene/:id", scenesController.deleteScene);
 
 //posts routes
 router.get("/feed", postsController.getAllPosts);
