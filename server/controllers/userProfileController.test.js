@@ -4,17 +4,6 @@ const supertest = require("supertest");
 const { Users } = require("../models/users");
 const sequelize = require("../models");
 
-// // Setup database connection first
-// // Initialize Sequelize with connection details
-// const sequelize = new Sequelize("testing", "rosiedyvig", "", {
-//   host: "localhost",
-//   dialect: "postgres",
-//   port: 5432,
-//   logging: false,
-// });
-
-// const Users = sequelize.models.Users;
-
 describe("Intergration Tests", () => {
   const app = express();
   app.use(express.json());
