@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import CircleUser from "../components/CircleUser";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { getAllProfiles } from "../api-service";
 
 const Community = ({ scene }) => {
@@ -9,15 +9,14 @@ const Community = ({ scene }) => {
   useEffect(() => {
     getAllProfiles().then((profiles) => setUserProfiles(profiles));
   }, []);
-
-  // Filter user profiles by scene and sort them by endorsed
   const filteredAndSortedProfiles = [...userProfiles]
-    .filter((profile) => [profile.scene0, profile.scene1, profile.scene2].includes(scene))
+    .filter((profile) =>
+      [profile.scene0, profile.scene1, profile.scene2].includes(scene)
+    )
     .sort((a, b) => b.endorsed - a.endorsed);
 
   return (
     <>
-      
       <div className="community">
         {filteredAndSortedProfiles.map((user) => (
           <CircleUser
@@ -28,7 +27,6 @@ const Community = ({ scene }) => {
             photo={user.photo}
             member={user.member}
             scale={1.5}
-            
           />
         ))}
       </div>

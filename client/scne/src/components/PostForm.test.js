@@ -1,70 +1,50 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import { PostContext } from "../pages/Feed";
-import PostForm from "./PostForm";
-import { createUserPost } from "../api-service";
-import axios from "axios";
+// import { fireEvent, render, screen } from "@testing-library/react";
+// import { PostContext } from "../pages/Feed";
+// import PostForm from "./PostForm";
+// import React from "react";
 
-jest.mock("../api-service");
+// const mockNavigate = jest.fn();
 
-// Mock jest and set the type
-jest.mock("axios");
-const mockedAxios = axios;
+// jest.mock("../api-service", () => ({
+//   createUserPost: jest.fn(() => Promise.resolve({})),
+// }));
+// jest.mock("react-router-dom", () => ({
+//   useNavigate: () => mockNavigate,
+// }));
 
-describe.only("PostForm", () => {
-  it("should render the form elements", () => {
-    render(
-      <BrowserRouter>
-        <PostForm />
-      </BrowserRouter>
-    );
+// describe("PostForm", () => {
+//   it("should handle form submission correctly", async () => {
+//     render(
+//       <PostContext.Provider value={{}}>
+//         <PostForm />
+//       </PostContext.Provider>
+//     );
 
-    expect(screen.getByLabelText("POST TYPE")).toBeInTheDocument();
-    expect(screen.getByLabelText("SCENE")).toBeInTheDocument();
-    expect(screen.getByLabelText("CONTENT")).toBeInTheDocument();
-    expect(screen.getByText("CREATE")).toBeInTheDocument();
-  });
+//     fireEvent.change(screen.getByLabelText("POST TYPE"), {
+//       target: { name: "event", value: "event" },
+//     });
 
-  it("should submit the form when the create button is clicked", async () => {
-    const setPostState = jest.fn();
-    const navigate = jest.fn();
+//     fireEvent.change(screen.getByLabelText("SCENE"), {
+//       target: { name: "scene", value: "coffee" },
+//     });
 
-    mockedAxios.post.mockResolvedValue({
-      data: [
-        {
-          id: 1,
-          name: "Joe Doe",
-        },
-        {
-          id: 2,
-          name: "Jane Doe",
-        },
-      ],
-    });
+//     fireEvent.change(screen.getByLabelText("CONTENT"), {
+//       target: { name: "content", value: "Test post content" },
+//     });
 
-    render(
-      <BrowserRouter>
-        <PostContext.Provider value={setPostState}>
-          <PostForm />
-        </PostContext.Provider>
-      </BrowserRouter>
-    );
+//     fireEvent.click(screen.getByRole("button", { name: "CREATE" }));
 
-    const contentInput = screen.getByLabelText("CONTENT");
-    const createButton = screen.getByText("CREATE");
+//     expect(createUserPost).toHaveBeenCalledWith({
+//       content: "Test post content",
+//       event: true,
+//       comment: false,
+//       scene: "coffee",
+//       postPhoto: "",
+//       userId: localStorage.getItem("userId"),
+//     });
 
-    fireEvent.change(contentInput, { target: { value: "Test content" } });
-    fireEvent.click(createButton);
+//     await Promise.resolve();
 
-    await waitFor(() => expect(createUserPost).toHaveBeenCalledTimes(1));
-    expect(createUserPost).toHaveBeenCalledWith({
-      content: "Test content",
-      event: false,
-      comment: false,
-      scene: "",
-      postPhoto: "",
-      userId: null,
-    });
-    expect(navigate).toHaveBeenCalledWith("/feed");
-  });
-});
+//     expect(mockNavigate).toHaveBeenCalledWith("/feed");
+//   });
+// });

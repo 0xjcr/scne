@@ -1,10 +1,8 @@
 import Navbar from "../components/Navbar";
-import { useNavigate } from 'react-router-dom';
-import TileBusiness from '../components/TileBusiness';
-import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { getAllBusinesses, updateUpvote } from "../api-service";
 import AltTile from "../components/AltTile";
-
 
 const List = ({ scene }) => {
   const navigate = useNavigate();
@@ -38,24 +36,25 @@ const List = ({ scene }) => {
 
   return (
     <div className="listwrapper">
-    <div className="listContainer">
-      <div className="list">
-        {filteredAndSortedBiz.map((biz, index) => (
-          <div key={biz.id} onClick={() => handleBusinessClick(biz.id)}>
-            <AltTile
-              id={biz.id}
-              name={biz.name}
-              upvotes={biz.upvotes}
-              handleUpvote={() => handleUpvote(biz.id)}
-              ranking={index + 1} 
-              photo={biz.photo}
-              // Add the ranking prop here
-            />
-          </div>
-        ))}
+      <div className="listContainer">
+        <div className="list">
+          {filteredAndSortedBiz.map((biz, index) => (
+            <div key={biz.id} onClick={() => handleBusinessClick(biz.id)}>
+              <AltTile
+                id={biz.id}
+                name={biz.name}
+                upvotes={biz.upvotes}
+                handleUpvote={() => handleUpvote(biz.id)}
+                ranking={index + 1}
+                photo={biz.photo}
+                // Add the ranking prop here
+              />
+            </div>
+          ))}
+        </div>
+        <Navbar></Navbar>
       </div>
-      <Navbar></Navbar>
-    </div></div>
+    </div>
   );
 };
 
