@@ -3,8 +3,6 @@ import { styled } from "@mui/material/styles";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import Box from "@mui/material/Box";
-// import { ReactComponent as UfoLogo } from '../ufologo.svg';
-import { ReactComponent as UfoLogo } from "../assets/ufologo.svg";
 
 const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
   position: "absolute",
@@ -27,14 +25,6 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
     },
     "&:active": {},
   },
-  "& .MuiSpeedDialAction-staticTooltipLabel": {
-    // width: 'auto',
-    // padding: '0.5rem',
-    // borderRadius: '0.25rem',
-    // backgroundColor: '#f7f7f7',
-    // color: '#333',
-    // fontWeight: 'bold',
-  },
   "& .MuiSpeedDialAction-fab": {
     backgroundColor: "transparent",
     boxShadow: "none",
@@ -48,16 +38,6 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
     backgroundColor: "transparent",
     boxShadow: "none",
   },
-  "& .MuiSpeedDialAction-fab:active": {
-    backgroundColor: "transparent",
-    boxShadow: "none",
-  },
-  "& .MuiSpeedDialAction-fab:active": {
-    backgroundColor: "transparent",
-    boxShadow: "none",
-  },
-
-  "& .css-1l2bu63-MuiSpeedDial-root": {},
 }));
 const Topbar = ({ scene, onSceneChange }) => {
   const handleChange = (value) => {
@@ -66,7 +46,7 @@ const Topbar = ({ scene, onSceneChange }) => {
 
   return (
     <>
-      <div className="topbar">
+      <div className="topbar" data-testid="topbar">
         <StyledSpeedDial
           ariaLabel="SpeedDial"
           icon={
