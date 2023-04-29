@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { ElementType, useState, useEffect, Component } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
@@ -26,7 +26,37 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const AltTile = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => {
+interface CircleUserType {
+  key: string;
+  id: string;
+  firstName: string;
+  reviewCount: string;
+  photo: string;
+  clickable: boolean;
+  member: string;
+  scale: number;
+  border: string;
+}
+
+type ComponentType = "img" | "video" | "div" | React.ComponentType<any>;
+
+interface Props {
+  id: number;
+  name: string;
+  upvotes: number;
+  ranking: number;
+  photo: string;
+  component: ComponentType;
+}
+
+const AltTile = ({
+  id,
+  name,
+  upvotes: initialUpvotes,
+  ranking,
+  photo,
+  component,
+}: Props) => {
   const [users, setUsers] = useState([]);
   const [upvotes, setUpvotes] = useState(initialUpvotes);
 
@@ -61,9 +91,10 @@ const AltTile = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => {
     >
       <CardActionArea>
         <CardMedia
+          component={component}
+          alt={name}
           sx={{ height: 250, objectFit: "cover", position: "relative" }}
           image={photo}
-          alt={name}
         >
           {ranking < 11 ? (
             <StyledBadge
@@ -107,15 +138,16 @@ const AltTile = ({ id, name, upvotes: initialUpvotes, ranking, photo }) => {
         <div className="bottom-row">
           {users.slice(0, 4).map((user) => (
             <CircleUser
-              key={user.id}
-              id={user.id}
-              firstName={user.firstName}
-              reviewCount={user.reviewCount}
-              photo={user.photo}
+              key={user["id"]}
+              id={user["id"]}
+              userId={user["id"]}
+              firstName={user["firstName"]}
+              // reviewCount={user["reviewCount"]}
+              photo={user["photo"]}
               clickable={false}
-              member={user.member}
+              member={user["member"]}
               scale={1.25}
-              border={"5px solid"}
+              // border={"5px solid"}
             />
           ))}
         </div>
