@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
-import List from "./List";
+import React,{ useState, useEffect } from "react";
+import List from "../components/List";
 import Topbar from "../components/Topbar";
 
-const SceneList = () => {
-  const [scene, setScene] = useState(localStorage.getItem("scene") || "coffee");
 
-  const handleSceneChange = (newScene) => {
+const SceneList = () => {
+  const [scene, setScene] = useState<string>(localStorage.getItem("scene") || "coffee");
+
+  const handleSceneChange = (newScene:string) => {
     setScene(newScene);
   };
 

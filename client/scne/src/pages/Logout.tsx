@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import React, {useEffect} from "react";
 import { logout } from "../api-service";
 
-const Logout = () => {
+interface LogoutProps {}
+
+const Logout:React.FC<LogoutProps> = () => {
   useEffect(() => {
     logout();
   }, []);
@@ -14,7 +16,7 @@ const Logout = () => {
         height: "100vh",
       }}
     >
-      <img src="../logo2.png" alt="" width="400" height="400" margin="20px" />
+      <img src="../logo2.png" alt="" width="400" height="400" style ={{margin:"20px"}} />
     </div>
   );
 };

@@ -10,7 +10,7 @@ import { createBusiness } from "../api-service";
 import CloudinaryImageUpload from "./CloudinaryImageUpload";
 import { useNavigate } from "react-router-dom";
 
-const SignUpBiz = ({ setBusinessState }) => {
+const SignUpBiz = () => {
   const [inputs, setInputs] = useState({
     name: "",
     city: "",
@@ -31,10 +31,10 @@ const SignUpBiz = ({ setBusinessState }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     createBusiness(inputs).then((newBusiness) => {
-      setBusinessState((existingBusinesses) => [
-        ...existingBusinesses,
-        newBusiness,
-      ]);
+      // setBusinessState((existingBusinesses) => [
+      //   ...existingBusinesses,
+      //   newBusiness,
+      // ]);
       navigate("list");
     });
 

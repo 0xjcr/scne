@@ -3,18 +3,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 // Pages
-import SceneCommunity from "./pages/SceneCommunity";
-import Feed from "./pages/Feed";
-import SceneList from "./pages/SceneList";
-// import Map from './pages/Map';
-import Profile from "./pages/Profile";
-import SignUp from "./pages/SignUp";
-import SignUpBusiness from "./pages/SignUpBusiness";
-import EditUserProfile from "./pages/EditUserProfile";
-import ProfileBusiness from "./pages/ProfileBusiness";
-import Login from "./pages/Login";
-import PostForm from "./components/PostForm";
-import Logout from "./pages/Logout";
+import SceneCommunity from "./pages/SceneCommunity.tsx";
+import Feed from "./pages/Feed.tsx";
+import SceneList from "./pages/SceneList.tsx";
+import Profile from "./pages/Profile.tsx";
+import SignUp from "./pages/SignUp.tsx";
+import SignUpBusiness from "./pages/SignUpBusiness.tsx";
+import EditUserProfile from "./pages/EditUserProfile.tsx";
+import ProfileBusiness from "./pages/ProfileBusiness.tsx";
+import Login from "./pages/Login.tsx";
+import PostForm from "./pages/PostForm.tsx";
+import Logout from "./pages/Logout.tsx";
 
 const font = "'Rajdhani', sans-serif";
 const theme = createTheme({

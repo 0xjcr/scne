@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
 import { login } from "../api-service";
 
-export const validateEmail = (email) => {
+export const validateEmail = (email:string):boolean => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
   if (regex.test(email)) {
     return true;
@@ -12,7 +12,7 @@ export const validateEmail = (email) => {
   return false;
 };
 
-const Login = () => {
+const Login = ():JSX.Element => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,12 +23,10 @@ const Login = () => {
         const { user, bizs } = await login(email, password);
         if (user) {
           localStorage.setItem("userId", user.id);
-          //console.log(localStorage);
           navigate(`/profile/${user.id}`);
         } else if (bizs) {
           localStorage.setItem("bizId", bizs.id);
           navigate(`/biz/${bizs.id}`);
-          //console.log(localStorage);
         } else {
           alert("Please use a valid email address");
         }
@@ -103,4 +101,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { BrowserRouter, useNavigate } from "react-router-dom";
 import { PostContext } from "../pages/Feed";
-import PostForm from "../components/PostForm";
+import PostForm from "../pages/PostForm";
 import { createUserPost } from "../api-service";
 import axios from "axios";
 

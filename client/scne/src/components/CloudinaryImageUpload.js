@@ -3,7 +3,7 @@ import axios from "axios";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { updateProfile } from "../api-service";
 
-const CloudinaryImageUpload = ({ userId, isBusiness, onUpload }) => {
+const CloudinaryImageUpload = ({ onUpload }) => {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -26,7 +26,7 @@ const CloudinaryImageUpload = ({ userId, isBusiness, onUpload }) => {
       photo: res.data.url,
     };
 
-    updateProfile(userId, updatedUser);
+    // updateProfile(userId, updatedUser); Need to set this state in redux re-format - passed down from post form page
 
     onUpload(res.data.url);
     setImage(res.data.url);

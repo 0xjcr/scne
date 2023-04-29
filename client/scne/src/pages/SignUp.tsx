@@ -1,16 +1,18 @@
-import SignUpBiz from "../components/SignUpBiz"
+import SignUpForm from "../components/SignUpForm"
+import React from "react"
 
 
-const SignUpBusiness = () => {
+const SignUp = () => {
   return (
     <>
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
     <h1>JOIN THE SCNE</h1>
-    <h2>CONNECT YOUR BUSINESS</h2>
+
+    <h2>CREATE A PROFILE</h2>
     </div>
-    <SignUpBiz></SignUpBiz>
+    <SignUpForm></SignUpForm>
     </>
   )
 }
 
-export default SignUpBusiness
+export default SignUp

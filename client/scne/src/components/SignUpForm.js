@@ -9,7 +9,7 @@ import { createProfile } from "../api-service";
 import { useNavigate } from "react-router-dom";
 import { FormControl } from "@mui/material";
 
-const SignUpForm = ({ setUserState }) => {
+const SignUpForm = () => {
   const [inputs, setInputs] = useState({
     firstName: "",
     lastName: "",
@@ -30,9 +30,9 @@ const SignUpForm = ({ setUserState }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     createProfile(inputs)
-      .then((newUser) => {
-        setUserState((existingUsers) => [...existingUsers, newUser]);
-      })
+      // .then((newUser) => {
+      //   setUserState((existingUsers) => [...existingUsers, newUser]);
+      // })
       .then(navigate("/"));
 
     setInputs({

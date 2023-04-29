@@ -1,5 +1,5 @@
-import { useState } from "react";
-import CloudinaryImageUpload from "./CloudinaryImageUpload";
+import React, { useState } from "react";
+import CloudinaryImageUpload from "../components/CloudinaryImageUpload";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
@@ -12,19 +12,29 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import { createUserPost } from "../api-service";
 
+
+
+interface Inputs {
+  content: string;
+  event: boolean;
+  comment: boolean;
+  scene: string;
+  postPhoto: string;
+}
+
 const PostForm = () => {
-  const [inputs, setInputs] = useState({
+  const [inputs, setInputs] = useState<Inputs>({
     content: "",
-    event: "",
-    comment: "",
+    event: false,
+    comment: false,
     scene: "",
     postPhoto: "",
   });
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value =
       event.target.type === "checkbox"
         ? event.target.checked
@@ -40,7 +50,7 @@ const PostForm = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     const loggedInUserId = localStorage.getItem("userId");
     const newPost = { ...inputs, userId: loggedInUserId };
@@ -49,7 +59,7 @@ const PostForm = () => {
     });
   };
 
-  const handleImageUpload = (imageUrl) => {
+  const handleImageUpload = (imageUrl:string) => {
     setInputs({ ...inputs, postPhoto: imageUrl });
   };
 
@@ -61,7 +71,7 @@ const PostForm = () => {
           sx={{
             "& > :not(style)": { m: 2, width: "25ch" },
           }}
-          noValidate
+
           autoComplete="off"
           onSubmit={handleSubmit}
           display="flex"
@@ -125,7 +135,7 @@ const PostForm = () => {
 
           <CloudinaryImageUpload
             onUpload={handleImageUpload}
-            isBusiness={true}
+
           />
           <TextField
             id="outlined-multiline-flexible"

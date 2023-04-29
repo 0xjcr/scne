@@ -1,8 +1,8 @@
-import Navbar from "../components/Navbar";
+import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getAllBusinesses, updateUpvote } from "../api-service";
-import AltTile from "../components/AltTile";
+import AltTile from "./AltTile";
 
 const List = ({ scene }) => {
   const navigate = useNavigate();

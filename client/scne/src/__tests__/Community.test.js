@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Community from "./Community";
+import Community from "../components/Community";
 
 test("renders user profiles with correct first name and sorted by endorsements", () => {
   const scene = "coffee";
