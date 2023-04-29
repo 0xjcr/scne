@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getBusiness } from "../api-service";
 // @ts-ignore
 import BusinessProfile from "../components/BusinessProfile.tsx";
+// @ts-ignore
 import Navbar from "../components/Navbar.tsx";
 
 const ProfileBusiness: React.FC = () => {

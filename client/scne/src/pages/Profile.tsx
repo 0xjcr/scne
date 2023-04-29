@@ -1,7 +1,8 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 // @ts-ignore
-import ProfileUser from "../components/ProfileUser.ts";
+import Navbar from "../components/Navbar.tsx";
+// @ts-ignore
+import ProfileUser from "../components/ProfileUser.tsx";
 
 const Profile = () => {
   return (

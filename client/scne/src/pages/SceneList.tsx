@@ -1,5 +1,6 @@
-import React,{ useState, useEffect } from "react";
-import List from "../components/List";
+import React, { useState, useEffect } from "react";
+// @ts-ignore
+import List from "../components/List.tsx";
 // @ts-ignore
 import Topbar from "../components/Topbar.tsx";
 

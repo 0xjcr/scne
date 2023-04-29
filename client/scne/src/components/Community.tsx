@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+// @ts-ignore
 import Navbar from "./Navbar.tsx";
+// @ts-ignore
 import CircleUser from "./CircleUser.tsx";
 import { getAllProfiles } from "../api-service";
 

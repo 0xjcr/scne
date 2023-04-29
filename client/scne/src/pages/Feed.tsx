@@ -1,11 +1,12 @@
 import React, { useState, useEffect, createContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+// @ts-ignore
+import Navbar from "../components/Navbar.tsx";
 // @ts-ignore
 import Post from "../components/Post.tsx";
 import { getAllPosts } from "../api-service";
 // @ts-ignore
-import Topbar from "../components/Topbar.tsx"
+import Topbar from "../components/Topbar.tsx";
 import Button from "@mui/material/Button";
 
 interface PostType {
@@ -86,17 +87,15 @@ const Feed = () => {
           filteredPosts.map((post, index) => (
             <div key={index}>
               <Post
-                id={post['id']}
-                content={post['content']}
-                event={post['event']}
-                comment={post['comment']}
-                scene={post['scene']}
-                postPhoto={post['postPhoto']}
+                id={post["id"]}
+                content={post["content"]}
+                event={post["event"]}
+                comment={post["comment"]}
+                scene={post["scene"]}
+                postPhoto={post["postPhoto"]}
                 // // userId={post['userId']}
                 // // bizId={post['bizId']}
-                user={post['user']}
-
-
+                user={post["user"]}
               />
             </div>
           ))

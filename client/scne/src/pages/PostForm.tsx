@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// @ts-ignore
 import CloudinaryImageUpload from "../components/CloudinaryImageUpload.tsx";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
@@ -12,6 +13,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
+// @ts-ignore
 import Navbar from "../components/Navbar.tsx";
 import { createUserPost } from "../api-service";
 
