@@ -1,11 +1,12 @@
 import React,{ useState, useEffect, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Post from "../components/Post";
+// @ts-ignore
+import Post from "../components/Post.tsx";
 import { getAllPosts } from "../api-service";
+// @ts-ignore
 import Topbar from "../components/Topbar.tsx"
 import Button from "@mui/material/Button";
-import { integerPropType } from "@mui/utils";
 
 interface PostType {
   id:string,
@@ -92,8 +93,8 @@ const Feed = () => {
                 comment={post['comment']}
                 scene={post['scene']}
                 postPhoto={post['postPhoto']}
-                // userId={post['userId']}
-                // bizId={post['bizId']}
+                // // userId={post['userId']}
+                // // bizId={post['bizId']}
                 user={post['user']}
 
 

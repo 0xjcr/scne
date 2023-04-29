@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// @ts-ignore
 import Topbar from "../components/Topbar.tsx";
 import Community from "../components/Community";
 

@@ -1,3 +1,4 @@
+// @ts-ignore
 import SignUpForm from "../components/SignUpForm.tsx"
 import React from "react"
 

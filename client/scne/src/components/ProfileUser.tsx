@@ -7,18 +7,34 @@ import IconButton from "@mui/material/IconButton";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import React from "react";
 
-const ProfileUser = () => {
-  const { id } = useParams();
-  const [user, setUser] = useState(null);
+interface User {
+  firstName: string;
+  lastName: string;
+  ig: string;
+  photo: string;
+  bio: string;
+  member: boolean;
+  email: string;
+  reviewCount: number;
+  endorsed: number;
+}
+
+
+const ProfileUser:React.FC = () => {
+  const { id } = useParams<{ id:string}>();
+  const [user, setUser] = useState<User | null>(null);
 
   const loggedInUserId = localStorage.getItem("userId");
 
   const handleEndorse = async () => {
-    const updatedUser = { ...user, endorsed: user.endorsed + 1 };
-    const response = await updateProfileAlt(id, updatedUser);
-    if (response.success) {
-      setUser(updatedUser);
+    if (user) {
+      const updatedUser: User = { ...user, endorsed: user.endorsed + 1 };
+      const response = await updateProfileAlt(id, updatedUser);
+      if (response.success) {
+        setUser(updatedUser);
+      }
     }
   };
 
@@ -72,14 +88,12 @@ const ProfileUser = () => {
               <Button
                 sx={{ color: "white", width: "25%" }}
                 onClick={handleEdit}
-                variant=""
                 size="small"
               >
                 edit
               </Button>
               <Button
                 sx={{ color: "white", width: "25%" }}
-                variant=""
                 size="small"
                 onClick={handleLogout}
               >

@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getBusiness } from "../api-service";
+// @ts-ignore
 import BusinessProfile from "../components/BusinessProfile.tsx";
 import Navbar from "../components/Navbar";
 
