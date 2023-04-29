@@ -1,7 +1,24 @@
+import React from "react";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
+// @ts-ignore
 import CircleUser from "./CircleUser.tsx";
 
-const Post = ({ id, content, event, comment, scene, postPhoto, user }) => {
+interface Props {
+  id: string;
+  content: string;
+  event: boolean;
+  comment: string;
+  scene: string;
+  postPhoto: string;
+  user: {
+    id: string;
+    firstName: string;
+    member: boolean;
+    photo: string;
+  };
+}
+
+const Post = ({ id, content, event, comment, scene, postPhoto, user }: Props) => {
   const { id: userId, firstName, member, photo } = user;
 
   const tileStyle = {
@@ -17,7 +34,6 @@ const Post = ({ id, content, event, comment, scene, postPhoto, user }) => {
         maxWidth: "90vw",
         margin: "5vw",
         borderRadius: "30px",
-        background: "transparent",
         color: "whitesmoke",
         ...tileStyle,
         position: "relative",

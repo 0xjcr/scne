@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import List from "../components/List.tsx";
+import React,{ useState, useEffect } from "react";
+import List from "../components/List";
+// @ts-ignore
 import Topbar from "../components/Topbar.tsx";
 
 const SceneList = () => {
