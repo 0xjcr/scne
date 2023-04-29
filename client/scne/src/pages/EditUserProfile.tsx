@@ -1,5 +1,5 @@
-import React from 'react'
-import EditUser from "../components/EditUser";
+import React from "react";
+import EditUser from "../components/EditUser.tsx";
 const EditUserProfile = () => {
   return (
     <>

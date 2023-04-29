@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getBusiness } from "../api-service";
 import BusinessProfile from "../components/BusinessProfile.tsx";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.tsx";
 
 const ProfileBusiness: React.FC = () => {
   const { id } = useParams<{ id: string }>();

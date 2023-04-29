@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Topbar from "../components/Topbar.tsx";
-import Community from "../components/Community";
+import Community from "../components/Community.tsx";
 
 const SceneCommunity = () => {
   const storedScene = localStorage.getItem("scene");
   const [scene, setScene] = useState<string>(storedScene || "coffee");
 
-  const handleSceneChange = (newScene:string) => {
+  const handleSceneChange = (newScene: string) => {
     setScene(newScene);
     // Store the selected scene in local storage
     localStorage.setItem("scene", newScene);

@@ -1,26 +1,26 @@
-import React,{ useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.tsx";
 import Post from "../components/Post";
 import { getAllPosts } from "../api-service";
-import Topbar from "../components/Topbar.tsx"
+import Topbar from "../components/Topbar.tsx";
 import Button from "@mui/material/Button";
 import { integerPropType } from "@mui/utils";
 
 interface PostType {
-  id:string,
-  content:string,
-  event:string,
-  comment:string,
-  scene:string,
-  postPhoto:string,
-  userId: string,
-  bizId:string,
-   user:string,
+  id: string;
+  content: string;
+  event: string;
+  comment: string;
+  scene: string;
+  postPhoto: string;
+  userId: string;
+  bizId: string;
+  user: string;
 }
 
 interface Props {
-  user: any
+  user: any;
 }
 
 // const PostContext = createContext<PostType>([]);
@@ -46,20 +46,19 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    const newArr = postState.filter((post) => post['scene'] === scene);
+    const newArr = postState.filter((post) => post["scene"] === scene);
     setFilteredPosts(newArr);
   }, [scene, postState]);
 
-  const handleSceneChange = (newScene:string) => {
+  const handleSceneChange = (newScene: string) => {
     setScene(newScene);
     // Store the selected scene in local storage
     localStorage.setItem("scene", newScene);
   };
 
   return (
-
     <>
-    {/* // <PostContext.Provider value={[postState, setPostState]}> */}
+      {/* // <PostContext.Provider value={[postState, setPostState]}> */}
       <Topbar scene={scene} onSceneChange={handleSceneChange} />
 
       <div className="createPost">
@@ -86,17 +85,15 @@ const Feed = () => {
           filteredPosts.map((post, index) => (
             <div key={index}>
               <Post
-                id={post['id']}
-                content={post['content']}
-                event={post['event']}
-                comment={post['comment']}
-                scene={post['scene']}
-                postPhoto={post['postPhoto']}
+                id={post["id"]}
+                content={post["content"]}
+                event={post["event"]}
+                comment={post["comment"]}
+                scene={post["scene"]}
+                postPhoto={post["postPhoto"]}
                 // userId={post['userId']}
                 // bizId={post['bizId']}
-                user={post['user']}
-
-
+                user={post["user"]}
               />
             </div>
           ))
@@ -105,8 +102,8 @@ const Feed = () => {
         )}
         <Navbar />
       </div>
-     {/* </PostContext.Provider> */}
-      </>
+      {/* </PostContext.Provider> */}
+    </>
   );
 };
 

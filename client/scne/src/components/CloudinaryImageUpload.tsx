@@ -13,7 +13,7 @@ const CloudinaryImageUpload = ({ onUpload }) => {
     data.append("file", files[0]);
     data.append(
       "upload_preset",
-      process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET as string
     );
     setLoading(true);
     const res = await axios.post(

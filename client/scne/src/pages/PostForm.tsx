@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CloudinaryImageUpload from "../components/CloudinaryImageUpload";
+import CloudinaryImageUpload from "../components/CloudinaryImageUpload.tsx";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
@@ -12,10 +12,8 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.tsx";
 import { createUserPost } from "../api-service";
-
-
 
 interface Inputs {
   content: string;
@@ -59,7 +57,7 @@ const PostForm = () => {
     });
   };
 
-  const handleImageUpload = (imageUrl:string) => {
+  const handleImageUpload = (imageUrl: string) => {
     setInputs({ ...inputs, postPhoto: imageUrl });
   };
 
@@ -71,7 +69,6 @@ const PostForm = () => {
           sx={{
             "& > :not(style)": { m: 2, width: "25ch" },
           }}
-
           autoComplete="off"
           onSubmit={handleSubmit}
           display="flex"
@@ -133,10 +130,7 @@ const PostForm = () => {
             </Select>
           </FormControl>
 
-          <CloudinaryImageUpload
-            onUpload={handleImageUpload}
-
-          />
+          <CloudinaryImageUpload onUpload={handleImageUpload} />
           <TextField
             id="outlined-multiline-flexible"
             label="CONTENT"

@@ -1,6 +1,6 @@
-import Navbar from "./Navbar";
+import React, { useState, useEffect } from "react";
+import Navbar from "./Navbar.tsx";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { getAllBusinesses, updateUpvote } from "../api-service";
 import AltTile from "./AltTile.tsx";
 
@@ -17,36 +17,36 @@ const List = ({ scene }) => {
     navigate(`/biz/${bizId}`);
   };
 
-  const handleUpvote = async (bizId) => {
+  const handleUpvote = async (bizId: number): Promise<void> => {
     const updatedBiz = await updateUpvote(bizId); // make API call to update upvote count
     setBizState((prevBizState) => {
       // replace the old business with the updated one
       const newBizState = [...prevBizState];
-      const index = newBizState.findIndex((biz) => biz.id === bizId);
+      const index = newBizState.findIndex((biz) => biz["id"] === bizId);
       newBizState[index] = updatedBiz;
       // sort the businesses by upvotes
-      return newBizState.sort((a, b) => b.upvotes - a.upvotes);
+      return newBizState.sort((a, b) => b["upvotes"] - a["upvotes"]);
     });
   };
 
   // Filter businesses by scene and sort them by upvotes
   const filteredAndSortedBiz = [...bizState]
-    .filter((biz) => biz.scene === scene)
-    .sort((a, b) => b.upvotes - a.upvotes);
+    .filter((biz) => biz["scene"] === scene)
+    .sort((a, b) => b["upvotes"] - a["upvotes"]);
 
   return (
     <div className="listwrapper">
       <div className="listContainer">
         <div className="list">
           {filteredAndSortedBiz.map((biz, index) => (
-            <div key={biz.id} onClick={() => handleBusinessClick(biz.id)}>
+            <div key={biz["id"]} onClick={() => handleBusinessClick(biz["id"])}>
               <AltTile
-                id={biz.id}
-                name={biz.name}
-                upvotes={biz.upvotes}
-                handleUpvote={() => handleUpvote(biz.id)}
+                id={biz["id"]}
+                name={biz["name"]}
+                upvotes={biz["upvotes"]}
+                handleUpvote={() => handleUpvote(biz["id"])}
                 ranking={index + 1}
-                photo={biz.photo}
+                photo={biz["photo"]}
                 // Add the ranking prop here
               />
             </div>

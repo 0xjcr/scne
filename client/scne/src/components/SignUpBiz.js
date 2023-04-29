@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { createBusiness } from "../api-service";
-import CloudinaryImageUpload from "./CloudinaryImageUpload";
+import CloudinaryImageUpload from "./CloudinaryImageUpload.tsx";
 import { useNavigate } from "react-router-dom";
 
 const SignUpBiz = () => {
