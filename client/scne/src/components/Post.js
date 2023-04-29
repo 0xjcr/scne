@@ -1,5 +1,5 @@
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
-import CircleUser from "./CircleUser";
+import CircleUser from "./CircleUser.tsx";
 
 const Post = ({ id, content, event, comment, scene, postPhoto, user }) => {
   const { id: userId, firstName, member, photo } = user;

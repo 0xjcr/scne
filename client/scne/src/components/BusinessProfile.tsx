@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllProfiles } from "../api-service";
-import CircleUser from "./CircleUser";
+import CircleUser from "./CircleUser.tsx";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
 import IconButton from "@mui/material/IconButton";
