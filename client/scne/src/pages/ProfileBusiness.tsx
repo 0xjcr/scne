@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getBusiness } from "../api-service";
-import BusinessProfile from "../components/BusinessProfile";
+import BusinessProfile from "../components/BusinessProfile.tsx";
 import Navbar from "../components/Navbar";
 
 const ProfileBusiness: React.FC = () => {
@@ -18,7 +18,6 @@ const ProfileBusiness: React.FC = () => {
     photo: string;
     id: number;
   }>(null);
-
 
   useEffect(() => {
     getBusiness(id).then((profile) => setBusiness(profile));

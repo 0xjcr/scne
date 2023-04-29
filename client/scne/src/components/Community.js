@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import CircleUser from "./CircleUser";
+import CircleUser from "./CircleUser.tsx";
 import { useState, useEffect } from "react";
 import { getAllProfiles } from "../api-service";
 

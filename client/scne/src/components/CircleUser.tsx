@@ -1,6 +1,15 @@
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const CircleUser = ({ id,userId, firstName, member, photo,  clickable = true, scale = 1 }) => {
+const CircleUser = ({
+  id,
+  userId,
+  firstName,
+  member,
+  photo,
+  clickable = true,
+  scale = 1,
+}) => {
   const navigate = useNavigate();
 
   const handleUserClick = () => {
@@ -20,8 +29,8 @@ const CircleUser = ({ id,userId, firstName, member, photo,  clickable = true, sc
         borderWidth: member ? "1px" : "3px",
         borderColor: member ? "rgba(112, 255, 0, 1)" : "white",
         transform: `scale(${scale})`,
-        margin: `${scaledMargin}px`
-}}
+        margin: `${scaledMargin}px`,
+      }}
     >
       <img className="circleuser-image" src={photo} alt={firstName} />
     </div>
@@ -29,4 +38,3 @@ const CircleUser = ({ id,userId, firstName, member, photo,  clickable = true, sc
 };
 
 export default CircleUser;
-
