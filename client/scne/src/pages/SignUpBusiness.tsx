@@ -1,4 +1,4 @@
-import SignUpBiz from "../components/SignUpBiz"
+import SignUpBiz from "../components/SignUpBiz.tsx"
 import React from "react"
 
 

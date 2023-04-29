@@ -23,14 +23,14 @@ const SignUpBiz = () => {
     bio: "",
   });
 
-  const handleChange = (event) => {
+  const handleChange = (event:any) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    createBusiness(inputs).then((newBusiness) => {
+    createBusiness(inputs).then(() => {
       // setBusinessState((existingBusinesses) => [
       //   ...existingBusinesses,
       //   newBusiness,
@@ -51,7 +51,7 @@ const SignUpBiz = () => {
     });
   };
 
-  const handleImageUpload = (imageUrl) => {
+  const handleImageUpload = (imageUrl:string) => {
     setInputs({ ...inputs, photo: imageUrl });
   };
 
@@ -145,7 +145,6 @@ const SignUpBiz = () => {
 
           <CloudinaryImageUpload
             onUpload={handleImageUpload}
-            isBusiness={true}
           ></CloudinaryImageUpload>
           <TextField
             id="outlined-basic-name"

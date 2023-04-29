@@ -37,7 +37,7 @@ const ProfileUser = () => {
 
   const handleLogout = async () => {
     try {
-      await navigate("/logout");
+      navigate("/logout");
       console.log("logout");
 
       await logout();
