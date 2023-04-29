@@ -5,7 +5,7 @@ import List from "../components/List.tsx";
 import Topbar from "../components/Topbar.tsx";
 
 const SceneList = () => {
-  const [scene, setScene] = useState<string>(
+  const [scene, setScene] = useState(
     localStorage.getItem("scene") || "coffee"
   );
 
