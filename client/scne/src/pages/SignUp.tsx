@@ -1,4 +1,4 @@
-import SignUpForm from "../components/SignUpForm"
+import SignUpForm from "../components/SignUpForm.tsx"
 import React from "react"
 
 

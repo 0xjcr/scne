@@ -7,7 +7,16 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
+interface TileBusinessProps {
+  id: number;
+  name: string;
+  upvotes: number;
+  ranking: number;
+  photo: string;
+}
+
+
+const StyledBadge = styled(Badge)(() => ({
   "& .MuiBadge-root": {
     position: "relative",
   },
@@ -25,25 +34,24 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const TileBusiness = ({
+const TileBusiness:React.FC<TileBusinessProps> = ({
   id,
   name,
   upvotes: initialUpvotes,
   ranking,
   photo,
 }) => {
-  const [users, setUsers] = useState([]);
-  const [upvotes, setUpvotes] = useState(initialUpvotes);
+  const [users, setUsers] = useState<{ id: number; firstName: string; reviewCount: number; photo: string; member: string; }[]>([]);
+  const [upvotes, setUpvotes] = useState<number>(initialUpvotes);
 
   useEffect(() => {
     getAllProfiles().then((fetchedUsers) => {
-      const matchingUsers = fetchedUsers.filter((user) => user.member === name);
-      setUsers(matchingUsers.slice(0, 5)); // Get only the first 5 users
+      const matchingUsers = fetchedUsers.filter((user:any) => user.member === name);
+      setUsers(matchingUsers.slice(0, 5));
     });
   }, [name]);
 
-  const handleUpvote = async (event, id) => {
-    // stopPropogation prevents propogating to the parent element when clicking to upvote
+  const handleUpvote = async (event: React.MouseEvent<HTMLButtonElement>, id: number) => {
     event.stopPropagation();
     event.preventDefault();
     const newUpvotes = upvotes + 1;
@@ -94,8 +102,9 @@ const TileBusiness = ({
             <CircleUser
               key={user.id}
               id={user.id}
+              userId = {user.id}
               firstName={user.firstName}
-              reviewCount={user.reviewCount}
+              // reviewCount={user.reviewCount}
               photo={user.photo}
               clickable={false}
               member={user.member}

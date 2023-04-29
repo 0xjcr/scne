@@ -18,7 +18,7 @@ const SignUpForm = () => {
     city: "",
   });
 
-  const handleChange = (event) => {
+  const handleChange = (event:any) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
 
@@ -27,14 +27,14 @@ const SignUpForm = () => {
     navigate("/joinbiz");
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     createProfile(inputs)
       // .then((newUser) => {
       //   setUserState((existingUsers) => [...existingUsers, newUser]);
       // })
-      .then(navigate("/"));
-
+      .then(() =>{
+        navigate("/");
     setInputs({
       firstName: "",
       lastName: "",
@@ -42,6 +42,7 @@ const SignUpForm = () => {
       password: "",
       city: "",
     });
+  })
   };
 
   return (

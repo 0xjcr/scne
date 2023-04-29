@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Post from "../components/Post";
 import { getAllPosts } from "../api-service";
-import Topbar from "../components/Topbar";
+import Topbar from "../components/Topbar.tsx"
 import Button from "@mui/material/Button";
 import { integerPropType } from "@mui/utils";
 

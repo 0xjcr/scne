@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Topbar from "../components/Topbar";
+import Topbar from "../components/Topbar.tsx";
 import Community from "../components/Community";
 
 const SceneCommunity = () => {

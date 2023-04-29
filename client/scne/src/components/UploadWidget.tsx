@@ -1,20 +1,19 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import IconButton from "@mui/material/IconButton";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 
 const UploadWidget = () => {
-  const cloudinaryRef = useRef();
-  const widgetRef = useRef();
+  const cloudinaryRef = useRef<any>();
+  const widgetRef = useRef<any>();
   useEffect(() => {
     {
-      cloudinaryRef.current = window.cloudinary;
+      cloudinaryRef.current = (window as any).cloudinary;
       widgetRef.current = cloudinaryRef.current.createUploadWidget(
         {
           cloudName: "dqfsyl5rv",
           uploadPreset: "scnescne1",
         },
-        function (error, result) {
-          console.log(result);
+        function (error:any) {
         }
       );
     }
@@ -22,7 +21,7 @@ const UploadWidget = () => {
 
   return (
     <IconButton
-      onClick={() => widgetRef.current && widgetRef.current.open()}
+      onClick={() => widgetRef.current && widgetRef.current['open()']}
       aria-label="delete"
       data-testid="upload-button"
     >

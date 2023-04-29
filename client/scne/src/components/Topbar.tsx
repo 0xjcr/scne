@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import SpeedDial from "@mui/material/SpeedDial";
-import SpeedDialAction from "@mui/material/SpeedDialAction";
+import {SpeedDialAction,SpeedDialActionProps} from "@mui/material";
 import Box from "@mui/material/Box";
 
 const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
@@ -39,8 +39,19 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
     boxShadow: "none",
   },
 }));
-const Topbar = ({ scene, onSceneChange }) => {
-  const handleChange = (value) => {
+
+interface Props {
+  scene: string;
+  onSceneChange: (value: string) => void;
+}
+
+interface CustomSpeedDialActionProps extends SpeedDialActionProps {
+  isSelected: boolean;
+}
+
+
+const Topbar:React.FC<Props> = ({ scene, onSceneChange }) => {
+  const handleChange = (value:string) => {
     onSceneChange(value);
   };
 
@@ -104,7 +115,7 @@ const Topbar = ({ scene, onSceneChange }) => {
           <SpeedDialAction
             icon={"coffee"}
             tooltipTitle="coffee"
-            selected={scene === "coffee"}
+            {...{ isSelected: scene === "coffee" } as CustomSpeedDialActionProps}
             sx={{
               fontSize: scene === "coffee" ? "2rem" : "1.rem",
               color: "white",

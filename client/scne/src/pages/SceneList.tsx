@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from "react";
 import List from "../components/List";
-import Topbar from "../components/Topbar";
+import Topbar from "../components/Topbar.tsx";
 
 
 const SceneList = () => {
