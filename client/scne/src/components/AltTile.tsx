@@ -2,6 +2,7 @@ import React, { ElementType, useState, useEffect, Component } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
+// @ts-ignore
 import CircleUser from "./CircleUser.tsx";
 import { getAllProfiles, updateUpvote } from "../api-service";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
@@ -62,12 +63,16 @@ const AltTile = ({
 
   useEffect(() => {
     getAllProfiles().then((fetchedUsers) => {
+      console.log(fetchedUsers[0]);
       const matchingUsers = fetchedUsers.filter((user) => user.member === name);
       setUsers(matchingUsers.slice(0, 5)); // Get only the first 5 users
     });
   }, [name]);
 
-  const handleUpvote = async (event, id) => {
+  const handleUpvote = async (
+    event: React.MouseEvent<HTMLButtonElement>,
+    id: number
+  ) => {
     // stopPropogation prevents propogating to the parent element when clicking to upvote
     event.stopPropagation();
     event.preventDefault();

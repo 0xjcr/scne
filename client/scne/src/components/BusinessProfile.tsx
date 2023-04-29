@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllProfiles } from "../api-service";
+// @ts-ignore
 import CircleUser from "./CircleUser.tsx";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
@@ -21,8 +22,7 @@ interface CircleUserType {
 }
 
 const BusinessProfile = ({
-  name,
-  bio,
+  name: bio,
   city,
   address,
   phone,

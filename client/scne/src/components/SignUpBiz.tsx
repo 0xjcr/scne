@@ -7,6 +7,7 @@ import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { createBusiness } from "../api-service";
+// @ts-ignore
 import CloudinaryImageUpload from "./CloudinaryImageUpload.tsx";
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +24,7 @@ const SignUpBiz = () => {
     bio: "",
   });
 
-  const handleChange = (event:any) => {
+  const handleChange = (event: any) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ const SignUpBiz = () => {
     });
   };
 
-  const handleImageUpload = (imageUrl:string) => {
+  const handleImageUpload = (imageUrl: string) => {
     setInputs({ ...inputs, photo: imageUrl });
   };
 

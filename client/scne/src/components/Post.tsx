@@ -18,7 +18,15 @@ interface Props {
   };
 }
 
-const Post = ({ id, content, event, comment, scene, postPhoto, user }: Props) => {
+const Post = ({
+  id,
+  content,
+  event,
+  comment,
+  scene,
+  postPhoto,
+  user,
+}: Props) => {
   const { id: userId, firstName, member, photo } = user;
 
   const tileStyle = {
