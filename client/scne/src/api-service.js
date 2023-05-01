@@ -81,6 +81,18 @@ export async function createBusiness(body) {
   return res;
 }
 
+// edit a user profile using '/profile/:id' route
+export const updateProfileAlt = async (id, body) => {
+  const response = await fetch(`http://localhost:3333/profile/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  return await response.json();
+};
+
 // get all businesses
 export async function getAllBusinesses() {
   const response = await fetch("http://localhost:3333/list", {
@@ -130,3 +142,19 @@ export async function getAllPosts() {
     console.error("error", error);
   }
 }
+
+export const updateUpvote = async (id, upvotes) => {
+  try {
+    const response = await fetch(`http://localhost:3333/list/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ upvotes }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("error", error);
+  }
+};

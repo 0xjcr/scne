@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getProfile, logout } from "../api-service";
+import { getProfile, logout, updateProfile } from "../api-service";
 import { Divider, Chip } from "@mui/material";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -30,7 +30,7 @@ const ProfileUser: React.FC = () => {
   const handleEndorse = async () => {
     if (user) {
       const updatedUser: User = { ...user, endorsed: user.endorsed + 1 };
-      const response = await updateProfileAlt(id, updatedUser);
+      const response = await updateProfile(id, updatedUser);
       if (response.success) {
         setUser(updatedUser);
       }

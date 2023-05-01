@@ -4,7 +4,7 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 // @ts-ignore
 import CircleUser from "./CircleUser.tsx";
-import { getAllProfiles } from "../api-service";
+import { getAllProfiles, updateUpvote } from "../api-service";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
