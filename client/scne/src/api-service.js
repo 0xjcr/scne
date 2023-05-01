@@ -32,6 +32,7 @@ export async function updateProfile(id, body) {
     },
     body: JSON.stringify(body),
   });
+  console.log("inside NO ALT just the notmal one");
   return await response.json();
 }
 
@@ -80,18 +81,6 @@ export async function createBusiness(body) {
   const res = await response.json();
   return res;
 }
-
-// edit a user profile using '/profile/:id' route
-export const updateProfileAlt = async (id, body) => {
-  const response = await fetch(`http://localhost:3333/profile/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  return await response.json();
-};
 
 // get all businesses
 export async function getAllBusinesses() {
