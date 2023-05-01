@@ -1,8 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { MemoryRouter, Route, Routes, Router } from "react-router-dom";
-import { userEvent } from "@testing-library/user-event";
-import Login, { validateEmail } from "./Login";
-import Profile from "./Profile";
+import { MemoryRouter } from "react-router-dom";
+import Login, { validateEmail } from "../pages/Login";
 
 describe("Test the Log In page", () => {
   beforeAll(() => {

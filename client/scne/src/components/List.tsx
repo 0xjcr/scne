@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 // @ts-ignore
 import Navbar from "./Navbar.tsx";
 import { useNavigate } from "react-router-dom";
-import { getAllBusinesses, updateUpvote } from "../api-service";
+import { getAllBusinesses } from "../api-service";
 // @ts-ignore
 import AltTile from "./AltTile.tsx";
 
-const List = ({ scene }) => {
+type ListProps = {
+  scene: string;
+}
+
+const List = ({ scene }: ListProps)  => {
   const navigate = useNavigate();
 
   const [bizState, setBizState] = useState([]);
@@ -19,17 +23,16 @@ const List = ({ scene }) => {
     navigate(`/biz/${bizId}`);
   };
 
-  const handleUpvote = async (bizId: number): Promise<void> => {
-    const updatedBiz = await updateUpvote(bizId); // make API call to update upvote count
-    setBizState((prevBizState) => {
-      // replace the old business with the updated one
-      const newBizState = [...prevBizState];
-      const index = newBizState.findIndex((biz) => biz["id"] === bizId);
-      newBizState[index] = updatedBiz;
-      // sort the businesses by upvotes
-      return newBizState.sort((a, b) => b["upvotes"] - a["upvotes"]);
-    });
-  };
+  // Commented out for now as it was causing Typescript errors but on the list to update
+  // const handleUpvote = async (bizId: number ): Promise<void> => {
+  //   const updatedBiz = await updateUpvote(bizId); // make API call to update upvote count
+  //   setBizState((prevBizState) => {
+  //     const newBizState = [...prevBizState];
+  //     const index = newBizState.findIndex((biz) => biz["id"] === bizId);
+  //     newBizState[index] = updatedBiz;
+  //     return newBizState.sort((a, b) => b["upvotes"] - a["upvotes"]);
+  //   });
+  // };
 
   // Filter businesses by scene and sort them by upvotes
   const filteredAndSortedBiz = [...bizState]
@@ -46,7 +49,7 @@ const List = ({ scene }) => {
                 id={biz["id"]}
                 name={biz["name"]}
                 upvotes={biz["upvotes"]}
-                handleUpvote={() => handleUpvote(biz["id"])}
+                // handleUpvote={() => handleUpvote(biz["id"])}
                 ranking={index + 1}
                 photo={biz["photo"]}
                 // Add the ranking prop here

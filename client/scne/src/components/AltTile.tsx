@@ -1,4 +1,4 @@
-import React, { ElementType, useState, useEffect, Component } from "react";
+import React, { useState, useEffect} from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
@@ -10,7 +10,7 @@ import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import { UserType } from "../types/userType";
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
+const StyledBadge = styled(Badge)(() => ({
   "& .MuiBadge-root": {
     position: "relative",
   },
@@ -55,7 +55,7 @@ const AltTile = ({
       const matchingUsers = fetchedUsers.filter(
         (user: UserType) => user.member === name
       );
-      setUsers(matchingUsers.slice(0, 5)); // Get only the first 5 users
+      setUsers(matchingUsers.slice(0, 5));
     });
   }, [name]);
 
@@ -137,12 +137,10 @@ const AltTile = ({
               id={user["id"]}
               userId={user["id"]}
               firstName={user["firstName"]}
-              // reviewCount={user["reviewCount"]}
               photo={user["photo"]}
               clickable={false}
               member={user["member"]}
               scale={1.25}
-              // border={"5px solid"}
             />
           ))}
         </div>

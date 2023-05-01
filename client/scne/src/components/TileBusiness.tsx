@@ -41,7 +41,7 @@ const TileBusiness:React.FC<TileBusinessProps> = ({
   ranking,
   photo,
 }) => {
-  const [users, setUsers] = useState<{ id: number; firstName: string; reviewCount: number; photo: string; member: string; }[]>([]);
+  const [users, setUsers] = useState<{ id: number; firstName: string; reviewCount: number; photo: string; member: string; scale:number}[]>([]);
   const [upvotes, setUpvotes] = useState<number>(initialUpvotes);
 
   useEffect(() => {
@@ -104,10 +104,10 @@ const TileBusiness:React.FC<TileBusinessProps> = ({
               id={user.id}
               userId = {user.id}
               firstName={user.firstName}
-              // reviewCount={user.reviewCount}
               photo={user.photo}
               clickable={false}
               member={user.member}
+              scale = {user.scale}
             />
           ))}
         </div>

@@ -13,8 +13,6 @@ const UploadWidget = () => {
           cloudName: "dqfsyl5rv",
           uploadPreset: "scnescne1",
         },
-        function (error:any) {
-        }
       );
     }
   }, [cloudinaryRef]);

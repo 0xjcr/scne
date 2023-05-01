@@ -8,9 +8,22 @@ import AddIcon from "@mui/icons-material/Add";
 import { updateProfile } from "../api-service";
 // @ts-ignore
 import CloudinaryImageUpload from "./CloudinaryImageUpload.tsx";
+import { ChangeEventHandler } from "react";
+import { FormEvent } from "react";
 
-const EditUser = () => {
-  const [inputs, setInputs] = useState({
+interface Inputs {
+  bio: string;
+  photo: string;
+  ig: string;
+  member: string;
+  scene0: string;
+  scene1: string;
+  scene2: string;
+  [key: string]: string;
+}
+
+const EditUser:React.FC = () => {
+  const [inputs, setInputs] = useState<Inputs>({
     bio: "",
     photo: "",
     ig: "",
@@ -20,30 +33,31 @@ const EditUser = () => {
     scene2: "",
   });
 
-  const { id } = useParams();
+  const { id } = useParams<{ id:string}>();
   const navigate = useNavigate();
 
-  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const { name, value } = event.target as HTMLInputElement;
-    setInputs({ ...inputs, [name]: value });
+  const handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (event) => {
+    const { name, value } = event.currentTarget;
+    setInputs(prevInputs => ({ ...prevInputs, [name]: value }));
   };
+
 
   const handleImageUpload = (imageUrl: string) => {
-    setInputs({ ...inputs, photo: imageUrl });
+    setInputs((inputs) => ({ ...inputs, photo: imageUrl.toString() }));
   };
 
-  const handleButtonClick = (sceneValue: String) => {
+  const handleButtonClick = (sceneValue: string) => {
     for (let i = 0; i < 3; i++) {
       const sceneKey = `scene${i}`;
       if (!inputs[sceneKey]) {
-        setInputs({ ...inputs, [sceneKey]: sceneValue });
+        setInputs((inputs) => ({ ...inputs, [sceneKey]: sceneValue.toString() }));
         break;
       }
     }
   };
 
-  const filterEmptyFields = (data) => {
-    let filteredData = {};
+  const filterEmptyFields = (data:Inputs) => {
+    let filteredData: { [key: string]: any } = {};
     for (const key in data) {
       if (data[key]) {
         filteredData[key] = data[key];
@@ -52,14 +66,12 @@ const EditUser = () => {
     return filteredData;
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLInputElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     const filteredInputs = filterEmptyFields(inputs);
-
     updateProfile(id, filteredInputs).then((newUser) => {
       //update logged in user in the context
-      navigate(`/profile/${id}`); // Navigate to the updated user profile
+      navigate(`/profile/${id}`);
     });
 
     setInputs({

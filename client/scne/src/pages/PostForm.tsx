@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,ReactNode, ChangeEvent } from "react";
 // @ts-ignore
 import CloudinaryImageUpload from "../components/CloudinaryImageUpload.tsx";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,8 @@ import FormLabel from "@mui/material/FormLabel";
 // @ts-ignore
 import Navbar from "../components/Navbar.tsx";
 import { createUserPost } from "../api-service";
+import { SelectChangeEvent } from "@mui/material/Select";
+
 
 interface Inputs {
   content: string;
@@ -34,23 +36,21 @@ const PostForm = () => {
     postPhoto: "",
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value =
-      event.target.type === "checkbox"
-        ? event.target.checked
-        : event.target.value;
-    if (event.target.name === "comment") {
-      setInputs({ ...inputs, comment: true, event: false });
-    } else if (event.target.name === "event") {
-      setInputs({ ...inputs, comment: false, event: true });
-    } else {
-      setInputs({ ...inputs, [event.target.name]: value });
-    }
+  const handleChange = (event: SelectChangeEvent<string>, child: ReactNode) => {
+    setInputs((inputs) => ({
+      ...inputs,
+      scene: event.target.value,
+    }));
   };
+
+  const handleTextFieldChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setInputs({ ...inputs, [event.target.name]: event.target.value });
+  };
+
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const loggedInUserId = localStorage.getItem("userId");
     const newPost = { ...inputs, userId: loggedInUserId };
@@ -142,7 +142,7 @@ const PostForm = () => {
             multiline
             rows={4}
             value={inputs.content}
-            onChange={handleChange}
+            onChange={handleTextFieldChange}
             InputLabelProps={{ sx: { color: "white" } }}
             sx={{
               color: "white",

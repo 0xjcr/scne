@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 // @ts-ignore
 import Navbar from "../components/Navbar.tsx";
@@ -21,11 +21,6 @@ interface PostType {
   user: string;
 }
 
-interface Props {
-  user: any;
-}
-
-// const PostContext = createContext<PostType>([]);
 
 const Feed = () => {
   const navigate = useNavigate();
@@ -54,13 +49,11 @@ const Feed = () => {
 
   const handleSceneChange = (newScene: string) => {
     setScene(newScene);
-    // Store the selected scene in local storage
     localStorage.setItem("scene", newScene);
   };
 
   return (
     <>
-      {/* // <PostContext.Provider value={[postState, setPostState]}> */}
       <Topbar scene={scene} onSceneChange={handleSceneChange} />
 
       <div className="createPost">
@@ -93,8 +86,6 @@ const Feed = () => {
                 comment={post["comment"]}
                 scene={post["scene"]}
                 postPhoto={post["postPhoto"]}
-                // // userId={post['userId']}
-                // // bizId={post['bizId']}
                 user={post["user"]}
               />
             </div>
@@ -104,10 +95,9 @@ const Feed = () => {
         )}
         <Navbar />
       </div>
-      {/* </PostContext.Provider> */}
     </>
   );
 };
 
 export default Feed;
-//export { PostContext };
+

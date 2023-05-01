@@ -12,7 +12,11 @@ type UserProfile = {
   endorsed: number;
 };
 
-const Community = ({ scene }) => {
+type CommunityProps = {
+  scene: string;
+};
+
+const Community = ({ scene }: CommunityProps) => {
   const [userProfiles, setUserProfiles] = useState([]);
 
   useEffect(() => {

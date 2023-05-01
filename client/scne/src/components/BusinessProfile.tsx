@@ -81,7 +81,6 @@ const BusinessProfile = ({
                     id={user["id"]}
                     userId={user["id"]}
                     firstName={user["firstName"]}
-                    // reviewCount={user.reviewCount}
                     photo={user["photo"]}
                     clickable={true}
                     member={user["member"]}
@@ -101,7 +100,6 @@ const BusinessProfile = ({
                   bottom: "50px",
                   right: "40px",
                 }}
-                // onClick={handleUpvote}
               >
                 <AutoAwesomeIcon sx={{ color: "#70FF00" }} />
               </IconButton>

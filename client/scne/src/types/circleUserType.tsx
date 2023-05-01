@@ -1,12 +1,12 @@
 export type CircleUserType = {
-  key: string;
-  id: string;
-  userId: String;
+  key: number;
+  id: number;
+  userId: number;
   firstName: string;
-  reviewCount: string;
+  // reviewCount: string;
   photo: string;
   clickable: boolean;
   member: string;
   scale: number;
-  border: string;
+  // border: string;
 };

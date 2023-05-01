@@ -53,10 +53,7 @@ const ProfileUser: React.FC = () => {
   const handleLogout = async () => {
     try {
       navigate("/logout");
-      console.log("logout");
-
       await logout();
-
       localStorage.removeItem("userId");
       localStorage.removeItem("bizId");
     } catch (error) {
