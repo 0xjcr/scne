@@ -5,7 +5,7 @@
     /* Modules */
     "module": "commonjs" /* Specify what module code is generated. */,
     "forceConsistentCasingInFileNames": true,
-    "allowJs": true,
+    "allowJs": false,
     "jsx": "react",
     /* Type Checking */
     "strict": true /* Enable all strict type-checking options. */,

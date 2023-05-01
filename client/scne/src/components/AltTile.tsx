@@ -4,7 +4,8 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 // @ts-ignore
 import CircleUser from "./CircleUser.tsx";
-import { getAllProfiles, updateUpvote } from "../api-service";
+// @ts-ignore
+import { getAllProfiles, updateUpvote } from "../api-service.tsx";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
@@ -51,7 +52,7 @@ const AltTile = ({
   const [upvotes, setUpvotes] = useState(initialUpvotes);
 
   useEffect(() => {
-    getAllProfiles().then((fetchedUsers) => {
+    getAllProfiles().then((fetchedUsers:any) => {
       const matchingUsers = fetchedUsers.filter(
         (user: UserType) => user.member === name
       );

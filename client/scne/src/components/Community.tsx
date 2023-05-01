@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar.tsx";
 // @ts-ignore
 import CircleUser from "./CircleUser.tsx";
-import { getAllProfiles } from "../api-service";
+// @ts-ignore
+import { getAllProfiles } from "../api-service.tsx";
 
 type UserProfile = {
   scene0: string;
@@ -20,7 +21,7 @@ const Community = ({ scene }: CommunityProps) => {
   const [userProfiles, setUserProfiles] = useState([]);
 
   useEffect(() => {
-    getAllProfiles().then((profiles) => {
+    getAllProfiles().then((profiles:any) => {
       setUserProfiles(profiles);
     });
   }, []);

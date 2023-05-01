@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
-import { logout } from "../api-service";
+// @ts-ignore
+import { logout } from "../api-service.tsx";
 
 interface LogoutProps {}
 

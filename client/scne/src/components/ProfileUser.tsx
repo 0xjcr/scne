@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getProfile, logout, updateProfile } from "../api-service";
+// @ts-ignore
+import { getProfile, logout, updateProfile } from "../api-service.tsx";
 import { Divider, Chip } from "@mui/material";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -39,9 +40,9 @@ const ProfileUser: React.FC = () => {
 
   useEffect(() => {
     if (loggedInUserId && id === loggedInUserId) {
-      getProfile(loggedInUserId).then((data) => setUser(data));
+      getProfile(loggedInUserId).then((data:User) => setUser(data));
     } else {
-      getProfile(id).then((data) => setUser(data));
+      getProfile(id).then((data:User) => setUser(data));
     }
   }, [id, loggedInUserId]);
   const navigate = useNavigate();

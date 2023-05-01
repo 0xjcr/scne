@@ -15,7 +15,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 // @ts-ignore
 import Navbar from "../components/Navbar.tsx";
-import { createUserPost } from "../api-service";
+// @ts-ignore
+import { createUserPost } from "../api-service.tsx";
 import { SelectChangeEvent } from "@mui/material/Select";
 
 

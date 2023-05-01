@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar.tsx";
 // @ts-ignore
 import Post from "../components/Post.tsx";
-import { getAllPosts } from "../api-service";
+// @ts-ignore
+import { getAllPosts } from "../api-service.tsx";
 // @ts-ignore
 import Topbar from "../components/Topbar.tsx";
 import Button from "@mui/material/Button";
@@ -29,7 +30,7 @@ const Feed = () => {
   const [filteredPosts, setFilteredPosts] = useState<PostType[]>([]);
 
   useEffect(() => {
-    getAllPosts().then((res) => {
+    getAllPosts().then((res:PostType) => {
       if (Array.isArray(res)) {
         setPostState([...res]);
       } else {

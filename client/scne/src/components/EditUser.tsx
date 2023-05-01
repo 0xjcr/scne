@@ -5,7 +5,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import { updateProfile } from "../api-service";
+// @ts-ignore
+import { updateProfile } from "../api-service.tsx";
 // @ts-ignore
 import CloudinaryImageUpload from "./CloudinaryImageUpload.tsx";
 import { ChangeEventHandler } from "react";
@@ -69,7 +70,7 @@ const EditUser:React.FC = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const filteredInputs = filterEmptyFields(inputs);
-    updateProfile(id, filteredInputs).then((newUser) => {
+    updateProfile(id, filteredInputs).then(() => {
       //update logged in user in the context
       navigate(`/profile/${id}`);
     });

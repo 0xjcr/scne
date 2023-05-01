@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getBusiness } from "../api-service";
+// @ts-ignore
+import { getBusiness } from "../api-service.tsx";
 // @ts-ignore
 import BusinessProfile from "../components/BusinessProfile.tsx";
 // @ts-ignore
@@ -22,7 +23,7 @@ const ProfileBusiness: React.FC = () => {
   }>(null);
 
   useEffect(() => {
-    getBusiness(id).then((profile) => setBusiness(profile));
+    getBusiness(id).then((profile:BusinessProfile) => setBusiness(profile));
   }, [id]);
 
   return (

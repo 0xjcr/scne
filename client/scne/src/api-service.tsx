@@ -1,5 +1,34 @@
+interface UserProfile {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  about: string;
+}
+
+interface BusinessProfile {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  phone: string;
+  website: string;
+}
+
+interface UserPost {
+  content: string;
+  event: boolean;
+  comment: boolean;
+  scene: string;
+  postPhoto: string;
+}
+
 // create user profile
-export async function createProfile(body) {
+export async function createProfile(body:UserProfile) {
   const response = await fetch("http://localhost:3333/join", {
     method: "POST",
     headers: {
@@ -12,7 +41,7 @@ export async function createProfile(body) {
 }
 
 // Get a single user profile by ID
-export async function getProfile(id) {
+export async function getProfile(id:number) {
   const response = await fetch(`http://localhost:3333/profile/${id}`);
   return await response.json();
 }
@@ -24,7 +53,7 @@ export async function getAllProfiles() {
 }
 
 // edit a user profile
-export async function updateProfile(id, body) {
+export async function updateProfile(id:number, body:UserProfile) {
   const response = await fetch(`http://localhost:3333/editprofile/${id}`, {
     method: "PUT",
     headers: {
@@ -36,7 +65,7 @@ export async function updateProfile(id, body) {
   return await response.json();
 }
 
-export async function login(email, password) {
+export async function login(email:string, password:string) {
   try {
     const response = await fetch("http://localhost:3333/", {
       method: "POST",
@@ -53,7 +82,7 @@ export async function login(email, password) {
   }
 }
 
-export async function logout(id) {
+export async function logout() {
   try {
     const response = await fetch(`http://localhost:3333/logout`, {
       method: "POST",
@@ -70,7 +99,7 @@ export async function logout(id) {
 }
 
 // create business profile
-export async function createBusiness(body) {
+export async function createBusiness(body:BusinessProfile) {
   const response = await fetch("http://localhost:3333/joinbiz", {
     method: "POST",
     headers: {
@@ -94,13 +123,13 @@ export async function getAllBusinesses() {
 }
 
 // get a business by id
-export async function getBusiness(id) {
+export async function getBusiness(id:number) {
   const response = await fetch(`http://localhost:3333/biz/${id}`);
   return await response.json();
 }
 
 // Create a user post
-export async function createUserPost(postDetails) {
+export async function createUserPost(postDetails:UserPost) {
   try {
     const response = await fetch("http://localhost:3333/addpost", {
       method: "POST",
@@ -132,7 +161,7 @@ export async function getAllPosts() {
   }
 }
 
-export const updateUpvote = async (id, upvotes) => {
+export const updateUpvote = async (id:number, upvotes:number) => {
   try {
     const response = await fetch(`http://localhost:3333/list/${id}`, {
       method: "PUT",

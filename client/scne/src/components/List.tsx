@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 // @ts-ignore
 import Navbar from "./Navbar.tsx";
 import { useNavigate } from "react-router-dom";
-import { getAllBusinesses } from "../api-service";
+// @ts-ignore
+import { getAllBusinesses } from "../api-service.tsx";
 // @ts-ignore
 import AltTile from "./AltTile.tsx";
 
@@ -16,7 +17,7 @@ const List = ({ scene }: ListProps)  => {
   const [bizState, setBizState] = useState([]);
 
   useEffect(() => {
-    getAllBusinesses().then((res) => setBizState(res));
+    getAllBusinesses().then((res:any) => setBizState(res));
   }, []);
 
   const handleBusinessClick = (bizId: number) => {

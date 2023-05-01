@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getAllProfiles } from "../api-service";
+// @ts-ignore
+import { getAllProfiles } from "../api-service.tsx";
 // @ts-ignore
 import CircleUser from "./CircleUser.tsx";
 import Divider from "@mui/material/Divider";
@@ -24,7 +25,7 @@ const BusinessProfile = ({
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getAllProfiles().then((fetchedUsers) => {
+    getAllProfiles().then((fetchedUsers:any) => {
       const matchingUsers = fetchedUsers.filter(
         (user: UserType) => user.member === name
       );

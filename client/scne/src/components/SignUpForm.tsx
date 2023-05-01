@@ -5,7 +5,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
-import { createProfile } from "../api-service";
+// @ts-ignore
+import { createProfile } from "../api-service.tsx";
 import { useNavigate } from "react-router-dom";
 import { FormControl } from "@mui/material";
 // @ts-ignore

@@ -6,7 +6,8 @@ import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
-import { createBusiness } from "../api-service";
+// @ts-ignore
+import { createBusiness } from "../api-service.tsx";
 // @ts-ignore
 import CloudinaryImageUpload from "./CloudinaryImageUpload.tsx";
 import { useNavigate } from "react-router-dom";
