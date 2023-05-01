@@ -70,7 +70,7 @@ export const getAllPosts = async (req: Request, res: Response) => {
     // Combine UserPosts and BizPosts using the spread operator
     const allPosts = [...userPosts, ...bizPosts];
 
-    allPosts.sort((a, b) => a.createdAt - b.createdAt);
+    allPosts.sort((a, b) => b.createdAt - a.createdAt);
 
     res.status(200).json(allPosts);
   } catch (err) {

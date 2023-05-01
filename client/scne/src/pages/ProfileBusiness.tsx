@@ -15,7 +15,7 @@ const ProfileBusiness: React.FC = () => {
     bio: string;
     city: string;
     address: string;
-    phone: string;
+    phone: number;
     reviewCount: number;
     ig: string;
     photo: string;
@@ -23,7 +23,7 @@ const ProfileBusiness: React.FC = () => {
   }>(null);
 
   useEffect(() => {
-    getBusiness(id).then((profile:BusinessProfile) => setBusiness(profile));
+    getBusiness(id).then((profile: BusinessProfile) => setBusiness(profile));
   }, [id]);
 
   return (
