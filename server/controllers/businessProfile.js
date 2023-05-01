@@ -1,6 +1,7 @@
 const bizModels = require("../models/businesses");
 const { Users } = require("../models/users");
-const { Bizs } = bizModels;
+
+const { Bizs } = require("../models/businesses");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 
@@ -25,7 +26,7 @@ exports.createBusiness = async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   try {
-    const business = await Biz.create({
+    const business = await Bizs.create({
       name,
       city,
       postcode,

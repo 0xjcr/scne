@@ -36,7 +36,7 @@ const SignUpBiz = () => {
       //   ...existingBusinesses,
       //   newBusiness,
       // ]);
-      navigate("list");
+      navigate("/list");
     });
 
     setInputs({

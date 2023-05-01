@@ -15,7 +15,7 @@ const List = ({ scene }) => {
     getAllBusinesses().then((res) => setBizState(res));
   }, []);
 
-  const handleBusinessClick = (bizId) => {
+  const handleBusinessClick = (bizId: number) => {
     navigate(`/biz/${bizId}`);
   };
 

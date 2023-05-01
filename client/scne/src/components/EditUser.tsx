@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { updateProfile } from "../api-service";
+// @ts-ignore
 import CloudinaryImageUpload from "./CloudinaryImageUpload.tsx";
 
 const EditUser = () => {
@@ -22,15 +23,16 @@ const EditUser = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const handleChange = (event) => {
-    setInputs({ ...inputs, [event.target.name]: event.target.value });
+  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = event.target as HTMLInputElement;
+    setInputs({ ...inputs, [name]: value });
   };
 
-  const handleImageUpload = (imageUrl) => {
+  const handleImageUpload = (imageUrl: string) => {
     setInputs({ ...inputs, photo: imageUrl });
   };
 
-  const handleButtonClick = (sceneValue) => {
+  const handleButtonClick = (sceneValue: String) => {
     for (let i = 0; i < 3; i++) {
       const sceneKey = `scene${i}`;
       if (!inputs[sceneKey]) {
@@ -50,7 +52,7 @@ const EditUser = () => {
     return filteredData;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
 
     const filteredInputs = filterEmptyFields(inputs);
