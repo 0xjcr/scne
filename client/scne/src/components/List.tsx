@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // @ts-ignore
 import Navbar from "./Navbar.tsx";
 import { useNavigate } from "react-router-dom";
-import { getAllBusinesses, updateUpvote } from "../api-service";
+import { getAllBusinesses } from "../api-service";
 // @ts-ignore
 import AltTile from "./AltTile.tsx";
 

@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
@@ -8,6 +8,8 @@ import InputLabel from "@mui/material/InputLabel";
 import { createProfile } from "../api-service";
 import { useNavigate } from "react-router-dom";
 import { FormControl } from "@mui/material";
+// @ts-ignore
+import { validateEmail } from "./SignUpBiz.tsx";
 
 const SignUpForm = () => {
   const [inputs, setInputs] = useState({
@@ -18,7 +20,7 @@ const SignUpForm = () => {
     city: "",
   });
 
-  const handleChange = (event:any) => {
+  const handleChange = (event: any) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
 
@@ -29,20 +31,24 @@ const SignUpForm = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    createProfile(inputs)
-      // .then((newUser) => {
-      //   setUserState((existingUsers) => [...existingUsers, newUser]);
-      // })
-      .then(() =>{
-        navigate("/");
-    setInputs({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      city: "",
-    });
-  })
+    if (validateEmail(inputs.email)) {
+      createProfile(inputs)
+        // .then((newUser) => {
+        //   setUserState((existingUsers) => [...existingUsers, newUser]);
+        // })
+        .then(() => {
+          navigate("/");
+          setInputs({
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            city: "",
+          });
+        });
+    } else {
+      alert("Please use a valid email address");
+    }
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getProfile, updateProfileAlt, logout } from "../api-service";
+import { getProfile, logout } from "../api-service";
 import { Divider, Chip } from "@mui/material";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -21,9 +21,8 @@ interface User {
   endorsed: number;
 }
 
-
-const ProfileUser:React.FC = () => {
-  const { id } = useParams<{ id:string}>();
+const ProfileUser: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const [user, setUser] = useState<User | null>(null);
 
   const loggedInUserId = localStorage.getItem("userId");

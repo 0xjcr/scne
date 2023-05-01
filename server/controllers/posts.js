@@ -17,7 +17,7 @@ exports.createUserPost = async (req, res) => {
 
     // Associate the post with a biz
     if (req.body.bizId) {
-      const biz = await Biz.findByPk(req.body.bizId);
+      const biz = await Bizs.findByPk(req.body.bizId);
       if (biz) {
         await post.setBiz(biz);
       }

@@ -4,37 +4,25 @@ import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
 import { login } from "../api-service";
 
-export const validateEmail = (email:string):boolean => {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-  if (regex.test(email)) {
-    return true;
-  }
-  return false;
-};
-
-const Login = ():JSX.Element => {
+const Login = (): JSX.Element => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    if (validateEmail(email)) {
-      try {
-        const { user, bizs } = await login(email, password);
-        if (user) {
-          localStorage.setItem("userId", user.id);
-          navigate(`/profile/${user.id}`);
-        } else if (bizs) {
-          localStorage.setItem("bizId", bizs.id);
-          navigate(`/biz/${bizs.id}`);
-        } else {
-          alert("Please use a valid email address");
-        }
-      } catch (error) {
+    try {
+      const { user, bizs } = await login(email, password);
+      if (user) {
+        localStorage.setItem("userId", user.id);
+        navigate(`/profile/${user.id}`);
+      } else if (bizs) {
+        localStorage.setItem("bizId", bizs.id);
+        navigate(`/biz/${bizs.id}`);
+      } else {
         alert("Invalid login credentials");
       }
-    } else {
-      alert("😤");
+    } catch (error) {
+      console.log("error finding the details from the db");
     }
   };
 
@@ -101,4 +89,4 @@ const Login = ():JSX.Element => {
   );
 };
 
-export default Login
+export default Login;

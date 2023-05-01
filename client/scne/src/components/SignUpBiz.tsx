@@ -11,6 +11,14 @@ import { createBusiness } from "../api-service";
 import CloudinaryImageUpload from "./CloudinaryImageUpload.tsx";
 import { useNavigate } from "react-router-dom";
 
+export const validateEmail = (email: string): boolean => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  if (regex.test(email)) {
+    return true;
+  }
+  return false;
+};
+
 const SignUpBiz = () => {
   const [inputs, setInputs] = useState({
     name: "",
@@ -31,13 +39,17 @@ const SignUpBiz = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    createBusiness(inputs).then(() => {
-      // setBusinessState((existingBusinesses) => [
-      //   ...existingBusinesses,
-      //   newBusiness,
-      // ]);
-      navigate("/list");
-    });
+    if (validateEmail(inputs.email)) {
+      createBusiness(inputs).then(() => {
+        // setBusinessState((existingBusinesses) => [
+        //   ...existingBusinesses,
+        //   newBusiness,
+        // ]);
+        navigate("/list");
+      });
+    } else {
+      alert("Please use a valid email address");
+    }
 
     setInputs({
       name: "",

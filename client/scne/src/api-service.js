@@ -1,5 +1,5 @@
 // create user profile
-exports.createProfile = async (body) => {
+export async function createProfile(body) {
   const response = await fetch("http://localhost:3333/join", {
     method: "POST",
     headers: {
@@ -7,23 +7,24 @@ exports.createProfile = async (body) => {
     },
     body: JSON.stringify(body),
   });
-  return await response.json();
-};
+  const res = await response.json();
+  return res;
+}
 
 // Get a single user profile by ID
-exports.getProfile = async (id) => {
+export async function getProfile(id) {
   const response = await fetch(`http://localhost:3333/profile/${id}`);
   return await response.json();
-};
+}
 
 // Get all user profiles
-exports.getAllProfiles = async () => {
+export async function getAllProfiles() {
   const response = await fetch(`http://localhost:3333/community`);
   return await response.json();
-};
+}
 
 // edit a user profile
-exports.updateProfile = async (id, body) => {
+export async function updateProfile(id, body) {
   const response = await fetch(`http://localhost:3333/editprofile/${id}`, {
     method: "PUT",
     headers: {
@@ -32,21 +33,9 @@ exports.updateProfile = async (id, body) => {
     body: JSON.stringify(body),
   });
   return await response.json();
-};
+}
 
-// edit a user profile using '/profile/:id' route
-exports.updateProfileAlt = async (id, body) => {
-  const response = await fetch(`http://localhost:3333/profile/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  return await response.json();
-};
-
-exports.login = async (email, password) => {
+export async function login(email, password) {
   try {
     const response = await fetch("http://localhost:3333/", {
       method: "POST",
@@ -61,9 +50,9 @@ exports.login = async (email, password) => {
     console.error(error);
     return { error: "Something went wrong" };
   }
-};
+}
 
-exports.logout = async (id) => {
+export async function logout(id) {
   try {
     const response = await fetch(`http://localhost:3333/logout`, {
       method: "POST",
@@ -77,10 +66,10 @@ exports.logout = async (id) => {
     console.error(error);
     return { error: "Something went wrong" };
   }
-};
+}
 
 // create business profile
-exports.createBusiness = async (body) => {
+export async function createBusiness(body) {
   const response = await fetch("http://localhost:3333/joinbiz", {
     method: "POST",
     headers: {
@@ -90,40 +79,10 @@ exports.createBusiness = async (body) => {
   });
   const res = await response.json();
   return res;
-};
-
-// modift business profile
-
-exports.updateBusiness = async (id) => {
-  try {
-    const response = await fetch(`http://localhost:3333/editinfo/${id}`, {
-      method: "PUT",
-    });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("error", error);
-  }
-};
-
-exports.updateUpvote = async (id, upvotes) => {
-  try {
-    const response = await fetch(`http://localhost:3333/list/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ upvotes }),
-    });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("error", error);
-  }
-};
+}
 
 // get all businesses
-exports.getAllBusinesses = async () => {
+export async function getAllBusinesses() {
   const response = await fetch("http://localhost:3333/list", {
     method: "GET",
     headers: {
@@ -131,16 +90,16 @@ exports.getAllBusinesses = async () => {
     },
   });
   return await response.json();
-};
+}
 
 // get a business by id
-exports.getBusiness = async (id) => {
+export async function getBusiness(id) {
   const response = await fetch(`http://localhost:3333/biz/${id}`);
   return await response.json();
-};
+}
 
 // Create a user post
-exports.createUserPost = async (postDetails) => {
+export async function createUserPost(postDetails) {
   try {
     const response = await fetch("http://localhost:3333/addpost", {
       method: "POST",
@@ -153,38 +112,10 @@ exports.createUserPost = async (postDetails) => {
   } catch (error) {
     console.error("error", error);
   }
-};
-
-// Create a biz post
-exports.createBizPost = async (postDetails) => {
-  try {
-    const response = await fetch("http://localhost:3333/addpost", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(postDetails),
-    });
-    return await response.json();
-  } catch (error) {
-    console.error("error", error);
-  }
-};
-
-// Delete a post
-exports.deletePost = async (id) => {
-  try {
-    const response = await fetch(`http://localhost:3333/posts/${id}`, {
-      method: "DELETE",
-    });
-    return await response.json();
-  } catch (error) {
-    console.error("error", error);
-  }
-};
+}
 
 // Get all posts
-exports.getAllPosts = async () => {
+export async function getAllPosts() {
   try {
     const response = await fetch("http://localhost:3333/feed", {
       method: "GET",
@@ -193,10 +124,9 @@ exports.getAllPosts = async () => {
       },
     });
     const data = await response.json();
-    console.log("API response data:", data);
 
     return data;
   } catch (error) {
     console.error("error", error);
   }
-};
+}
