@@ -1,11 +1,8 @@
-const bizModels = require("../models/businesses");
-const { Users } = require("../models/users");
+import { Bizs } from "../models/businesses";
+import bcrypt from "bcrypt";
+import { Request, Response } from "express";
 
-const { Bizs } = require("../models/businesses");
-const bcrypt = require("bcrypt");
-const session = require("express-session");
-
-const returnSafeBiz = (profile) => {
+const returnSafeBiz = (profile: any) => {
   const {
     name,
     city,
@@ -35,7 +32,7 @@ const returnSafeBiz = (profile) => {
 };
 
 // create a business profile
-exports.createBusiness = async (req, res) => {
+export const createBusiness = async (req: Request, res: Response) => {
   const {
     name,
     city,
@@ -70,12 +67,12 @@ exports.createBusiness = async (req, res) => {
     });
     res.status(201).json(returnSafeBiz(business));
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: (err as Error).message });
   }
 };
 
 // // modify upvotes -- Doesn't work but could fix
-// exports.updateUpvote = async (req, res) => {
+// export const updateUpvote = async (req, res) => {
 //   const { id } = req.params;
 //   const { upvotes } = req.body;
 
@@ -89,23 +86,23 @@ exports.createBusiness = async (req, res) => {
 // };
 
 // get all businesses
-exports.getAllBusinesses = async (req, res) => {
+export const getAllBusinesses = async (req: Request, res: Response) => {
   try {
     const businesses = await Bizs.findAll();
     res.status(200).json(businesses);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: (err as Error).message });
   }
 };
 
 // return a single business profile
-exports.getBusiness = async (req, res) => {
+export const getBusiness = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
     const business = await Bizs.findByPk(id);
     res.status(200).json(business);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: (err as Error).message });
   }
 };

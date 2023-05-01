@@ -1,17 +1,17 @@
-const bcrypt = require("bcrypt");
-const session = require("express-session");
+import bcrypt from "bcrypt";
+import { Request, Response } from "express";
+import { Users } from "../models/users";
+import { Bizs } from "../models/businesses";
+import session from "express-serve-static-core";
 
-const { Users } = require("../models/users");
-const { Bizs } = require("../models/businesses");
-
-const returnSafeUser = (profile) => {
+const returnSafeUser = (profile: any) => {
   const { firstName, lastName, city, ig, email, password, bio } = profile;
   const userWithoutPassword = { firstName, lastName, city, ig, email, bio };
   return userWithoutPassword;
 };
 
 // create a user profile
-exports.createProfile = async (req, res) => {
+export const createProfile = async (req: Request, res: Response) => {
   const { firstName, lastName, city, ig, email, password, bio } = req.body;
 
   // Hash the password
@@ -31,23 +31,59 @@ exports.createProfile = async (req, res) => {
     res.status(201);
     res.json(returnSafeUser(profile));
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: (err as Error).message });
   }
 };
 
+type UserType = {
+  firstName: string;
+  lastName: string;
+  city: string;
+  ig: string;
+  email: string;
+  password: string;
+  bio: string;
+};
+
+type BizType = {
+  name: string;
+  city: string;
+  address: string;
+  phone: number;
+  reviewCount: number;
+  upvotes: number;
+  ig: string;
+  email: string;
+  password: string;
+  scene: string;
+  bio: string;
+  photo: string;
+};
+
+declare module "express-session" {
+  export interface SessionData {
+    user: { [key: string]: any };
+    bizs: { [key: string]: any };
+  }
+}
+
 // login
-exports.login = async (req, res) => {
+export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   try {
-    const user = await Users.findOne({ where: { email } });
-    const bizs = await Bizs.findOne({ where: { email } });
+    const user = (await Users.findOne({
+      where: { email },
+    })) as unknown as UserType;
+    const bizs = (await Bizs.findOne({
+      where: { email },
+    })) as unknown as BizType;
     if (!user && !bizs) {
       res.status(400).json({ message: "Email not found" });
     } else if (user) {
       // Check if the passwords match
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
-        req.session.user = user;
+        req.session["user"] = user;
         res.status(200).json({ message: "Logged in successfully", user });
       } else {
         res.status(400).json({ message: "Invalid password" });
@@ -56,19 +92,19 @@ exports.login = async (req, res) => {
       // Check if the passwords match
       const isMatch = await bcrypt.compare(password, bizs.password);
       if (isMatch) {
-        req.session.bizs = bizs;
+        req.session["bizs"] = bizs;
         res.status(200).json({ message: "Logged in successfully", bizs });
       } else {
         res.status(400).json({ message: "Invalid password" });
       }
     }
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: (err as Error).message });
   }
 };
 
 //logout
-exports.logout = (req, res) => {
+export const logout = (req: Request, res: Response) => {
   req.session.destroy((err) => {
     if (err) {
       res.status(500).json({ message: "Error logging out" });
@@ -79,12 +115,13 @@ exports.logout = (req, res) => {
 };
 
 // edit a user profile
-exports.updateProfile = async (req, res) => {
+export const updateProfile = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { photo, bio, ig, member, scene0, scene1, scene2, endorsed } = req.body;
 
   try {
     const profile = await Users.findByPk(id);
+    if (!profile) throw new Error("no profile found");
     await profile.update({
       photo,
       bio,
@@ -97,28 +134,28 @@ exports.updateProfile = async (req, res) => {
     });
     res.status(200).json(profile);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: (err as Error).message });
   }
 };
 
 // retrieve a user profile
-exports.getProfile = async (req, res) => {
+export const getProfile = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
     const profile = await Users.findByPk(id);
     res.status(200).json(profile);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: (err as Error).message });
   }
 };
 
 // retrieve all user profiles
-exports.getAllProfiles = async (req, res) => {
+export const getAllProfiles = async (req: Request, res: Response) => {
   try {
     const profiles = await Users.findAll();
     res.status(200).json(profiles);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: (err as Error).message });
   }
 };
