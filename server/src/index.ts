@@ -1,9 +1,9 @@
-const express = require("express");
-const sequelize = require("./models/index");
-const cors = require("cors");
+import express from "express";
+import sequelize from "./models/index";
+import cors from "cors";
 const app = express();
-const router = require("./router/router");
-const session = require("express-session");
+import router from "./router/router";
+import session from "express-session";
 
 app.use(cors());
 app.use(express.json());
@@ -30,4 +30,4 @@ const server = (async () => {
   }
 })();
 
-module.export = server;
+export default server;

@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("./index");
+import { DataTypes, Model } from "sequelize";
+import sequelize from "./index";
 
-const Users = sequelize.define("Users", {
+export const Users = sequelize.define("Users", {
   firstName: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -54,7 +54,7 @@ const Users = sequelize.define("Users", {
   },
 });
 
-const UserPosts = sequelize.define("UserPosts", {
+export const UserPosts = sequelize.define("UserPosts", {
   content: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -91,8 +91,3 @@ UserPosts.belongsTo(Users, {
   as: "user",
   onDelete: "CASCADE",
 });
-
-module.exports = {
-  Users,
-  UserPosts,
-};
