@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { CircleUserType } from "../types/circleUserType";
 
 const CircleUser = ({
   id,
@@ -9,7 +10,7 @@ const CircleUser = ({
   photo,
   clickable = true,
   scale = 1,
-}) => {
+}: CircleUserType) => {
   const navigate = useNavigate();
 
   const handleUserClick = () => {

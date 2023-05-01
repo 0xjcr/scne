@@ -8,6 +8,7 @@ import { getAllProfiles, updateUpvote } from "../api-service";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
+import { UserType } from "../types/userType";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-root": {
@@ -26,18 +27,6 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     color: "#6e06de",
   },
 }));
-
-interface CircleUserType {
-  key: string;
-  id: string;
-  firstName: string;
-  reviewCount: string;
-  photo: string;
-  clickable: boolean;
-  member: string;
-  scale: number;
-  border: string;
-}
 
 type ComponentType = "img" | "video" | "div" | React.ComponentType<any>;
 
@@ -63,8 +52,9 @@ const AltTile = ({
 
   useEffect(() => {
     getAllProfiles().then((fetchedUsers) => {
-      console.log(fetchedUsers[0]);
-      const matchingUsers = fetchedUsers.filter((user) => user.member === name);
+      const matchingUsers = fetchedUsers.filter(
+        (user: UserType) => user.member === name
+      );
       setUsers(matchingUsers.slice(0, 5)); // Get only the first 5 users
     });
   }, [name]);

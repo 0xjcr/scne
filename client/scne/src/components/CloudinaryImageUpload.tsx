@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
-import { updateProfile } from "../api-service";
 
 const CloudinaryImageUpload = ({ onUpload }) => {
   const [image, setImage] = useState("");

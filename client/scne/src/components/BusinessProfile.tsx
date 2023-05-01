@@ -8,33 +8,26 @@ import IconButton from "@mui/material/IconButton";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
-interface CircleUserType {
-  key: string;
-  id: string;
-  firstName: string;
-  reviewCount: string;
-  photo: string;
-  clickable: boolean;
-  member: string;
-  scale: number;
-  border: string;
-}
+import { UserType } from "../types/userType";
+import { BizType } from "../types/bizType";
 
 const BusinessProfile = ({
-  name: bio,
+  name,
+  bio,
   city,
   address,
   phone,
   reviewCount,
   ig,
   photo,
-}) => {
+}: BizType) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     getAllProfiles().then((fetchedUsers) => {
-      const matchingUsers = fetchedUsers.filter((user) => user.member === name);
+      const matchingUsers = fetchedUsers.filter(
+        (user: UserType) => user.member === name
+      );
       setUsers(matchingUsers);
     });
   }, [name]);
