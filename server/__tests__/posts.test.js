@@ -2,7 +2,7 @@ const usersModels = require("../models/users");
 const bizsModels = require("../models/businesses");
 const { UserPosts, Users } = usersModels;
 const { BizPosts, Bizs } = bizsModels;
-const { createUserPost } = require("./posts");
+const { createUserPost } = require("../controllers/posts");
 describe("createUserPost function", () => {
   let req;
   let res;

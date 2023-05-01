@@ -5,6 +5,35 @@ const { Bizs } = require("../models/businesses");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 
+const returnSafeBiz = (profile) => {
+  const {
+    name,
+    city,
+    postcode,
+    address,
+    phone,
+    scene,
+    ig,
+    email,
+    password,
+    photo,
+    bio,
+  } = profile;
+  const userWithoutPassword = {
+    name,
+    city,
+    postcode,
+    address,
+    phone,
+    scene,
+    ig,
+    email,
+    photo,
+    bio,
+  };
+  return userWithoutPassword;
+};
+
 // create a business profile
 exports.createBusiness = async (req, res) => {
   const {
@@ -39,63 +68,26 @@ exports.createBusiness = async (req, res) => {
       bio,
       password: hashedPassword,
     });
-    res.status(201).json(business);
+    res.status(201).json(returnSafeBiz(business));
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 };
 
-// modify a business profile
-exports.updateBusiness = async (req, res) => {
-  const { id } = req.params;
-  const {
-    name,
-    city,
-    postcode,
-    address,
-    phone,
-    scene,
-    ig,
-    email,
-    password,
-    upvotes,
-    reviewCount,
-  } = req.body;
+// // modify upvotes -- Doesn't work but could fix
+// exports.updateUpvote = async (req, res) => {
+//   const { id } = req.params;
+//   const { upvotes } = req.body;
 
-  try {
-    const business = await Bizs.findByPk(id);
-    await business.update({
-      name,
-      city,
-      postcode,
-      address,
-      phone,
-      scene,
-      ig,
-      email,
-      password,
-      upvotes,
-      reviewCount,
-    });
-    res.status(200).json(business);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
+//   try {
+//     const business = await Bizs.findByPk(id);
+//     await business.update({ upvotes });
+//     res.status(200).json(business);
+//   } catch (err) {
+//     res.status(400).json({ message: err.message });
+//   }
+// };
 
-// modify upvotes
-exports.updateUpvote = async (req, res) => {
-  const { id } = req.params;
-  const { upvotes } = req.body;
-
-  try {
-    const business = await Bizs.findByPk(id);
-    await business.update({ upvotes });
-    res.status(200).json(business);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
 // get all businesses
 exports.getAllBusinesses = async (req, res) => {
   try {
@@ -113,51 +105,6 @@ exports.getBusiness = async (req, res) => {
   try {
     const business = await Bizs.findByPk(id);
     res.status(200).json(business);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
-
-// delete a business
-exports.deleteBusiness = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const business = await Biz.findByPk(id);
-    await business.destroy();
-    res.status(204).json({ message: "Business deleted" });
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
-
-// login
-exports.login = async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const user = await Users.findOne({ where: { email } });
-    const biz = await Bizs.findOne({ where: { email } });
-    if (!user && !biz) {
-      res.status(400).json({ message: "Email not found" });
-    } else if (user) {
-      // Check if the passwords match
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (isMatch) {
-        req.session.user = user;
-        res.status(200).json({ message: "Logged in successfully", user });
-      } else {
-        res.status(400).json({ message: "Invalid password" });
-      }
-    } else if (biz) {
-      // Check if the passwords match
-      const isMatch = await bcrypt.compare(password, biz.password);
-      if (isMatch) {
-        req.session.biz = biz;
-        res.status(200).json({ message: "Logged in successfully", biz });
-      } else {
-        res.status(400).json({ message: "Invalid password" });
-      }
-    }
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

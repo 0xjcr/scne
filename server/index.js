@@ -16,7 +16,6 @@ app.use(
   })
 );
 app.use("/", router);
-// Sync models with database and connect to server
 const server = (async () => {
   try {
     await sequelize.sync();

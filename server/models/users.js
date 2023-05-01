@@ -96,4 +96,3 @@ module.exports = {
   Users,
   UserPosts,
 };
-// module.exports = sequelize;

@@ -1,11 +1,8 @@
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 
-const userModles = require("../models/users");
-const { Users } = userModles;
-
-const bizsModels = require("../models/businesses");
-const { Bizs } = bizsModels;
+const { Users } = require("../models/users");
+const { Bizs } = require("../models/businesses");
 
 const returnSafeUser = (profile) => {
   const { firstName, lastName, city, ig, email, password, bio } = profile;
@@ -82,29 +79,6 @@ exports.logout = (req, res) => {
 };
 
 // edit a user profile
-exports.updateProfileAlt = async (req, res) => {
-  const { id } = req.params;
-  const { photo, bio, ig, member, scene0, scene1, scene2, endorsed } = req.body;
-
-  try {
-    const profile = await Users.findByPk(id);
-    await profile.update({
-      photo,
-      bio,
-      ig,
-      member,
-      scene0,
-      scene1,
-      scene2,
-      endorsed,
-    });
-    res.status(200).json(profile);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
-
-// edit a user profile
 exports.updateProfile = async (req, res) => {
   const { id } = req.params;
   const { photo, bio, ig, member, scene0, scene1, scene2, endorsed } = req.body;
@@ -122,21 +96,6 @@ exports.updateProfile = async (req, res) => {
       endorsed,
     });
     res.status(200).json(profile);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-};
-
-// delete a user profile
-// ???how to connect to id from user view in order to delete
-exports.deleteProfile = async (req, res) => {
-  const { id } = req.body;
-
-  try {
-    const profile = await Users.findByPk(id);
-
-    await profile.destroy();
-    res.status(204).json({ message: "Profile deleted" });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

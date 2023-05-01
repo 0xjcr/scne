@@ -4,10 +4,10 @@ const supertest = require("supertest");
 const { Users } = require("../models/users");
 const { Bizs } = require("../models/businesses");
 const sequelize = require("../models");
-const { logout } = require("./userProfile");
-const { updateProfileAlt } = require("./userProfile");
+const { logout } = require("../controllers/userProfile");
+const { updateProfileAlt } = require("../controllers/userProfile");
 // const { getProfile } = require("./userProfile");
-const { getAllProfiles } = require("./userProfile");
+const { getAllProfiles } = require("../controllers/userProfile");
 
 describe("/join endpoint", () => {
   const app = express();
