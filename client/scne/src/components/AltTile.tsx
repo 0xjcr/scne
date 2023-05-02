@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import CircleUser from "./CircleUser";
-import { getAllProfiles, updateUpvote } from "../api-service";
+import { updateUpvote } from "../api-service";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";

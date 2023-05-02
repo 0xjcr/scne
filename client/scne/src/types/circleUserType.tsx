@@ -3,7 +3,7 @@ export type CircleUserType = {
   id?: number;
   userId?: number;
   firstName: string;
-  reviewCount: string;
+  reviewCount?: string;
   photo: string;
   clickable?: boolean;
   member: string;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import CircleUser from "./CircleUser";
 import { getAllProfiles } from "../api-service";

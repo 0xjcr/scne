@@ -43,12 +43,7 @@ const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
   },
 }));
 
-interface Props {
-  scene: string;
-  onSceneChange: (value: string) => void;
-}
-
-const Topbar: React.FC<Props> = () => {
+const Topbar: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const scene = useSelector((state: RootState) => state.Scene);
@@ -85,7 +80,7 @@ const Topbar: React.FC<Props> = () => {
                 icon={item}
                 tooltipTitle={item}
                 sx={{
-                  fontSize: scene == item ? "2rem" : "1.rem",
+                  fontSize: scene === item ? "2rem" : "1.rem",
                   color: "white",
                   border: "none",
                   width: "80px",

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { getAllProfiles } from "../api-service";
+import React from "react";
 import CircleUser from "./CircleUser";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";

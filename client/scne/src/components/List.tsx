@@ -3,6 +3,8 @@ import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import { getAllBusinesses } from "../api-service";
 import AltTile from "./AltTile";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const List = () => {
   const navigate = useNavigate();
