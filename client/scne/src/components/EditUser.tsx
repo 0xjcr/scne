@@ -5,10 +5,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-// @ts-ignore
-import { updateProfile } from "../api-service.tsx";
-// @ts-ignore
-import CloudinaryImageUpload from "./CloudinaryImageUpload.tsx";
+import { updateProfile } from "../api-service";
+import CloudinaryImageUpload from "./CloudinaryImageUpload";
 import { ChangeEventHandler } from "react";
 import { FormEvent } from "react";
 import { EditUserType } from "../api-service";

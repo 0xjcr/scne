@@ -1,6 +1,5 @@
 import React from "react";
-// @ts-ignore
-import EditUser from "../components/EditUser.tsx";
+import EditUser from "../components/EditUser";
 const EditUserProfile = () => {
   return (
     <>

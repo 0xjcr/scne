@@ -1,6 +1,8 @@
 import { UserPosts, Users } from "../models/users";
 import { BizPosts, Bizs } from "../models/businesses";
 import { Request, Response } from "express";
+import { PostType } from "../Types/types";
+
 
 //create a post
 export const createUserPost = async (
@@ -17,33 +19,11 @@ export const createUserPost = async (
       userId: req.body.userId,
     });
 
-    // Associate the post with a biz
-    // if (req.body.bizId) {
-    //   const biz = await Bizs.findByPk(req.body.bizId);
-    //   if (biz) {
-    //     await post.setBiz(biz);
-    //   }
-    // }
-
     res.status(201).json(post);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }
-};
-
-// class PostType extends Model implements PostTypeAttributes
-
-type PostType = {
-  id: number;
-  content: string;
-  event: boolean;
-  comment: string;
-  scene: string;
-  postPhoto: string;
-  userId: number;
-  createdAt: number;
-  updatedAt: number;
 };
 
 // get all Posts

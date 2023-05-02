@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// @ts-ignore
-import Navbar from "../components/Navbar.tsx";
-// @ts-ignore
-import Post from "../components/Post.tsx";
-// @ts-ignore
-import { getAllPosts } from "../api-service.tsx";
-// @ts-ignore
-import Topbar from "../components/Topbar.tsx";
+import Navbar from "../components/Navbar";
+import Post from "../components/Post";
+import { getAllPosts } from "../api-service";
+import Topbar from "../components/Topbar";
 import Button from "@mui/material/Button";
 import { UserPost } from "../types/postType";
 import { useSelector } from "react-redux";

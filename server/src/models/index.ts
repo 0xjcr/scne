@@ -4,7 +4,7 @@ const { NODE_ENV } = process.env;
 
 const sequelize = new Sequelize(
   NODE_ENV !== "TESTING" ? "scne" : "scene_test",
-  "rosiedyvig",
+  "jamesbratton",
   "",
   {
     host: "localhost",

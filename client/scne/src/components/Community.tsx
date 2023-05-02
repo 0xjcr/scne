@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
-// @ts-ignore
-import Navbar from "./Navbar.tsx";
-// @ts-ignore
-import CircleUser from "./CircleUser.tsx";
-// @ts-ignore
-import { getAllProfiles } from "../api-service.tsx";
+import React, { useState, useEffect } from "react";
+import Navbar from "./Navbar";
+import CircleUser from "./CircleUser";
+import { getAllProfiles } from "../api-service";
 import { UserType } from "../types/userType";
 import { useDispatch, useSelector } from "react-redux";
 import { setAllUsers } from "../redux/AllUsersSlice";

@@ -1,6 +1,6 @@
-import React from "react";
-// @ts-ignore
-import CircleUser from "./CircleUser.tsx";
+import React, { useState, useEffect } from "react";
+import { getAllProfiles } from "../api-service";
+import CircleUser from "./CircleUser";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
 import IconButton from "@mui/material/IconButton";

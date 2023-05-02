@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
-// @ts-ignore
-import Navbar from "./Navbar.tsx";
+import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
-// @ts-ignore
-import { getAllBusinesses } from "../api-service.tsx";
-// @ts-ignore
-import AltTile from "./AltTile.tsx";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import { getAllBusinesses } from "../api-service";
+import AltTile from "./AltTile";
 
 const List = () => {
   const navigate = useNavigate();

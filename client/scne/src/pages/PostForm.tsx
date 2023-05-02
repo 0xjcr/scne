@@ -1,6 +1,5 @@
 import React, { useState, ReactNode, ChangeEvent } from "react";
-// @ts-ignore
-import CloudinaryImageUpload from "../components/CloudinaryImageUpload.tsx";
+import CloudinaryImageUpload from "../components/CloudinaryImageUpload";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
@@ -13,10 +12,8 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
-// @ts-ignore
-import Navbar from "../components/Navbar.tsx";
-// @ts-ignore
-import { createUserPost } from "../api-service.tsx";
+import Navbar from "../components/Navbar";
+import { createUserPost } from "../api-service";
 import { SelectChangeEvent } from "@mui/material/Select";
 import { UserPost } from "../types/postType";
 

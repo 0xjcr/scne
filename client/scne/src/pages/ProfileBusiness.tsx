@@ -1,12 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-// @ts-ignore
-import { getBusiness } from "../api-service.tsx";
-// @ts-ignore
-import BusinessProfile from "../components/BusinessProfile.tsx";
-// @ts-ignore
-import Navbar from "../components/Navbar.tsx";
+import { getBusiness } from "../api-service";
+import BusinessProfile from "../components/BusinessProfile";
+import Navbar from "../components/Navbar";
 import { BizType } from "../types/bizType";
 
 const ProfileBusiness: React.FC = () => {

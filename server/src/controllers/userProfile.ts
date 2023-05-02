@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import { Request, Response } from "express";
 import { Users } from "../models/users";
 import { Bizs } from "../models/businesses";
-import session from "express-serve-static-core";
+import { UserType, BizType } from "../Types/types";
 
 const returnSafeUser = (profile: any) => {
   const { firstName, lastName, city, ig, email, password, bio } = profile;
@@ -33,31 +33,6 @@ export const createProfile = async (req: Request, res: Response) => {
   } catch (err) {
     res.status(400).json({ message: (err as Error).message });
   }
-};
-
-type UserType = {
-  firstName: string;
-  lastName: string;
-  city: string;
-  ig: string;
-  email: string;
-  password: string;
-  bio: string;
-};
-
-type BizType = {
-  name: string;
-  city: string;
-  address: string;
-  phone: number;
-  reviewCount: number;
-  upvotes: number;
-  ig: string;
-  email: string;
-  password: string;
-  scene: string;
-  bio: string;
-  photo: string;
 };
 
 declare module "express-session" {
