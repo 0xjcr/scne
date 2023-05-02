@@ -2,11 +2,13 @@ import React, { ChangeEvent, useState } from "react";
 import axios from "axios";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 
-interface CloudinaryImageUploadProps {
+interface CloudinaryImageUploadType {
+  userId?: String;
   onUpload: (url: string) => void;
+  isBusiness?: Boolean;
 }
 
-const CloudinaryImageUpload = ({ onUpload }: CloudinaryImageUploadProps)  => {
+const CloudinaryImageUpload = ({ onUpload }: CloudinaryImageUploadType) => {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
 

@@ -11,6 +11,7 @@ import { updateProfile } from "../api-service.tsx";
 import CloudinaryImageUpload from "./CloudinaryImageUpload.tsx";
 import { ChangeEventHandler } from "react";
 import { FormEvent } from "react";
+import { EditUserType } from "../api-service";
 
 interface Inputs {
   bio: string;
@@ -23,7 +24,7 @@ interface Inputs {
   [key: string]: string;
 }
 
-const EditUser:React.FC = () => {
+const EditUser: React.FC = () => {
   const [inputs, setInputs] = useState<Inputs>({
     bio: "",
     photo: "",
@@ -34,14 +35,15 @@ const EditUser:React.FC = () => {
     scene2: "",
   });
 
-  const { id } = useParams<{ id:string}>();
+  const { id } = useParams() as { id: string };
   const navigate = useNavigate();
 
-  const handleChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (event) => {
+  const handleChange: ChangeEventHandler<
+    HTMLInputElement | HTMLTextAreaElement
+  > = (event) => {
     const { name, value } = event.currentTarget;
-    setInputs(prevInputs => ({ ...prevInputs, [name]: value }));
+    setInputs((prevInputs) => ({ ...prevInputs, [name]: value }));
   };
-
 
   const handleImageUpload = (imageUrl: string) => {
     setInputs((inputs) => ({ ...inputs, photo: imageUrl.toString() }));
@@ -51,17 +53,20 @@ const EditUser:React.FC = () => {
     for (let i = 0; i < 3; i++) {
       const sceneKey = `scene${i}`;
       if (!inputs[sceneKey]) {
-        setInputs((inputs) => ({ ...inputs, [sceneKey]: sceneValue.toString() }));
+        setInputs((inputs) => ({
+          ...inputs,
+          [sceneKey]: sceneValue.toString(),
+        }));
         break;
       }
     }
   };
 
-  const filterEmptyFields = (data:Inputs) => {
-    let filteredData: { [key: string]: any } = {};
+  const filterEmptyFields = (data: Inputs) => {
+    let filteredData: { [key in keyof EditUserType]: any } = {} as EditUserType;
     for (const key in data) {
       if (data[key]) {
-        filteredData[key] = data[key];
+        filteredData[key as keyof EditUserType] = data[key];
       }
     }
     return filteredData;
@@ -70,7 +75,7 @@ const EditUser:React.FC = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const filteredInputs = filterEmptyFields(inputs);
-    updateProfile(id, filteredInputs).then(() => {
+    updateProfile(Number(id), filteredInputs).then(() => {
       //update logged in user in the context
       navigate(`/profile/${id}`);
     });

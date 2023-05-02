@@ -25,7 +25,7 @@ const BusinessProfile = ({
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getAllProfiles().then((fetchedUsers:any) => {
+    getAllProfiles().then((fetchedUsers: any) => {
       const matchingUsers = fetchedUsers.filter(
         (user: UserType) => user.member === name
       );
@@ -85,6 +85,7 @@ const BusinessProfile = ({
                     photo={user["photo"]}
                     clickable={true}
                     member={user["member"]}
+                    scale={user["scale"]}
                   />
                 ))}
               </div>

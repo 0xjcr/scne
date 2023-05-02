@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // @ts-ignore
 import Navbar from "../components/Navbar.tsx";
@@ -9,28 +9,16 @@ import { getAllPosts } from "../api-service.tsx";
 // @ts-ignore
 import Topbar from "../components/Topbar.tsx";
 import Button from "@mui/material/Button";
-
-interface PostType {
-  id: string;
-  content: string;
-  event: string;
-  comment: string;
-  scene: string;
-  postPhoto: string;
-  userId: string;
-  bizId: string;
-  user: string;
-}
-
+import { UserPost } from "../types/postType";
 
 const Feed = () => {
   const navigate = useNavigate();
   const [scene, setScene] = useState("coffee");
-  const [postState, setPostState] = useState<PostType[]>([]);
-  const [filteredPosts, setFilteredPosts] = useState<PostType[]>([]);
+  const [postState, setPostState] = useState<UserPost[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<UserPost[]>([]);
 
   useEffect(() => {
-    getAllPosts().then((res:PostType) => {
+    getAllPosts().then((res: UserPost) => {
       if (Array.isArray(res)) {
         setPostState([...res]);
       } else {
@@ -81,13 +69,13 @@ const Feed = () => {
           filteredPosts.map((post, index) => (
             <div key={index}>
               <Post
-                id={post["id"]}
+                id={post["id"]!}
                 content={post["content"]}
                 event={post["event"]}
                 comment={post["comment"]}
                 scene={post["scene"]}
                 postPhoto={post["postPhoto"]}
-                user={post["user"]}
+                user={post["user"]!}
               />
             </div>
           ))
@@ -101,4 +89,3 @@ const Feed = () => {
 };
 
 export default Feed;
-

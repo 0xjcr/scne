@@ -1,4 +1,4 @@
-import React, { useState,ReactNode, ChangeEvent } from "react";
+import React, { useState, ReactNode, ChangeEvent } from "react";
 // @ts-ignore
 import CloudinaryImageUpload from "../components/CloudinaryImageUpload.tsx";
 import { useNavigate } from "react-router-dom";
@@ -18,18 +18,12 @@ import Navbar from "../components/Navbar.tsx";
 // @ts-ignore
 import { createUserPost } from "../api-service.tsx";
 import { SelectChangeEvent } from "@mui/material/Select";
-
-
-interface Inputs {
-  content: string;
-  event: boolean;
-  comment: boolean;
-  scene: string;
-  postPhoto: string;
-}
+import { UserPost } from "../types/postType";
 
 const PostForm = () => {
-  const [inputs, setInputs] = useState<Inputs>({
+  const [inputs, setInputs] = useState<
+    Pick<UserPost, "content" | "event" | "comment" | "scene" | "postPhoto">
+  >({
     content: "",
     event: false,
     comment: false,
@@ -44,16 +38,17 @@ const PostForm = () => {
     }));
   };
 
-  const handleTextFieldChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleTextFieldChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setInputs({ ...inputs, [event.target.name]: event.target.value });
   };
-
 
   const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const loggedInUserId = localStorage.getItem("userId");
+    const loggedInUserId = localStorage.getItem("userId") as string;
     const newPost = { ...inputs, userId: loggedInUserId };
     createUserPost(newPost).then(() => {
       navigate("/feed");

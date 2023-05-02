@@ -7,23 +7,14 @@ import { getBusiness } from "../api-service.tsx";
 import BusinessProfile from "../components/BusinessProfile.tsx";
 // @ts-ignore
 import Navbar from "../components/Navbar.tsx";
+import { BizType } from "../types/bizType";
 
 const ProfileBusiness: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const [business, setBusiness] = useState<null | {
-    name: string;
-    bio: string;
-    city: string;
-    address: string;
-    phone: number;
-    reviewCount: number;
-    ig: string;
-    photo: string;
-    id: number;
-  }>(null);
+  const { id } = useParams() as { id: string };
+  const [business, setBusiness] = useState<null | BizType>(null);
 
   useEffect(() => {
-    getBusiness(id).then((profile: BusinessProfile) => setBusiness(profile));
+    getBusiness(Number(id)).then((profile: BizType) => setBusiness(profile));
   }, [id]);
 
   return (

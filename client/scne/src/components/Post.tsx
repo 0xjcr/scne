@@ -2,21 +2,17 @@ import React from "react";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 // @ts-ignore
 import CircleUser from "./CircleUser.tsx";
+import { UserType } from "../types/userType";
 
-interface Props {
+type PostProps = {
   id: string;
   content: string;
   event: boolean;
-  comment: string;
+  comment: boolean;
   scene: string;
   postPhoto: string;
-  user: {
-    id: string;
-    firstName: string;
-    member: boolean;
-    photo: string;
-  };
-}
+  user: UserType;
+};
 
 const Post = ({
   id,
@@ -26,8 +22,8 @@ const Post = ({
   scene,
   postPhoto,
   user,
-}: Props) => {
-  const { id: userId, firstName, member, photo } = user;
+}: PostProps) => {
+  const { id: userId, firstName, member, photo }: UserType = user;
 
   const tileStyle = {
     border: "1px solid",

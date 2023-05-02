@@ -1,34 +1,27 @@
-interface UserProfile {
-  id: number;
-  name: string;
-  email: string;
-  password: string;
-  about: string;
-}
+import { UserPost } from "./types/postType";
 
-interface BusinessProfile {
-  id: number;
-  name: string;
+import { BizType } from "./types/bizType";
+
+interface SignUpType {
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  address: string;
   city: string;
-  state: string;
-  zip: string;
-  phone: string;
-  website: string;
 }
 
-interface UserPost {
-  content: string;
-  event: boolean;
-  comment: boolean;
-  scene: string;
-  postPhoto: string;
+export interface EditUserType {
+  photo: string;
+  bio: string;
+  ig: string;
+  // about: string;
+  email: string;
+  password?: string;
+  // name: string;
 }
 
 // create user profile
-export async function createProfile(body:UserProfile) {
+export async function createProfile(body: SignUpType) {
   const response = await fetch("http://localhost:3333/join", {
     method: "POST",
     headers: {
@@ -41,7 +34,7 @@ export async function createProfile(body:UserProfile) {
 }
 
 // Get a single user profile by ID
-export async function getProfile(id:number) {
+export async function getProfile(id: number) {
   const response = await fetch(`http://localhost:3333/profile/${id}`);
   return await response.json();
 }
@@ -53,7 +46,7 @@ export async function getAllProfiles() {
 }
 
 // edit a user profile
-export async function updateProfile(id:number, body:UserProfile) {
+export async function updateProfile(id: number, body: EditUserType) {
   const response = await fetch(`http://localhost:3333/editprofile/${id}`, {
     method: "PUT",
     headers: {
@@ -65,7 +58,7 @@ export async function updateProfile(id:number, body:UserProfile) {
   return await response.json();
 }
 
-export async function login(email:string, password:string) {
+export async function login(email: string, password: string) {
   try {
     const response = await fetch("http://localhost:3333/", {
       method: "POST",
@@ -99,7 +92,7 @@ export async function logout() {
 }
 
 // create business profile
-export async function createBusiness(body:BusinessProfile) {
+export async function createBusiness(body: BizType) {
   const response = await fetch("http://localhost:3333/joinbiz", {
     method: "POST",
     headers: {
@@ -123,13 +116,13 @@ export async function getAllBusinesses() {
 }
 
 // get a business by id
-export async function getBusiness(id:number) {
+export async function getBusiness(id: number) {
   const response = await fetch(`http://localhost:3333/biz/${id}`);
   return await response.json();
 }
 
 // Create a user post
-export async function createUserPost(postDetails:UserPost) {
+export async function createUserPost(postDetails: UserPost) {
   try {
     const response = await fetch("http://localhost:3333/addpost", {
       method: "POST",
@@ -161,7 +154,7 @@ export async function getAllPosts() {
   }
 }
 
-export const updateUpvote = async (id:number, upvotes:number) => {
+export const updateUpvote = async (id: number, upvotes: number) => {
   try {
     const response = await fetch(`http://localhost:3333/list/${id}`, {
       method: "PUT",

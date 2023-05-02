@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CircleUserType } from "../types/circleUserType";
 
-const CircleUser = ({
+const CircleUser: React.FC<CircleUserType> = ({
   id,
   userId,
   firstName,

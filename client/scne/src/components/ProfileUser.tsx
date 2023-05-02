@@ -9,29 +9,18 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import React from "react";
-
-interface User {
-  firstName: string;
-  lastName: string;
-  ig: string;
-  photo: string;
-  bio: string;
-  member: boolean;
-  email: string;
-  reviewCount: number;
-  endorsed: number;
-}
+import { UserType } from "../types/userType";
 
 const ProfileUser: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const [user, setUser] = useState<User | null>(null);
+  const { id } = useParams() as { id: string };
+  const [user, setUser] = useState<UserType | null>(null);
 
   const loggedInUserId = localStorage.getItem("userId");
 
   const handleEndorse = async () => {
     if (user) {
-      const updatedUser: User = { ...user, endorsed: user.endorsed + 1 };
-      const response = await updateProfile(id, updatedUser);
+      const updatedUser: UserType = { ...user, endorsed: user.endorsed + 1 };
+      const response = await updateProfile(Number(id), updatedUser);
       if (response.success) {
         setUser(updatedUser);
       }
@@ -40,9 +29,11 @@ const ProfileUser: React.FC = () => {
 
   useEffect(() => {
     if (loggedInUserId && id === loggedInUserId) {
-      getProfile(loggedInUserId).then((data:User) => setUser(data));
+      getProfile(Number(loggedInUserId)).then((data: UserType) =>
+        setUser(data)
+      );
     } else {
-      getProfile(id).then((data:User) => setUser(data));
+      getProfile(Number(id)).then((data: UserType) => setUser(data));
     }
   }, [id, loggedInUserId]);
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
@@ -37,7 +37,7 @@ interface Props {
   upvotes: number;
   ranking: number;
   photo: string;
-  component: ComponentType;
+  component?: ComponentType;
 }
 
 const AltTile = ({
@@ -52,7 +52,7 @@ const AltTile = ({
   const [upvotes, setUpvotes] = useState(initialUpvotes);
 
   useEffect(() => {
-    getAllProfiles().then((fetchedUsers:any) => {
+    getAllProfiles().then((fetchedUsers: any) => {
       const matchingUsers = fetchedUsers.filter(
         (user: UserType) => user.member === name
       );
@@ -87,7 +87,7 @@ const AltTile = ({
     >
       <CardActionArea>
         <CardMedia
-          component={component}
+          component={component!}
           alt={name}
           sx={{ height: 250, objectFit: "cover", position: "relative" }}
           image={photo}

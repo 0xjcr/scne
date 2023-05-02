@@ -5,29 +5,23 @@ import Navbar from "./Navbar.tsx";
 import CircleUser from "./CircleUser.tsx";
 // @ts-ignore
 import { getAllProfiles } from "../api-service.tsx";
-
-type UserProfile = {
-  scene0: string;
-  scene1: string;
-  scene2: string;
-  endorsed: number;
-};
+import { UserType } from "../types/userType";
 
 type CommunityProps = {
   scene: string;
 };
 
 const Community = ({ scene }: CommunityProps) => {
-  const [userProfiles, setUserProfiles] = useState([]);
+  const [userProfiles, setUserProfiles] = useState<UserType[]>([]);
 
   useEffect(() => {
-    getAllProfiles().then((profiles:any) => {
+    getAllProfiles().then((profiles: any) => {
       setUserProfiles(profiles);
     });
   }, []);
 
   const filteredAndSortedProfiles = [...userProfiles]
-    .filter((profile: UserProfile) => {
+    .filter((profile: UserType) => {
       return [profile.scene0, profile.scene1, profile.scene2].includes(scene);
     })
     .sort((a, b) => b["endorsed"] - a["endorsed"]);
@@ -37,10 +31,9 @@ const Community = ({ scene }: CommunityProps) => {
       <div className="community">
         {filteredAndSortedProfiles.map((user) => (
           <CircleUser
-            key={user["id"]}
-            id={user["id"]}
+            key={user["id"]!}
+            id={user["id"]!}
             firstName={user["firstName"]} // Change this line
-            endorsed={user["endorsed"]}
             photo={user["photo"]}
             member={user["member"]}
             scale={1.5}
