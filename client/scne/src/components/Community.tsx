@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 // @ts-ignore
 import Navbar from "./Navbar.tsx";
 // @ts-ignore
@@ -6,24 +6,26 @@ import CircleUser from "./CircleUser.tsx";
 // @ts-ignore
 import { getAllProfiles } from "../api-service.tsx";
 import { UserType } from "../types/userType";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { setAllUsers } from "../redux/AllUsersSlice";
+import { RootState, AppDispatch } from "../redux/store";
 
 const Community = () => {
+  const dispatch: AppDispatch = useDispatch();
   const scene = useSelector((state: RootState) => state.Scene);
-  const [userProfiles, setUserProfiles] = useState<UserType[]>([]);
+  const users = useSelector((state: RootState) => state.AllUsers);
 
   useEffect(() => {
-    getAllProfiles().then((profiles: any) => {
-      setUserProfiles(profiles);
+    getAllProfiles().then((profiles: UserType[]) => {
+      dispatch(setAllUsers(profiles));
     });
   }, []);
 
-  const filteredAndSortedProfiles = [...userProfiles]
-    .filter((profile: UserType) => {
+  const filteredAndSortedProfiles = [...users]
+    .filter((profile) => {
       return [profile.scene0, profile.scene1, profile.scene2].includes(scene);
     })
-    .sort((a, b) => b["endorsed"] - a["endorsed"]);
+    .sort((a, b) => b.endorsed - a["endorsed"]);
 
   return (
     <>

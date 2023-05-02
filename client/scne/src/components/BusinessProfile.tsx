@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-// @ts-ignore
-import { getAllProfiles } from "../api-service.tsx";
+import React from "react";
 // @ts-ignore
 import CircleUser from "./CircleUser.tsx";
 import Divider from "@mui/material/Divider";
@@ -9,8 +7,9 @@ import IconButton from "@mui/material/IconButton";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { UserType } from "../types/userType";
 import { BizType } from "../types/bizType";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const BusinessProfile = ({
   name,
@@ -22,16 +21,9 @@ const BusinessProfile = ({
   ig,
   photo,
 }: BizType) => {
-  const [users, setUsers] = useState([]);
+  const users = useSelector((state: RootState) => state.AllUsers);
 
-  useEffect(() => {
-    getAllProfiles().then((fetchedUsers: any) => {
-      const matchingUsers = fetchedUsers.filter(
-        (user: UserType) => user.member === name
-      );
-      setUsers(matchingUsers);
-    });
-  }, [name]);
+  const matchingUsers = users.filter((user) => user.member === name);
 
   return (
     <>
@@ -76,7 +68,7 @@ const BusinessProfile = ({
                 className="circleUserList"
                 style={{ display: "flex", flexDirection: "row" }}
               >
-                {users.map((user) => (
+                {matchingUsers.map((user) => (
                   <CircleUser
                     key={user["id"]}
                     id={user["id"]}
@@ -85,7 +77,6 @@ const BusinessProfile = ({
                     photo={user["photo"]}
                     clickable={true}
                     member={user["member"]}
-                    scale={user["scale"]}
                   />
                 ))}
               </div>

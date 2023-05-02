@@ -5,7 +5,6 @@ export const SceneSlice = createSlice({
   initialState,
   reducers: {
     setScene: (_, action) => {
-      console.log("is this the current Scene: ", action.payload);
       return action.payload;
     },
   },

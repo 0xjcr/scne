@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 // @ts-ignore
 import CircleUser from "./CircleUser.tsx";
 // @ts-ignore
-import { getAllProfiles, updateUpvote } from "../api-service.tsx";
+import { updateUpvote } from "../api-service.tsx";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
-import { UserType } from "../types/userType";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const StyledBadge = styled(Badge)(() => ({
   "& .MuiBadge-root": {
@@ -48,17 +49,9 @@ const AltTile = ({
   photo,
   component,
 }: Props) => {
-  const [users, setUsers] = useState([]);
+  const users = useSelector((state: RootState) => state.AllUsers);
+  const matchingUsers = users.filter((user) => user.member === name);
   const [upvotes, setUpvotes] = useState(initialUpvotes);
-
-  useEffect(() => {
-    getAllProfiles().then((fetchedUsers: any) => {
-      const matchingUsers = fetchedUsers.filter(
-        (user: UserType) => user.member === name
-      );
-      setUsers(matchingUsers.slice(0, 5));
-    });
-  }, [name]);
 
   const handleUpvote = async (
     event: React.MouseEvent<HTMLButtonElement>,
@@ -132,7 +125,7 @@ const AltTile = ({
           </div>
         </div>
         <div className="bottom-row">
-          {users.slice(0, 4).map((user) => (
+          {matchingUsers.slice(0, 4).map((user) => (
             <CircleUser
               key={user["id"]}
               id={user["id"]}
