@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
-// @ts-ignore
-import CircleUser from "./CircleUser.tsx";
+import CircleUser from "./CircleUser";
 import { UserType } from "../types/userType";
 
 type PostProps = {

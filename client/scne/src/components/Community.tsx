@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-// @ts-ignore
-import Navbar from "./Navbar.tsx";
-// @ts-ignore
-import CircleUser from "./CircleUser.tsx";
-// @ts-ignore
-import { getAllProfiles } from "../api-service.tsx";
+import Navbar from "./Navbar";
+import CircleUser from "./CircleUser";
+import { getAllProfiles } from "../api-service";
 import { UserType } from "../types/userType";
 
 type CommunityProps = {
@@ -15,7 +12,7 @@ const Community = ({ scene }: CommunityProps) => {
   const [userProfiles, setUserProfiles] = useState<UserType[]>([]);
 
   useEffect(() => {
-    getAllProfiles().then((profiles: any) => {
+    getAllProfiles().then((profiles: UserType[]) => {
       setUserProfiles(profiles);
     });
   }, []);

@@ -1,10 +1,7 @@
 import React, {useEffect} from "react";
-// @ts-ignore
-import { logout } from "../api-service.tsx";
+import { logout } from "../api-service";
 
-interface LogoutProps {}
-
-const Logout:React.FC<LogoutProps> = () => {
+const Logout:React.FC = () => {
   useEffect(() => {
     logout();
   }, []);

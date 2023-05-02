@@ -1,5 +1,4 @@
-// @ts-ignore
-import SignUpBiz from "../components/SignUpBiz.tsx"
+import SignUpBiz from "../components/SignUpBiz"
 import React from "react"
 
 

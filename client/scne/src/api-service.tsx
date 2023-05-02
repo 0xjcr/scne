@@ -1,5 +1,4 @@
 import { UserPost } from "./types/postType";
-
 import { BizType } from "./types/bizType";
 
 interface SignUpType {

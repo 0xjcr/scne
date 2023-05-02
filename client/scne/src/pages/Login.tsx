@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
-// @ts-ignore
-import { login } from "../api-service.tsx";
+import { login } from "../api-service";
 
 const Login = (): JSX.Element => {
   const navigate = useNavigate();

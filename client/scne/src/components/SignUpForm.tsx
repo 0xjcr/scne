@@ -5,12 +5,10 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
-// @ts-ignore
-import { createProfile } from "../api-service.tsx";
+import { createProfile } from "../api-service";
 import { useNavigate } from "react-router-dom";
 import { FormControl } from "@mui/material";
-// @ts-ignore
-import { validateEmail } from "./SignUpBiz.tsx";
+import { validateEmail } from "./SignUpBiz";
 
 const SignUpForm = () => {
   const [inputs, setInputs] = useState({
