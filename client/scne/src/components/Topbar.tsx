@@ -1,8 +1,11 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import SpeedDial from "@mui/material/SpeedDial";
-import {SpeedDialAction,SpeedDialActionProps} from "@mui/material";
+import { SpeedDialAction } from "@mui/material";
 import Box from "@mui/material/Box";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../redux/store";
+import { setScene } from "../redux/SceneSlice";
 
 const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
   position: "absolute",
@@ -45,15 +48,16 @@ interface Props {
   onSceneChange: (value: string) => void;
 }
 
-interface CustomSpeedDialActionProps extends SpeedDialActionProps {
-  isSelected: boolean;
-}
+const Topbar: React.FC<Props> = () => {
+  const dispatch: AppDispatch = useDispatch();
 
+  const scene = useSelector((state: RootState) => state.Scene);
 
-const Topbar:React.FC<Props> = ({ scene, onSceneChange }) => {
-  const handleChange = (value:string) => {
-    onSceneChange(value);
+  const handleChange = (value: string) => {
+    dispatch(setScene(value));
   };
+
+  const SceneArr: string[] = ["coffee", "wellness", "mixology"];
 
   return (
     <>
@@ -73,66 +77,28 @@ const Topbar:React.FC<Props> = ({ scene, onSceneChange }) => {
             </Box>
           }
           direction="left"
-          onClose={() => handleChange(scene)}
-          onOpen={() => handleChange(scene)}
         >
-          <SpeedDialAction
-            icon={"mixology"}
-            tooltipTitle="mixology"
-            sx={{
-              fontSize: scene === "mixology" ? "2rem" : "1.rem",
-              color: "white",
-              border: "none",
-              width: "80px",
-              height: "40px",
-              minWidth: "80px",
-              selected: {
-                color: "white",
-              },
-            }}
-            onClick={() => handleChange("mixology")}
-          />
-          <SpeedDialAction
-            icon={"wellness"}
-            tooltipTitle="wellness"
-            sx={{
-              fontSize: scene === "wellness" ? "2rem" : "1.rem",
-              color: "white",
-              backgroundColor: "transparent",
-              border: "none",
-              boxShadow: "none",
-              width: "80px",
-              height: "40px",
-              minWidth: "80px",
-              selected: {
-                backgroundColor: "transparent",
-                color: "white",
-                boxShadow: "none",
-              },
-            }}
-            onClick={() => handleChange("wellness")}
-          />
-          <SpeedDialAction
-            icon={"coffee"}
-            tooltipTitle="coffee"
-            {...{ isSelected: scene === "coffee" } as CustomSpeedDialActionProps}
-            sx={{
-              fontSize: scene === "coffee" ? "2rem" : "1.rem",
-              color: "white",
-              backgroundColor: "transparent",
-              border: "none",
-              boxShadow: "none",
-              width: "80px",
-              height: "40px",
-              minWidth: "80px",
-              selected: {
-                backgroundColor: "transparent",
-                color: "white",
-                boxShadow: "none",
-              },
-            }}
-            onClick={() => handleChange("coffee")}
-          />
+          {SceneArr.map((item) => {
+            return (
+              <SpeedDialAction
+                key={item}
+                icon={item}
+                tooltipTitle={item}
+                sx={{
+                  fontSize: scene == item ? "2rem" : "1.rem",
+                  color: "white",
+                  border: "none",
+                  width: "80px",
+                  height: "40px",
+                  minWidth: "80px",
+                  selected: {
+                    color: "white",
+                  },
+                }}
+                onClick={() => handleChange(item)}
+              />
+            );
+          })}
         </StyledSpeedDial>
       </div>
     </>

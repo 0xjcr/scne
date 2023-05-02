@@ -10,10 +10,13 @@ import { getAllPosts } from "../api-service.tsx";
 import Topbar from "../components/Topbar.tsx";
 import Button from "@mui/material/Button";
 import { UserPost } from "../types/postType";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const Feed = () => {
+  const scene = useSelector((state: RootState) => state.Scene);
   const navigate = useNavigate();
-  const [scene, setScene] = useState("coffee");
+
   const [postState, setPostState] = useState<UserPost[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<UserPost[]>([]);
 
@@ -36,14 +39,9 @@ const Feed = () => {
     setFilteredPosts(newArr);
   }, [scene, postState]);
 
-  const handleSceneChange = (newScene: string) => {
-    setScene(newScene);
-    localStorage.setItem("scene", newScene);
-  };
-
   return (
     <>
-      <Topbar scene={scene} onSceneChange={handleSceneChange} />
+      <Topbar />
 
       <div className="createPost">
         <Button

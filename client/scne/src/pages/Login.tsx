@@ -4,20 +4,28 @@ import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
 // @ts-ignore
 import { login } from "../api-service.tsx";
+// import { useSelector, useDispatch } from "react-redux";
+// import { RootState } from "../redux/store";
+// import { setLoggedInUser } from "../redux/LoggedInUserSlice";
 
 const Login = (): JSX.Element => {
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // const loggedinuser = useSelector((state: RootState) => state.loggedinUser);
 
   const handleLogin = async () => {
     try {
       const { user, bizs } = await login(email, password);
       if (user) {
         localStorage.setItem("userId", user.id);
+        // dispatch(setLoggedInUser(user));
         navigate(`/profile/${user.id}`);
       } else if (bizs) {
         localStorage.setItem("bizId", bizs.id);
+        // dispatch(setLoggedInUser(bizs));
         navigate(`/biz/${bizs.id}`);
       } else {
         alert("Invalid login credentials");

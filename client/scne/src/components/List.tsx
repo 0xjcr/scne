@@ -6,23 +6,23 @@ import { useNavigate } from "react-router-dom";
 import { getAllBusinesses } from "../api-service.tsx";
 // @ts-ignore
 import AltTile from "./AltTile.tsx";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
-type ListProps = {
-  scene: string;
-}
-
-const List = ({ scene }: ListProps)  => {
+const List = () => {
   const navigate = useNavigate();
 
   const [bizState, setBizState] = useState([]);
 
   useEffect(() => {
-    getAllBusinesses().then((res:any) => setBizState(res));
+    getAllBusinesses().then((res: any) => setBizState(res));
   }, []);
 
   const handleBusinessClick = (bizId: number) => {
     navigate(`/biz/${bizId}`);
   };
+
+  const scene = useSelector((state: RootState) => state.Scene);
 
   // Commented out for now as it was causing Typescript errors but on the list to update
   // const handleUpvote = async (bizId: number ): Promise<void> => {

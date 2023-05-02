@@ -6,12 +6,11 @@ import CircleUser from "./CircleUser.tsx";
 // @ts-ignore
 import { getAllProfiles } from "../api-service.tsx";
 import { UserType } from "../types/userType";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
-type CommunityProps = {
-  scene: string;
-};
-
-const Community = ({ scene }: CommunityProps) => {
+const Community = () => {
+  const scene = useSelector((state: RootState) => state.Scene);
   const [userProfiles, setUserProfiles] = useState<UserType[]>([]);
 
   useEffect(() => {
