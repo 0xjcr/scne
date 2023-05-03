@@ -8,6 +8,7 @@ import { store } from "../redux/store";
 
 jest.mock("../api-service", () => ({
   getAllProfiles: jest.fn(),
+  getProfile: jest.fn(),
 }));
 
 describe("BusinessProfile", () => {
