@@ -10,7 +10,7 @@ import { BizType } from "../types/bizType";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { useParams, useNavigate } from "react-router-dom";
-import { getProfile, logout } from "../api-service";
+import { getProfile,logout } from "../api-service";
 import Button from "@mui/material/Button";
 
 const BusinessProfile = ({

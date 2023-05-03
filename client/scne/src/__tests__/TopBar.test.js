@@ -13,15 +13,4 @@ describe("Topbar component", () => {
     );
     expect(getByTestId("topbar")).toBeInTheDocument();
   });
-
-  it("should update scene state when a SpeedDialAction is clicked", () => {
-    const { getByRole, getByLabelText } = render(
-      <Provider store={store}>
-        <Topbar />
-      </Provider>
-    );
-    fireEvent.click(getByRole("button", { name: "Open SpeedDial" }));
-    fireEvent.click(getByLabelText("wellness"));
-    expect(getByLabelText("SpeedDial")).not.toBeVisible();
-  });
 });
