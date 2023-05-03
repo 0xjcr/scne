@@ -46,6 +46,7 @@ const Login = (): JSX.Element => {
       <TextField
         id="outlined-basic"
         label="EMAIL"
+        className="email"
         variant="outlined"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
@@ -62,7 +63,9 @@ const Login = (): JSX.Element => {
       />
       <TextField
         id="outlined-basic"
+        className="password"
         label="PASSWORD"
+        type = "password"
         variant="outlined"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
@@ -85,6 +88,7 @@ const Login = (): JSX.Element => {
           borderColor: "#6e06de",
         }}
         type="submit"
+        className="submitbtn"
         onClick={handleLogin}
         variant="outlined"
       >
