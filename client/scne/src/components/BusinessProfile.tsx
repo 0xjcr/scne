@@ -40,15 +40,10 @@ const BusinessProfile = ({
   }, [id, loggedInUserId]);
   const navigate = useNavigate();
 
-  const handleEdit = () => {
-    navigate(`/editprofile/${id}`);
-  };
-
   const handleLogout = async () => {
     try {
       navigate("/logout");
       await logout();
-      localStorage.removeItem("userId");
       localStorage.removeItem("bizId");
     } catch (error) {
       console.error("Error during logout:", error);

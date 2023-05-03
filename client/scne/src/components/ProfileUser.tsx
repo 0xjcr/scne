@@ -47,7 +47,6 @@ const ProfileUser: React.FC = () => {
       navigate("/logout");
       await logout();
       localStorage.removeItem("userId");
-      localStorage.removeItem("bizId");
     } catch (error) {
       console.error("Error during logout:", error);
     }

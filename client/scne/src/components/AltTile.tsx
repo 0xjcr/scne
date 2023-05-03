@@ -47,6 +47,7 @@ const AltTile = ({
   photo,
   component,
 }: Props) => {
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const users = useSelector((state: RootState) => state.AllUsers);
   const matchingUsers = users.filter((user) => user.member === name);
   const [upvotes, setUpvotes] = useState(initialUpvotes);
@@ -61,6 +62,7 @@ const AltTile = ({
     const newUpvotes = upvotes + 1;
     await updateUpvote(id, newUpvotes);
     setUpvotes(newUpvotes);
+    setIsButtonDisabled(true);
   };
 
   return (
@@ -116,9 +118,19 @@ const AltTile = ({
               }}
             >
               <Button>{upvotes || 0}</Button>
-              <Button onClick={(event) => handleUpvote(event, id)}>
-                <AutoAwesomeIcon sx={{ color: "#70FF00" }} />
-              </Button>
+              {isButtonDisabled ? (
+                <Button>
+                  <AutoAwesomeIcon sx={{ color: "#70FF00" }} />
+                </Button>
+              ) : (
+                <Button
+                  onClick={(event) => {
+                    handleUpvote(event, id);
+                  }}
+                >
+                  <AutoAwesomeIcon sx={{ color: "#70FF00" }} />
+                </Button>
+              )}
             </ButtonGroup>
           </div>
         </div>
