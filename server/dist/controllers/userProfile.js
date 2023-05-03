@@ -128,6 +128,9 @@ const getProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     const { id } = req.params;
     try {
         const profile = yield users_1.Users.findByPk(id);
+        if (!profile) {
+            throw new Error("profile not found");
+        }
         res.status(200).json(profile);
     }
     catch (err) {

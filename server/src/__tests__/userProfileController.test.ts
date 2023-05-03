@@ -141,3 +141,53 @@ describe("update profile", () => {
     expect(res.body.message).toBeDefined();
   });
 });
+
+describe("get User profile", () => {
+  const app = express();
+  app.use(express.json());
+  app.use(router);
+  const request = supertest(app);
+
+  beforeAll(async () => {
+    await sequelize.sync();
+
+    const user: UserType = {
+      firstName: "Name",
+      lastName: "Sunshine",
+      city: "Jupiter",
+      ig: "ig",
+      email: "sunshine@Jupiter.com",
+      password: "password",
+      bio: "this is my hairbrush",
+    };
+
+    await request.post("/join").send(user);
+  });
+
+  afterEach(async () => {
+    try {
+      await Users.destroy({ where: {}, truncate: true, cascade: true });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+  it("it should get the user profile", async () => {
+    const user = (await Users.findOne({
+      where: { firstName: "Name" },
+    })) as unknown as UserType;
+
+    const res = await request.get(`/profile/${user.id}`);
+
+    expect(res.status).toBe(200);
+    expect(res.body.firstName).toBe("Name");
+    expect(res.body.lastName).toBe("Sunshine");
+  });
+
+  it("should return error message if profile id is invalid", async () => {
+    const res = await request.get(`/profile/abc`);
+
+    expect(res.status).toBe(400);
+    expect(res.body.message).toBeDefined();
+  });
+});

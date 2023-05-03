@@ -119,6 +119,9 @@ export const getProfile = async (req: Request, res: Response) => {
 
   try {
     const profile = await Users.findByPk(id);
+    if (!profile) {
+      throw new Error("profile not found");
+    }
     res.status(200).json(profile);
   } catch (err) {
     res.status(400).json({ message: (err as Error).message });
