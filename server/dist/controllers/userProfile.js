@@ -62,6 +62,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             // Check if the passwords match
             const isMatch = yield bcrypt_1.default.compare(password, user.password);
             if (isMatch) {
+                console.log(user);
                 req.session["user"] = user;
                 res.status(200).json({ message: "Logged in successfully", user });
             }

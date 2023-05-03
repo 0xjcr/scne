@@ -58,6 +58,7 @@ export const login = async (req: Request, res: Response) => {
       // Check if the passwords match
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
+        console.log(user);
         req.session["user"] = user;
         res.status(200).json({ message: "Logged in successfully", user });
       } else {

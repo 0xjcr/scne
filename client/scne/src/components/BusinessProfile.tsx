@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CircleUser from "./CircleUser";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
@@ -9,6 +9,9 @@ import CardContent from "@mui/material/CardContent";
 import { BizType } from "../types/bizType";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import { useParams, useNavigate } from "react-router-dom";
+import { getProfile, logout } from "../api-service";
+import Button from "@mui/material/Button";
 
 const BusinessProfile = ({
   name,
@@ -24,6 +27,34 @@ const BusinessProfile = ({
 
   const matchingUsers = users.filter((user) => user.member === name);
 
+  const { id } = useParams() as { id: string };
+
+  const loggedInUserId = localStorage.getItem("bizId");
+
+  useEffect(() => {
+    if (loggedInUserId && id === loggedInUserId) {
+      getProfile(Number(loggedInUserId));
+    } else {
+      getProfile(Number(id));
+    }
+  }, [id, loggedInUserId]);
+  const navigate = useNavigate();
+
+  const handleEdit = () => {
+    navigate(`/editprofile/${id}`);
+  };
+
+  const handleLogout = async () => {
+    try {
+      navigate("/logout");
+      await logout();
+      localStorage.removeItem("userId");
+      localStorage.removeItem("bizId");
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
+
   return (
     <>
       <div>
@@ -38,6 +69,18 @@ const BusinessProfile = ({
           }}
           style={{ color: "whitesmoke" }}
         >
+          {loggedInUserId === id && (
+            <div className="editAndLogout">
+              <Button
+                sx={{ color: "white", width: "25%" }}
+                size="small"
+                onClick={handleLogout}
+              >
+                logout
+              </Button>
+            </div>
+          )}
+
           <CardContent>
             <div className="businessProfileContent">
               <div>

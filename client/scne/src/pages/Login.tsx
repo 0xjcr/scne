@@ -21,6 +21,7 @@ const Login = (): JSX.Element => {
         navigate(`/profile/${user.id}`);
       } else if (bizs) {
         localStorage.setItem("bizId", bizs.id);
+        console.log(localStorage);
         // dispatch(setLoggedInUser(bizs));
         navigate(`/biz/${bizs.id}`);
       } else {
@@ -63,6 +64,7 @@ const Login = (): JSX.Element => {
       <TextField
         id="outlined-basic"
         label="PASSWORD"
+        type="password"
         variant="outlined"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
