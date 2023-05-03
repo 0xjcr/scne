@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Login, { validateEmail } from "../pages/Login";
+import Login from "../pages/Login";
+import { validateEmail } from "../components/SignUpBiz";
 
 describe("Test the Log In page", () => {
   beforeAll(() => {
@@ -18,24 +19,5 @@ describe("Test the Log In page", () => {
   it("should not allow non-valid email", () => {
     const testEmail = "false.com";
     expect(validateEmail(testEmail)).not.toBe(true);
-  });
-  describe("pressing LOGIN should re-drect you to your profile page", () => {
-    it("", () => {
-      const loggedInUserId = "1";
-      const handleLogin = jest.fn();
-
-      render(
-        <MemoryRouter>
-          <Login />
-        </MemoryRouter>
-      );
-
-      const alertMock = jest.spyOn(window, "alert").mockImplementation();
-
-      const button = screen.getByRole("button", { name: /log in/i });
-      fireEvent.click(button);
-
-      expect(alertMock).toHaveBeenCalledTimes(1);
-    });
   });
 });

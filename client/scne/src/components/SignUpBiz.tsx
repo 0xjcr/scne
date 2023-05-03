@@ -40,10 +40,6 @@ const SignUpBiz = () => {
     event.preventDefault();
     if (validateEmail(inputs.email)) {
       createBusiness(inputs).then(() => {
-        // setBusinessState((existingBusinesses) => [
-        //   ...existingBusinesses,
-        //   newBusiness,
-        // ]);
         navigate("/list");
       });
     } else {
@@ -73,6 +69,7 @@ const SignUpBiz = () => {
         <Box
           component="form"
           sx={{
+            color: "white",
             "& > :not(style)": { m: 2, width: "25ch" },
           }}
           noValidate

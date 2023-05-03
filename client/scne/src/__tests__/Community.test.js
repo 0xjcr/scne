@@ -1,6 +1,8 @@
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Community from "../components/Community";
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
 
 test("renders user profiles with correct first name and sorted by endorsements", () => {
   const scene = "coffee";
@@ -137,9 +139,11 @@ test("renders user profiles with correct first name and sorted by endorsements",
   }));
 
   const { getByRole } = render(
-    <MemoryRouter>
-      <Community scene={scene} profiles={profiles} />
-    </MemoryRouter>
+    <Provider store={store}>
+      <MemoryRouter>
+        <Community scene={scene} profiles={profiles} />
+      </MemoryRouter>
+    </Provider>
   );
 
   getByRole("img", { name: /andy/i });

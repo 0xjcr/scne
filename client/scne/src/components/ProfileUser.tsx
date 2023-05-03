@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-// @ts-ignore
-import { getProfile, logout, updateProfile } from "../api-service.tsx";
+import { getProfile, logout, updateProfile } from "../api-service";
 import { Divider, Chip } from "@mui/material";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
