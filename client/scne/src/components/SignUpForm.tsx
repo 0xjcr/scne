@@ -32,9 +32,6 @@ const SignUpForm = () => {
     event.preventDefault();
     if (validateEmail(inputs.email)) {
       createProfile(inputs)
-        // .then((newUser) => {
-        //   setUserState((existingUsers) => [...existingUsers, newUser]);
-        // })
         .then(() => {
           navigate("/");
           setInputs({

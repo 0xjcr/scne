@@ -23,3 +23,5 @@ Steps to start:
 6: "npm run build:dev" will run the dist file which is the typescript converted into js so that it will run.
 
 7: the db credentials in models/index will need to change to your own.
+
+8: Running cypress tests - Cypress E2E tests are stored within 'cypress' folder.Make sure that cypress is installed on your machine. Then running npx cypress open will launch cypress GUI, allowing user to view and run tests to see whether the app is compiling as expected.

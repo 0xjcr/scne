@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { setScene } from "../redux/SceneSlice";
 
+
 const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
   position: "absolute",
   left: "0.1rem",
@@ -58,6 +59,8 @@ const Topbar: React.FC = () => {
     <>
       <div className="topbar" data-testid="topbar">
         <StyledSpeedDial
+         id="topbar-speed-dial"
+         aria-controls="topbar-speed-dial-actions"
           ariaLabel="SpeedDial"
           icon={
             <Box

@@ -2,6 +2,8 @@ import { render, screen, fireEvent, act } from "@testing-library/react";
 import AltTile from "../components/AltTile";
 import { getAllProfiles, updateUpvote } from "../api-service";
 import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
 
 jest.mock("../api-service");
 
@@ -42,9 +44,11 @@ describe("AltTile component", () => {
 
   test("renders business name", async () => {
     render(
-      <MemoryRouter>
-        <AltTile {...mockTile} />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter>
+          <AltTile {...mockTile} />
+        </MemoryRouter>
+      </Provider>
     );
     const name = await screen.findByText(mockTile.name);
     expect(name).toBeInTheDocument();
@@ -52,9 +56,11 @@ describe("AltTile component", () => {
 
   test("renders user circles", async () => {
     render(
-      <MemoryRouter>
-        <AltTile {...mockTile} />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter>
+          <AltTile {...mockTile} />
+        </MemoryRouter>
+      </Provider>
     );
     const user1 = await screen.findByAltText(mockUsers[0].firstName);
     expect(user1).toBeInTheDocument();
@@ -64,9 +70,11 @@ describe("AltTile component", () => {
 
   test("fetches users matching business name", async () => {
     render(
-      <MemoryRouter>
-        <AltTile {...mockTile} />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter>
+          <AltTile {...mockTile} />
+        </MemoryRouter>
+      </Provider>
     );
     await screen.findByAltText(mockUsers[0].firstName);
     expect(getAllProfiles).toHaveBeenCalledWith();

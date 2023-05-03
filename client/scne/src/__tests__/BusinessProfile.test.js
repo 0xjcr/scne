@@ -3,6 +3,8 @@ import { render, screen, act } from "@testing-library/react";
 import BusinessProfile from "../components/BusinessProfile";
 import { getAllProfiles } from "../api-service";
 import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
 
 jest.mock("../api-service", () => ({
   getAllProfiles: jest.fn(),
@@ -15,9 +17,11 @@ describe("BusinessProfile", () => {
 
     await act(async () => {
       render(
-        <MemoryRouter>
-          <BusinessProfile name={name} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <BusinessProfile name={name} />
+          </MemoryRouter>
+        </Provider>
       );
     });
 
@@ -30,9 +34,11 @@ describe("BusinessProfile", () => {
 
     await act(async () => {
       render(
-        <MemoryRouter>
-          <BusinessProfile bio={bio} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <BusinessProfile bio={bio} />
+          </MemoryRouter>
+        </Provider>
       );
     });
 
@@ -45,9 +51,11 @@ describe("BusinessProfile", () => {
 
     await act(async () => {
       render(
-        <MemoryRouter>
-          <BusinessProfile city={city} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <BusinessProfile city={city} />
+          </MemoryRouter>
+        </Provider>
       );
     });
 
@@ -60,9 +68,11 @@ describe("BusinessProfile", () => {
 
     await act(async () => {
       render(
-        <MemoryRouter>
-          <BusinessProfile address={address} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <BusinessProfile address={address} />
+          </MemoryRouter>
+        </Provider>
       );
     });
 
@@ -75,9 +85,11 @@ describe("BusinessProfile", () => {
 
     await act(async () => {
       render(
-        <MemoryRouter>
-          <BusinessProfile phone={phone} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <BusinessProfile phone={phone} />
+          </MemoryRouter>
+        </Provider>
       );
     });
 
@@ -90,9 +102,11 @@ describe("BusinessProfile", () => {
 
     await act(async () => {
       render(
-        <MemoryRouter>
-          <BusinessProfile reviewCount={reviewCount} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <BusinessProfile reviewCount={reviewCount} />
+          </MemoryRouter>
+        </Provider>
       );
     });
 
@@ -105,9 +119,11 @@ describe("BusinessProfile", () => {
 
     await act(async () => {
       render(
-        <MemoryRouter>
-          <BusinessProfile ig={ig} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <BusinessProfile ig={ig} />
+          </MemoryRouter>
+        </Provider>
       );
     });
 
@@ -120,9 +136,11 @@ describe("BusinessProfile", () => {
 
     await act(async () => {
       render(
-        <MemoryRouter>
-          <BusinessProfile photo={photo} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <BusinessProfile photo={photo} />
+          </MemoryRouter>
+        </Provider>
       );
     });
 
