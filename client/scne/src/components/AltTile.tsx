@@ -56,7 +56,6 @@ const AltTile = ({
     event: React.MouseEvent<HTMLButtonElement>,
     id: number
   ) => {
-    // stopPropogation prevents propogating to the parent element when clicking to upvote
     event.stopPropagation();
     event.preventDefault();
     const newUpvotes = upvotes + 1;
