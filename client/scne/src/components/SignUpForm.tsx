@@ -69,6 +69,7 @@ const SignUpForm = () => {
         >
           <TextField
             id="outlined-basic-firstname"
+            className="firstname"
             label="FIRST NAME"
             variant="outlined"
             name="firstName"
@@ -81,6 +82,7 @@ const SignUpForm = () => {
           />
           <TextField
             id="outlined-basic-lastname"
+            className="lastname"
             label="LAST NAME"
             variant="outlined"
             name="lastName"
@@ -93,6 +95,7 @@ const SignUpForm = () => {
           />
           <TextField
             id="outlined-basic-email"
+            className="email"
             label="EMAIL"
             variant="outlined"
             name="email"
@@ -133,7 +136,7 @@ const SignUpForm = () => {
                 style: { color: "white" },
               }}
             >
-              <MenuItem value={"Barcelona"}>Barcelona</MenuItem>
+              <MenuItem className="menuitem" value={"Barcelona"}>Barcelona</MenuItem>
             </Select>
           </FormControl>
 
@@ -141,6 +144,7 @@ const SignUpForm = () => {
             sx={{ border: "5px solid #6e06de ", color: "white" }}
             type="submit"
             variant="outlined"
+            className="createbtn"
           >
             CREATE
           </Button>
