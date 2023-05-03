@@ -23,3 +23,11 @@ Steps to start:
 6: "npm run build:dev" will run the dist file which is the typescript converted into js so that it will run.
 
 7: the db credentials in models/index will need to change to your own.
+
+# Testing Set Up
+
+Backend:
+
+1. make sure to run npm i from the server file
+
+2. run "npm t" to run the tests
