@@ -1,8 +1,7 @@
 import { UserPosts, Users } from "../models/users";
 import { BizPosts, Bizs } from "../models/businesses";
 import { Request, Response } from "express";
-import { PostType, sequelAddition} from "../Types/types";
-
+import { PostType, sequelAddition } from "../Types/types";
 
 //create a post
 export const createUserPost = async (

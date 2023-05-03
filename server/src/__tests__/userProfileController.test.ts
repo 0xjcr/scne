@@ -33,7 +33,7 @@ describe("/join endpoint", () => {
       bio: "this is my moon",
     };
 
-    //   await request.post("/join").send(user);
+    await request.post("/join").send(user);
 
     const result = (await (Users.findAll() as unknown)) as UserType[];
     expect(result[0].firstName).toBe("Nobody");
