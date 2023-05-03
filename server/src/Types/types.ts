@@ -1,3 +1,5 @@
+import { NumericLiteral } from "typescript";
+
 export type UserType = {
   firstName: string;
   lastName: string;
@@ -24,13 +26,19 @@ export type BizType = {
 };
 
 export type PostType = {
-  id: number;
+  // id?: number;
   content: string;
   event: boolean;
-  comment: string;
+  comment: boolean;
   scene: string;
   postPhoto: string;
   userId: number;
-  createdAt: number;
-  updatedAt: number;
+  // createdAt?: number;
+  // updatedAt?: number;
 };
+
+export type sequelAddition = {
+id : Number;
+createdAt: number;
+  updatedAt: number;
+}

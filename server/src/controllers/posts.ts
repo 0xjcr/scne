@@ -1,7 +1,7 @@
 import { UserPosts, Users } from "../models/users";
 import { BizPosts, Bizs } from "../models/businesses";
 import { Request, Response } from "express";
-import { PostType } from "../Types/types";
+import { PostType, sequelAddition} from "../Types/types";
 
 
 //create a post
@@ -36,7 +36,7 @@ export const getAllPosts = async (req: Request, res: Response) => {
           as: "user",
         },
       ],
-    })) as unknown as PostType[]; //sequalise and typescript don't get on so the alternative to typecasting was to refactor to ES6 classes.
+    })) as unknown as (PostType & sequelAddition)[]; //sequalise and typescript don't get on so the alternative to typecasting was to refactor to ES6 classes.
 
     const bizPosts = (await BizPosts.findAll({
       include: [
@@ -45,7 +45,7 @@ export const getAllPosts = async (req: Request, res: Response) => {
           as: "biz",
         },
       ],
-    })) as unknown as PostType[];
+    })) as unknown as (PostType & sequelAddition)[];
 
     // Combine UserPosts and BizPosts using the spread operator
     const allPosts = [...userPosts, ...bizPosts];

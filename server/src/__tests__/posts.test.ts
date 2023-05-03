@@ -1,48 +1,70 @@
-import { UserPosts, Users } from "../models/users";
-import { BizPosts, Bizs } from "../models/businesses";
-// import { createUserPost } from "../controllers/posts";
+import express from "express";
+import router from "../router/router";
+import supertest from "supertest";
+import sequelize from "../models";
+import { PostType } from "../Types/types";
+import { UserPosts } from "../models/users";
 
-describe("createUserPost function", () => {
-  let req: Request;
-  let res: Response;
-  it("should pass", () => {
-    expect(true).toBe(true);
+
+
+describe("/addpost endpoint", () => {
+  const app = express();
+  app.use(express.json());
+  app.use(router);
+  const request = supertest(app);
+
+  beforeAll(async () => {
+    await sequelize.sync();
   });
-  // beforeEach(() => {
-  //   req = {
-  //     body: {
-  //       content: "Test post content",
-  //       event: "Test event",
-  //       comment: "Test comment",
-  //       scene: "Test scene",
-  //       postPhoto: "Test post photo",
-  //       userId: 1,
-  //       bizId: 1,
-  //     },
-  //   };
-  //   res = {
-  //     status: jest.fn().mockReturnThis(),
-  //     json: jest.fn(),
-  //   };
-  //   UserPosts.create = jest.fn();
-  // });
 
-  // afterEach(() => {
-  //   jest.resetAllMocks();
+  // afterEach(async () => {
+  //   try {
+  //     await UserPosts.destroy({ where: {}, truncate: true, cascade: true });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
   // });
+  it("should save a post to the database", async () => {
+    const post: PostType = {
+      // id : 1,
+      content: "Test Post",
+      event: true,
+      comment: false,
+      scene: "coffee",
+      postPhoto:"posted",
+      userId:1,
+      // createdAt:12,
+      // updatedAt:13
 
-  // it("returns a 500 error if there is a server error", async () => {
-  //   UserPosts.create.mockRejectedValue(new Error("Test error"));
-  //   await createUserPost(req: Request, res: Response);
-  //   expect(UserPosts.create).toHaveBeenCalledWith({
-  //     content: req.body.content,
-  //     event: req.body.event,
-  //     comment: req.body.comment,
-  //     scene: req.body.scene,
-  //     postPhoto: req.body.postPhoto,
-  //     userId: req.body.userId,
-  //   });
-  //   expect(res.status).toHaveBeenCalledWith(500);
-  //   expect(res.json).toHaveBeenCalledWith({ message: "Server error" });
+    };
+
+    await request.post("/addpost").send(post);
+
+     const result = (await (UserPosts.findAll() as unknown)) as PostType[];
+    // expect(result[0].id).toBe(1);
+    expect(result[0].content).toEqual("Test Post");
+    expect(result[0].event).toEqual(true);
+    expect(result[0].comment).toEqual(false);
+    expect(result[0].scene).toEqual("coffee");
+    expect(result[0].postPhoto).toEqual("posted");
+    expect(result[0].userId).toEqual(1);
+    // expect(result[0].createdAt).toEqual(12);
+    // expect(result[0].updatedAt).toEqual(13);
+  });
+  // it("should return 201 if post is created", async () => {
+  //   const post: PostType = {
+  //     // id : 1,
+  //     content: "Test Post",
+  //     event: true,
+  //     comment: false,
+  //     scene: "coffee",
+  //     postPhoto:"posted",
+  //     userId:1,
+  //     // createdAt:12,
+  //     // updatedAt:13
+  //   };
+
+  //   const res = await request.post("/addpost").send(post);
+  //   expect(res.status).toBe(201);
   // });
 });
