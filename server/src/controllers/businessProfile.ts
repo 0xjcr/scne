@@ -1,6 +1,7 @@
 import { Bizs } from "../models/businesses";
 import bcrypt from "bcrypt";
 import { Request, Response } from "express";
+import { BizType } from "../Types/types";
 
 const returnSafeBiz = (profile: any) => {
   const {
@@ -71,19 +72,25 @@ export const createBusiness = async (req: Request, res: Response) => {
   }
 };
 
-// // modify upvotes -- Doesn't work but could fix
-// export const updateUpvote = async (req, res) => {
-//   const { id } = req.params;
-//   const { upvotes } = req.body;
+// modify upvotes -
+export const updateUpvote = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { upvotes } = req.body;
+  try {
+    const data = await Bizs.findByPk(id);
 
-//   try {
-//     const business = await Bizs.findByPk(id);
-//     await business.update({ upvotes });
-//     res.status(200).json(business);
-//   } catch (err) {
-//     res.status(400).json({ message: err.message });
-//   }
-// };
+    if (!data) {
+      throw new Error("no profile found");
+    }
+
+    await data.update({ upvotes });
+
+    res.status(200);
+    res.json(data);
+  } catch (err) {
+    res.status(400).json({ message: (err as Error).message });
+  }
+};
 
 // get all businesses
 export const getAllBusinesses = async (req: Request, res: Response) => {

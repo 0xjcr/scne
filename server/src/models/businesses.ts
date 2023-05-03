@@ -1,4 +1,5 @@
 import { DataTypes } from "sequelize";
+import { BizType } from "../Types/types";
 import sequelize from "./index";
 
 export const Bizs = sequelize.define("Bizs", {

@@ -14,6 +14,7 @@ router.get("/community", userProfile_1.getAllProfiles);
 // business routes
 router.post("/joinbiz", businessProfile_1.createBusiness);
 router.get("/list", businessProfile_1.getAllBusinesses);
+router.put("/list/:id", businessProfile_1.updateUpvote);
 router.get("/biz/:id", businessProfile_1.getBusiness);
 //posts routes
 router.get("/feed", posts_1.getAllPosts);

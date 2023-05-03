@@ -1,87 +1,92 @@
 "use strict";
-const { DataTypes } = require("sequelize");
-const sequelize = require("./index");
-const Bizs = sequelize.define("Bizs", {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BizPosts = exports.Bizs = void 0;
+const sequelize_1 = require("sequelize");
+const index_1 = __importDefault(require("./index"));
+exports.Bizs = index_1.default.define("Bizs", {
     name: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     city: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     address: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     phone: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     reviewCount: {
-        type: DataTypes.INTEGER,
+        type: sequelize_1.DataTypes.INTEGER,
     },
     upvotes: {
-        type: DataTypes.INTEGER,
+        type: sequelize_1.DataTypes.INTEGER,
     },
     ig: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
     },
     email: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     password: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     scene: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
     },
     bio: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
     },
     photo: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
     },
 });
-const BizPosts = sequelize.define("BizPosts", {
+exports.BizPosts = index_1.default.define("BizPosts", {
     content: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     event: {
-        type: DataTypes.BOOLEAN,
+        type: sequelize_1.DataTypes.BOOLEAN,
     },
     comment: {
-        type: DataTypes.BOOLEAN,
+        type: sequelize_1.DataTypes.BOOLEAN,
     },
     scene: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
     },
     postPhoto: {
-        type: DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING,
     },
     bizId: {
-        type: DataTypes.INTEGER,
+        type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: Bizs,
+            model: exports.Bizs,
             key: "id",
         },
     },
 });
-Bizs.hasMany(BizPosts, {
+exports.Bizs.hasMany(exports.BizPosts, {
     as: "bizPosts",
     foreignKey: "bizId",
     onDelete: "CASCADE",
 });
-BizPosts.belongsTo(Bizs, {
+exports.BizPosts.belongsTo(exports.Bizs, {
     foreignKey: "bizId",
     as: "biz",
     onDelete: "CASCADE",
 });
-module.exports = {
-    Bizs,
-    BizPosts,
-};
+// export default {
+//   Bizs,
+//   BizPosts,
+// };

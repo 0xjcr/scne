@@ -11,6 +11,7 @@ import {
   createBusiness,
   getAllBusinesses,
   getBusiness,
+  updateUpvote,
 } from "../controllers/businessProfile";
 import { getAllPosts, createUserPost } from "../controllers/posts";
 
@@ -25,6 +26,7 @@ router.get("/community", getAllProfiles);
 // business routes
 router.post("/joinbiz", createBusiness);
 router.get("/list", getAllBusinesses);
+router.put("/list/:id", updateUpvote);
 router.get("/biz/:id", getBusiness);
 
 //posts routes

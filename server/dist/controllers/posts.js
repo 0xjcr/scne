@@ -23,13 +23,6 @@ const createUserPost = (req, res) => __awaiter(void 0, void 0, void 0, function*
             postPhoto: req.body.postPhoto,
             userId: req.body.userId,
         });
-        // Associate the post with a biz
-        // if (req.body.bizId) {
-        //   const biz = await Bizs.findByPk(req.body.bizId);
-        //   if (biz) {
-        //     await post.setBiz(biz);
-        //   }
-        // }
         res.status(201).json(post);
     }
     catch (error) {
@@ -59,7 +52,7 @@ const getAllPosts = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         }));
         // Combine UserPosts and BizPosts using the spread operator
         const allPosts = [...userPosts, ...bizPosts];
-        allPosts.sort((a, b) => a.createdAt - b.createdAt);
+        allPosts.sort((a, b) => b.createdAt - a.createdAt);
         res.status(200).json(allPosts);
     }
     catch (err) {

@@ -155,12 +155,12 @@ export async function getAllPosts() {
 
 export const updateUpvote = async (id: number, upvotes: number) => {
   try {
-    const response = await fetch(`http://localhost:3333/list/${id}`, {
+    const response = await fetch("http://localhost:3333/list/" + id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ upvotes }),
+      body: JSON.stringify({ id, upvotes }),
     });
     const data = await response.json();
     return data;

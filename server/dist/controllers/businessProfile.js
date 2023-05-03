@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getBusiness = exports.getAllBusinesses = exports.createBusiness = void 0;
+exports.getBusiness = exports.getAllBusinesses = exports.updateUpvote = exports.createBusiness = void 0;
 const businesses_1 = require("../models/businesses");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const returnSafeBiz = (profile) => {
@@ -58,18 +58,24 @@ const createBusiness = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.createBusiness = createBusiness;
-// // modify upvotes -- Doesn't work but could fix
-// export const updateUpvote = async (req, res) => {
-//   const { id } = req.params;
-//   const { upvotes } = req.body;
-//   try {
-//     const business = await Bizs.findByPk(id);
-//     await business.update({ upvotes });
-//     res.status(200).json(business);
-//   } catch (err) {
-//     res.status(400).json({ message: err.message });
-//   }
-// };
+// modify upvotes -
+const updateUpvote = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const { upvotes } = req.body;
+    try {
+        const data = yield businesses_1.Bizs.findByPk(id);
+        if (!data) {
+            throw new Error("no profile found");
+        }
+        yield data.update({ upvotes });
+        res.status(200);
+        res.json(data);
+    }
+    catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+exports.updateUpvote = updateUpvote;
 // get all businesses
 const getAllBusinesses = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
