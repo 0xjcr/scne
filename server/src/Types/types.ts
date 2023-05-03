@@ -1,6 +1,7 @@
 import { NumericLiteral } from "typescript";
 
 export type UserType = {
+  id?: number;
   firstName: string;
   lastName: string;
   city: string;
