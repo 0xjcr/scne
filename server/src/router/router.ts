@@ -1,4 +1,4 @@
-const router = require("express").Router();
+import { Router } from "express";
 import {
   createProfile,
   login,
@@ -14,7 +14,7 @@ import {
   updateUpvote,
 } from "../controllers/businessProfile";
 import { getAllPosts, createUserPost } from "../controllers/posts";
-
+const router = Router();
 // user routes
 router.post("/join", createProfile);
 router.post("/", login);
