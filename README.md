@@ -1,5 +1,5 @@
 
-#SCNE (Social Community Networking Experience)
+# SCNE (Social Community Networking Experience)
 
 ##  /siːn/
 
