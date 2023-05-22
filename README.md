@@ -9,8 +9,6 @@ SCNE is a local social networking app designed to connect communities and foster
 </p>
 
 
-<img src="./readme_pic1.png" alt="cover Photo" title="Cover Photo of SCNE" style="">
-
 SCNE provides a unique experience for users to explore and participate in different scenes. Users can discover various events, people, and businesses in each scene and can interact with them through posting jobs, making connections, and attending events. Additionally, the app allows users to upvote their favorite businesses in each scene. With SCNE, users can immerse themselves in various scenes and make meaningful connections in their community.
 
 # Development Set Up
